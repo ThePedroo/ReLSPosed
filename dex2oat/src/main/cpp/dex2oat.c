@@ -166,8 +166,20 @@ int main(int argc, char **argv) {
     for (int i = 0; i < argc; i++) {
         if (strncmp(argv[i], "--classpath-dir=", strlen("--classpath-dir=")) != 0) continue;
 
-        const char *app_dir = argv[i] + strlen("--classpath-dir=/data/app/~~XXXXXXXXXXXXXXXXXXXXXX==/");
-        size_t app_name_len = (size_t)(strchr(app_dir, '-') - app_dir);
+        const char *app_dir = NULL;
+        size_t app_name_len = 0;
+
+        if (strncmp(argv[i] + strlen("--classpath-dir="), "/data/app/", strlen("/data/app/")) == 0) {
+            app_dir = argv[i] + strlen("--classpath-dir=/data/app/~~XXXXXXXXXXXXXXXXXXXXXX==/");
+            app_name_len = (size_t)(strchr(app_dir, '-') - app_dir);
+        } else if (strncmp(argv[i] + strlen("--classpath-dir="), "/apex/", strlen("/apex/")) == 0) {
+            app_dir = argv[i] + strlen("--classpath-dir=/apex/");
+            app_name_len = (size_t)(strchr(app_dir, '/') - app_dir);
+        } else {
+            LOGE("Unknown classpath dir: %s", argv[i]);
+
+            return 1;
+        }
 
         LOGD("Found package id: %.*s", (int)app_name_len, app_dir);
 
