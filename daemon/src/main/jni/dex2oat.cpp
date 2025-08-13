@@ -29,6 +29,7 @@
 #include <string>
 
 #include "logging.h"
+#include <errno.h>
 
 extern "C" JNIEXPORT void JNICALL Java_org_lsposed_lspd_service_Dex2OatService_doMountNative(
     JNIEnv *env, jobject, jboolean enabled, jstring r32, jstring d32, jstring r64, jstring d64) {
