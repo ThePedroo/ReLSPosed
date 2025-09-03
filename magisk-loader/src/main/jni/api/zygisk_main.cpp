@@ -71,7 +71,7 @@ class ZygiskModule : public zygisk::ModuleBase {
                 goto bypass_denylist;
             }
 
-            LOGE("Process %s is on denylist, cannot specialize", name);
+            LOGE("Process {} is on denylist, cannot specialize", name);
 
             env_->ReleaseStringUTFChars(args->nice_name, name);
 
