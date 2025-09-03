@@ -21,10 +21,13 @@
 #include <fcntl.h>
 #include <sys/mman.h>
 #include <sys/socket.h>
+#include <sstream>
 
 #include "config_impl.h"
 #include "magisk_loader.h"
 #include "zygisk.hpp"
+
+#define SKIP_TARGET_LIST_PATH "/data/adb/lspd/skip_list.txt"
 
 namespace lspd {
 
@@ -44,45 +47,34 @@ class ZygiskModule : public zygisk::ModuleBase {
     }
 
     void preAppSpecialize(zygisk::AppSpecializeArgs *args) override {
+        const char *pkgName = env_->GetStringUTFChars(args->nice_name, nullptr);
+
+        long targetSize = 0;
         int cfd = api_->connectCompanion();
-        if (cfd < 0) {
-            LOGE("Failed to connect to companion: %s", strerror(errno));
+        std::string_view process(pkgName);
 
-            return;
-        }
+        // Send package name to companion
+        std::string processStr(process);
+        long processSize = processStr.size();
+        write(cfd, &processSize, sizeof(long));
+        write(cfd, processStr.data(), processSize);
 
-        uint8_t injection_hardening_disabled = 0;
-        if (read(cfd, &injection_hardening_disabled, sizeof(injection_hardening_disabled)) < 0) {
-            LOGE("Failed to read from companion socket: %s", strerror(errno));
-        }
+        read(cfd, &targetSize, sizeof(long));
+        targetVector.resize(targetSize);
+        read(cfd, targetVector.data(), targetSize);
 
         close(cfd);
 
-        if (!injection_hardening_disabled) {
-            uint32_t flags = api_->getFlags();
-            if ((flags & zygisk::PROCESS_ON_DENYLIST) == 0) goto bypass_denylist;
+        parseTargetVector();
 
-            const char *name = env_->GetStringUTFChars(args->nice_name, nullptr);
-            if (strcmp(name, "com.android.shell") == 0) {
-                LOGD("Process is com.android.shell, bypassing denylist check");
-
-                env_->ReleaseStringUTFChars(args->nice_name, name);
-
-                goto bypass_denylist;
-            }
-
-            LOGE("Process {} is on denylist, cannot specialize", name);
-
-            env_->ReleaseStringUTFChars(args->nice_name, name);
-
+        if (isTargetPackage(pkgName)) {
+            LOGD("Process {} is on hardening skip_list.txt, cannot specialize", pkgName);
+            env_->ReleaseStringUTFChars(args->nice_name, pkgName);
             should_ignore = true;
-
             return;
-        } else {
-            LOGD("Injection hardening is disabled");
         }
 
-        bypass_denylist:
+        env_->ReleaseStringUTFChars(args->nice_name, pkgName);
 
         MagiskLoader::GetInstance()->OnNativeForkAndSpecializePre(
             env_, args->uid, args->gids, args->nice_name,
@@ -91,12 +83,13 @@ class ZygiskModule : public zygisk::ModuleBase {
 
     void postAppSpecialize(const zygisk::AppSpecializeArgs *args) override {
         if (should_ignore) {
-            LOGD("Ignoring postAppSpecialize due to injection hardening being enabled");
-
+            LOGD("Ignoring postAppSpecialize for {} due to injection hardening", args->nice_name);
             api_->setOption(zygisk::DLCLOSE_MODULE_LIBRARY);
-
             return;
         }
+
+        targetVector.clear();
+        targetPackages.clear();
 
         MagiskLoader::GetInstance()->OnNativeForkAndSpecializePost(env_, args->nice_name,
                                                                    args->app_data_dir);
@@ -119,24 +112,75 @@ class ZygiskModule : public zygisk::ModuleBase {
         MagiskLoader::GetInstance()->OnNativeForkSystemServerPost(env_);
         if (*allowUnload) api_->setOption(zygisk::DLCLOSE_MODULE_LIBRARY);
     }
+
+private:
+    std::vector<char> targetVector;
+    std::vector<std::string> targetPackages;
+
+    void parseTargetVector() {
+        if (targetVector.empty()) {
+            return;
+        }
+        std::string content(targetVector.begin(), targetVector.end());
+        std::stringstream ss(content);
+        std::string line;
+        while (std::getline(ss, line)) {
+            std::string trimmedLine = "";
+            for (char c : line) {
+                if (!std::isspace(c)) {
+                    trimmedLine += c;
+                }
+            }
+            if (!trimmedLine.empty() && trimmedLine[0] != '#') {
+                std::string finalTrimmedLine = "";
+                int lastNonSpace = trimmedLine.length() - 1;
+                while (lastNonSpace >= 0 && std::isspace(trimmedLine[lastNonSpace])) {
+                    lastNonSpace--;
+                }
+                if (lastNonSpace >= 0) {
+                    finalTrimmedLine = trimmedLine.substr(0, lastNonSpace + 1);
+                } else {
+                    finalTrimmedLine = trimmedLine;
+                }
+                targetPackages.push_back(finalTrimmedLine);
+            }
+        }
+    }
+
+    bool isTargetPackage(std::string_view pkgName) {
+
+        //Don't process this shell
+        if (pkgName == "com.android.shell") return false;
+
+        std::string pkgStr(pkgName);
+        for (const auto &pkg : targetPackages) {
+            if (pkg == pkgStr) {
+                return true;
+            }
+        }
+        return false;
+    }
 };
 }  // namespace lspd
 
 void relsposed_companion(int lib_fd) {
-    /* INFO: The only current task we do in companion now is to check if
-               /data/adb/disable_injection_hardening file exists. */
-    uint8_t file_exists = 0;
-    if (access("/data/adb/disable_injection_hardening", F_OK) == 0) {
-        LOGD("Found /data/adb/disable_injection_hardening, disabling injection hardening");
+    long targetSize = 0;
+    std::vector<char> targetVector;
 
-        file_exists = 1;
+    FILE *target = fopen(SKIP_TARGET_LIST_PATH, "r");
+    if (target) {
+        fseek(target, 0, SEEK_END);
+        targetSize = ftell(target);
+        fseek(target, 0, SEEK_SET);
+
+        targetVector.resize(targetSize);
+        fread(targetVector.data(), 1, targetSize, target);
+
+        fclose(target);
     }
 
-    if (write(lib_fd, &file_exists, sizeof(file_exists)) < 0) {
-        LOGE("Failed to write to companion socket: %s", strerror(errno));
-    }
-
-    close(lib_fd);
+    write(lib_fd, &targetSize, sizeof(long));
+    write(lib_fd, targetVector.data(), targetSize);
 }
 
 REGISTER_ZYGISK_MODULE(lspd::ZygiskModule);
