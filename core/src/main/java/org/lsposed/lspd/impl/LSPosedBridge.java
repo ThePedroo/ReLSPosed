@@ -225,7 +225,7 @@ public class LSPosedBridge {
         Method beforeInvocation = null, afterInvocation = null;
         var modifiers = Modifier.PUBLIC | Modifier.STATIC;
         for (var method : hooker.getDeclaredMethods()) {
-            if (method.getAnnotation(BeforeInvocation.class) != null) {
+            if (method.getAnnotation(BeforeInvocation.class) != null || "before".equals(method.getName()) || "beforeHookedMethod".equals(method.getName())) {
                 if (beforeInvocation != null) {
                     throw new IllegalArgumentException("More than one method annotated with @BeforeInvocation");
                 }
@@ -241,7 +241,7 @@ public class LSPosedBridge {
                 }
                 beforeInvocation = method;
             }
-            if (method.getAnnotation(AfterInvocation.class) != null) {
+            if (method.getAnnotation(AfterInvocation.class) != null ||  "after".equals(method.getName()) || "afterHookedMethod".equals(method.getName())) {
                 if (afterInvocation != null) {
                     throw new IllegalArgumentException("More than one method annotated with @AfterInvocation");
                 }
