@@ -41,8 +41,10 @@ import com.android.internal.os.BinderInternal;
 
 import org.lsposed.daemon.BuildConfig;
 import org.lsposed.lspd.util.FakeContext;
+import static org.lsposed.lspd.service.LSPModuleService.FILES_DIR;
 
 import java.io.File;
+import java.io.IOException;
 import java.lang.AbstractMethodError;
 import java.lang.Class;
 import java.lang.reflect.Field;
@@ -132,6 +134,13 @@ public class ServiceManager {
         Process.setThreadPriority(Process.THREAD_PRIORITY_FOREGROUND);
         Looper.prepareMainLooper();
 
+        // Ensure the modules directory has correct SELinux context
+        try {
+            ConfigFileManager.fixModulesDirContext();
+        } catch (IOException e) {
+            throw new RuntimeException("Fix Modules dir context failed", e);
+        }
+
 
         mainService = new LSPosedService();
         applicationService = new LSPApplicationService();
@@ -180,7 +189,7 @@ public class ServiceManager {
                 managerService.onSystemServerDied();
             }
         });
-
+        
         // Force logging on boot, now let's see if we need to stop logging
         if (!configManager.verboseLog()) {
             logcatService.stopVerbose();

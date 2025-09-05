@@ -9,6 +9,9 @@ import android.os.ParcelFileDescriptor;
 import android.os.RemoteException;
 import android.util.Log;
 
+import java.io.File;
+import java.io.IOException;
+
 import org.lsposed.lspd.models.Module;
 
 import java.util.Map;
@@ -57,7 +60,7 @@ public class LSPInjectedModuleService extends ILSPInjectedModuleService.Stub {
         var userId = Binder.getCallingUid() / PER_USER_RANGE;
         try {
             var dir = ConfigFileManager.resolveModuleDir(mPackageName, FILES_DIR, userId, -1);
-            return ParcelFileDescriptor.open(dir.resolve(path).toFile(), ParcelFileDescriptor.MODE_READ_ONLY);
+            return ParcelFileDescriptor.open(dir.resolve(path).toFile(), (ParcelFileDescriptor.MODE_READ_WRITE | ParcelFileDescriptor.MODE_CREATE));
         } catch (Throwable e) {
             throw new RemoteException(e.getMessage());
         }

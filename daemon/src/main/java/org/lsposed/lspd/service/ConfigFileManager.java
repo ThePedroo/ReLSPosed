@@ -41,6 +41,7 @@ import org.lsposed.daemon.BuildConfig;
 import org.lsposed.lspd.models.PreLoadedApk;
 import org.lsposed.lspd.util.InstallerVerifier;
 import org.lsposed.lspd.util.Utils;
+import static org.lsposed.lspd.service.LSPModuleService.FILES_DIR;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -60,6 +61,8 @@ import java.nio.file.LinkOption;
 import java.nio.file.OpenOption;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.DirectoryStream;
+import java.nio.file.FileVisitOption;
 import java.nio.file.SimpleFileVisitor;
 import java.nio.file.StandardOpenOption;
 import java.nio.file.attribute.BasicFileAttributes;
@@ -70,6 +73,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
+import java.util.regex.Pattern;
 import java.util.zip.Deflater;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
@@ -455,7 +459,9 @@ public class ConfigFileManager {
     static Path resolveModuleDir(String packageName, String dir, int userId, int uid) throws IOException {
         var path = modulePath.resolve(String.valueOf(userId)).resolve(packageName).resolve(dir).normalize();
         if (uid != -1) {
-            if (path.toFile().mkdirs()) {
+            var directory = path.toFile();
+
+            if (directory.mkdirs()) {
                 try {
                     SELinux.setFileContext(path.toString(), "u:object_r:xposed_file:s0");
                     Os.chown(path.toString(), uid, uid);
@@ -463,9 +469,142 @@ public class ConfigFileManager {
                 } catch (ErrnoException e) {
                     throw new IOException(e);
                 }
+            } else if (directory.isDirectory()) {
+                try {
+                    Files.walkFileTree(path, new SimpleFileVisitor<>() {
+                        @Override
+                        public FileVisitResult preVisitDirectory(Path dir, BasicFileAttributes attrs) {
+                            try {
+                                SELinux.setFileContext(dir.toString(), "u:object_r:xposed_file:s0");
+                                Os.chown(dir.toString(), uid, uid);
+                                Os.chmod(dir.toString(), 0755);
+                            } catch (Throwable e) {
+                                Log.w(TAG, "Failed to secure directory: " + dir + " " + Log.getStackTraceString(e));
+                            }
+                            return FileVisitResult.CONTINUE;
+                        }
+
+                        @Override
+                        public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) {
+                            try {
+                                SELinux.setFileContext(file.toString(), "u:object_r:xposed_file:s0");
+                                Os.chown(file.toString(), uid, uid);
+                                Os.chmod(file.toString(), 0660);
+                            } catch (Throwable e) {
+                                Log.w(TAG, "Failed to secure file: " + file + " " + Log.getStackTraceString(e));
+                            }
+                            return FileVisitResult.CONTINUE;
+                        }
+                    });
+
+                    SELinux.setFileContext(path.toString(), "u:object_r:xposed_file:s0");
+                    Os.chown(path.toString(), uid, uid);
+                    Os.chmod(path.toString(), 0755);
+                } catch (Throwable e) {
+                    throw new IOException(e);
+                }
             }
         }
         return path;
+    }
+
+    static void fixModulesDirContext() throws IOException {
+        var directory = modulePath.toFile();
+        if (directory.mkdirs()) {
+            try {
+                SELinux.setFileContext(directory.toString(), "u:object_r:system_file:s0");
+                Os.chown(directory.toString(), 0, 0);
+                Os.chmod(directory.toString(), 0777);
+            } catch (ErrnoException e) {
+                throw new IOException(e);
+            }
+        } else if (directory.isDirectory()) {
+            try {
+                // Recursively set context, uid, gid and mode
+                // to avoid issues caused by incorrect file context.
+                // /data/adb/lspd/modules/<userId>/<packageName>/files/<files>
+                // directory = /data/adb/lspd/modules
+                // <userId> = u:object_r:system_file:s0 777 root root
+                // <packageName> = u:object_r:system_file:s0 777 root root
+                // files = u:object_r:xposed_file:s0 755 root root
+                // <files> = u:object_r:xposed_file:s0 660 root root
+                // Recursively walk through all subdirectories
+            Files.walkFileTree(modulePath, new SimpleFileVisitor<Path>() {
+                @Override
+                public FileVisitResult preVisitDirectory(Path dir, BasicFileAttributes attrs) {
+                    try {
+                            String pathStr = dir.toString();
+
+                            // Get relative path from modulePath
+                            Path relative = modulePath.relativize(dir);
+                            String[] parts = relative.toString().split(Pattern.quote(File.separator));
+
+                            if (parts.length == 1) {
+                                // <userId> dir (e.g., "0")
+                                SELinux.setFileContext(pathStr, "u:object_r:system_file:s0");
+                                Os.chown(pathStr, 0, 0);
+                                Os.chmod(pathStr, 0777);
+                            } else if (parts.length == 2) {
+                                // <packageName> dir (e.g., "com.example.module")
+                                SELinux.setFileContext(pathStr, "u:object_r:system_file:s0");
+                                Os.chown(pathStr, 0, 0);
+                                Os.chmod(pathStr, 0777);
+                            } else if (parts.length >= 3 && parts[2].equals(FILES_DIR)) {
+                                // Inside `files/` or deeper
+                                if (parts.length == 3) {
+                                    // The `files` directory itself
+                                    SELinux.setFileContext(pathStr, "u:object_r:xposed_file:s0");
+                                    Os.chown(pathStr, 0, 0);
+                                    Os.chmod(pathStr, 0755);
+                                } else {
+                                    // Subdirectories or files under `files/`
+                                    SELinux.setFileContext(pathStr, "u:object_r:xposed_file:s0");
+                                    Os.chown(pathStr, 0, 0);
+                                    // Dirs: 0755, Files: 0660
+                                    if (Files.isDirectory(dir)) {
+                                        Os.chmod(pathStr, 0755);
+                                    } else {
+                                        Os.chmod(pathStr, 0660);
+                                    }
+                                }
+                            } else {
+                                // Other dirs (not in files/) — keep system context
+                                SELinux.setFileContext(pathStr, "u:object_r:system_file:s0");
+                                Os.chown(pathStr, 0, 0);
+                                Os.chmod(pathStr, 0777);
+                            }
+                    } catch (Exception e) {
+                        Log.w(TAG, "Failed to secure directory: " + dir + " " + Log.getStackTraceString(e));
+                    }
+                    return FileVisitResult.CONTINUE;
+                }
+
+                @Override
+                public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) {
+                    try {
+                        String pathStr = file.toString();
+                        Path relative = modulePath.relativize(file);
+                        String[] parts = relative.toString().split(Pattern.quote(File.separator));
+
+                        if (parts.length >= 3 && parts[2].equals("files")) {
+                            SELinux.setFileContext(pathStr, "u:object_r:xposed_file:s0");
+                            Os.chown(pathStr, 0, 0);
+                            Os.chmod(pathStr, 0660);
+                        } else {
+                            SELinux.setFileContext(pathStr, "u:object_r:system_file:s0");
+                            Os.chown(pathStr, 0, 0);
+                            Os.chmod(pathStr, 0644);
+                        }
+                    } catch (Exception e) {
+                        Log.w(TAG, "Failed to secure file: " + file + " " + Log.getStackTraceString(e));
+                    }
+                    return FileVisitResult.CONTINUE;
+                }
+            });
+            } catch (Throwable e) {
+                throw new IOException(e);
+            }
+        }
     }
 
     private static class FileLocker {
