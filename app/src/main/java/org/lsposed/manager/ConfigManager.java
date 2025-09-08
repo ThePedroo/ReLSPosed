@@ -409,4 +409,23 @@ public class ConfigManager {
             return false;
         }
     }
+
+    public static boolean isInjectionHardeningEnabled() {
+        try {
+            return LSPManagerServiceHolder.getService().isInjectionHardeningEnabled();
+        } catch (RemoteException e) {
+            Log.e(App.TAG, Log.getStackTraceString(e));
+            return false;
+        }
+    }
+
+    public static boolean setInjectionHardening(boolean enabled) {
+        try {
+            LSPManagerServiceHolder.getService().setInjectionHardening(enabled);
+            return true;
+        } catch (RemoteException e) {
+            Log.e(App.TAG, Log.getStackTraceString(e));
+            return false;
+        }
+    }
 }

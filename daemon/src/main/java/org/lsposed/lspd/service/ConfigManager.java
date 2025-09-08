@@ -95,9 +95,12 @@ public class ConfigManager {
 
     private final SQLiteDatabase db = openDb();
 
+    static final Path basePath = Paths.get("/data/adb/lspd");
+
     private boolean verboseLog = true;
     private boolean logWatchdog = true;
     private boolean dexObfuscate = true;
+    private boolean injectionHardening = true;
     private boolean enableStatusNotification = true;
     private Path miscPath = null;
 
@@ -272,6 +275,9 @@ public class ConfigManager {
 
         bool = config.get("enable_log_watchdog");
         logWatchdog = bool == null || (boolean) bool;
+        
+        bool = config.get("disable_injection_hardening");
+        injectionHardening = bool == null || (boolean) bool;
 
         bool = config.get("enable_dex_obfuscate");
         dexObfuscate = bool == null || (boolean) bool;
@@ -1033,6 +1039,45 @@ public class ConfigManager {
 
     public boolean isLogWatchdogEnabled() {
         return logWatchdog;
+    }
+
+    public void setInjectionHardening(boolean on) {
+        File configFile = new File("/data/adb/disable_injection_hardening");
+        if (on) {
+            try {
+                if(!configFile.exists()) {
+                    configFile.createNewFile();
+                }
+                Os.chmod(configFile.getAbsolutePath(), 0644);
+                Log.d(TAG, "injection hardening enabled");
+                updateModulePrefs("lspd", 0, "config", "disable_injection_hardening", on);
+                injectionHardening = on;
+            }
+            catch (Throwable e) {
+                Log.e(TAG, "failed to create config file for injection hardening", e);
+                return;
+            }   
+        } else {
+            try {
+                if(configFile.exists()) {
+                    configFile.delete();
+                }
+                Log.d(TAG, "injection hardening disabled");
+                updateModulePrefs("lspd", 0, "config", "disable_injection_hardening", on);
+                injectionHardening = on;
+            }
+            catch (Throwable e) {
+                Log.e(TAG, "failed to delete config file for injection hardening", e);
+                return;
+            }
+        }
+    }
+
+    public boolean isInjectionHardeningEnabled() {
+        File configFile = new File("/data/adb/disable_injection_hardening");
+        injectionHardening = configFile.exists();
+        updateModulePrefs("lspd", 0, "config", "disable_injection_hardening", injectionHardening);
+        return injectionHardening;
     }
 
     public void setDexObfuscate(boolean on) {

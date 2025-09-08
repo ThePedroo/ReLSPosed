@@ -172,6 +172,8 @@
     <string name="settings_group_framework">Framework</string>
     <string name="settings_disable_verbose_log">Disable verbose logs</string>
     <string name="settings_disable_verbose_log_summary">Verbose logs are required to report issues</string>
+    <string name="settings_disable_injection_hardening">Disable Injection Hardening</string>
+    <string name="settings_disable_injection_hardening_summary">Target Apps and Modules need not be removed from denylist / umount list for LSPosed but lose benefit of hardening. Needs reboot to apply.</string>
     <string name="settings_enable_log_watchdog">Enable log watchdog</string>
     <string name="settings_enable_log_watchdog_summary">Log watchdog of LSPosed modifies system properties, which could be exploited to detect LSPosed</string>
     <string name="pure_black_dark_theme">Black dark theme</string>

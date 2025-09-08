@@ -121,6 +121,14 @@
             android:shouldDisableView="false"
             android:summary="@string/settings_enable_status_notification_summary"
             android:title="@string/settings_enable_status_notification" />
+
+        <rikka.material.preference.MaterialSwitchPreference
+            android:defaultValue="false"
+            android:icon="@drawable/ic_outline_shield_x_24"
+            android:key="disable_injection_hardening"
+            android:persistent="false"
+            android:summary="@string/settings_disable_injection_hardening_summary"
+            android:title="@string/settings_disable_injection_hardening" />
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/settings_group_repo">

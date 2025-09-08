@@ -169,6 +169,12 @@ public class SettingsFragment extends BaseFragment {
                 prefLogWatchDog.setOnPreferenceChangeListener((preference, newValue) -> ConfigManager.setLogWatchdog((boolean) newValue));
             }
 
+            MaterialSwitchPreference prefInjectionHardening = findPreference("disable_injection_hardening");
+            if (prefInjectionHardening != null) {
+                prefInjectionHardening.setChecked(!installed || ConfigManager.isInjectionHardeningEnabled());
+                prefInjectionHardening.setOnPreferenceChangeListener((preference, newValue) -> ConfigManager.setInjectionHardening((boolean) newValue));
+            }
+
             MaterialSwitchPreference prefDexObfuscate = findPreference("enable_dex_obfuscate");
             if (prefDexObfuscate != null) {
                 prefDexObfuscate.setEnabled(installed);
