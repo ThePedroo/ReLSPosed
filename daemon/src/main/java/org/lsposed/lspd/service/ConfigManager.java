@@ -25,6 +25,8 @@ import static org.lsposed.lspd.service.ServiceManager.TAG;
 import static org.lsposed.lspd.service.ServiceManager.existsInGlobalNamespace;
 import static org.lsposed.lspd.service.ServiceManager.toGlobalNamespace;
 
+import org.lsposed.lspd.util.KsuAllowListLoader;
+
 import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.pm.ApplicationInfo;
@@ -1218,24 +1220,74 @@ public class ConfigManager {
     public List<String> getDenyListPackages() {
         List<String> result = new ArrayList<>();
         if (!getApi().equals("Zygisk")) return result;
-        if (!ConfigFileManager.magiskDbPath.exists()) return result;
-        try (final SQLiteDatabase magiskDb =
-                     SQLiteDatabase.openDatabase(ConfigFileManager.magiskDbPath, new SQLiteDatabase.OpenParams.Builder().addOpenFlags(SQLiteDatabase.OPEN_READONLY).build())) {
-            try (Cursor cursor = magiskDb.query("settings", new String[]{"value"}, "`key`=?", new String[]{"denylist"}, null, null, null)) {
-                if (!cursor.moveToNext()) return result;
-                int valueIndex = cursor.getColumnIndex("value");
-                if (valueIndex >= 0 && cursor.getInt(valueIndex) == 0) return result;
-            }
-            try (Cursor cursor = magiskDb.query(true, "denylist", new String[]{"package_name"}, null, null, null, null, null, null, null)) {
-                if (cursor == null) return result;
-                int packageNameIdx = cursor.getColumnIndex("package_name");
-                while (cursor.moveToNext()) {
-                    result.add(cursor.getString(packageNameIdx));
-                }
+        if (ConfigFileManager.magiskDbPath.exists())
+        {
+            if (ConfigFileManager.ksuAllowList.exists()) {
+                Log.w(TAG, "Both Magisk and ksu denylist exist.");
                 return result;
             }
-        } catch (Throwable e) {
-            Log.e(TAG, "get denylist", e);
+            try (final SQLiteDatabase magiskDb =
+                        SQLiteDatabase.openDatabase(ConfigFileManager.magiskDbPath, new SQLiteDatabase.OpenParams.Builder().addOpenFlags(SQLiteDatabase.OPEN_READONLY).build())) {
+                try (Cursor cursor = magiskDb.query("settings", new String[]{"value"}, "`key`=?", new String[]{"denylist"}, null, null, null)) {
+                    if (!cursor.moveToNext()) return result;
+                    int valueIndex = cursor.getColumnIndex("value");
+                    if (valueIndex >= 0 && cursor.getInt(valueIndex) == 0) return result;
+                }
+                try (Cursor cursor = magiskDb.query(true, "denylist", new String[]{"package_name"}, null, null, null, null, null, null, null)) {
+                    if (cursor == null) return result;
+                    int packageNameIdx = cursor.getColumnIndex("package_name");
+                    while (cursor.moveToNext()) {
+                        result.add(cursor.getString(packageNameIdx));
+                    }
+                    return result;
+                }
+            } catch (Throwable e) {
+                Log.e(TAG, "get denylist", e);
+            }
+        }
+        else if (ConfigFileManager.ksuAllowList.exists())
+        {
+            try
+            {
+                boolean defaultNonRootUmountState = true;
+                List<KsuAllowListLoader.AppProfile> appProfiles = KsuAllowListLoader.getAllowList();
+                List<PackageInfo> infos = PackageService.getInstalledPackagesFromAllUsers(PackageService.MATCH_ALL_FLAGS, false).getList();
+                defaultNonRootUmountState = appProfiles.stream().filter(p -> p.key.equals("$") && p.currentUid == 9999).findFirst().map(p -> p.nrpConfig.profile.umountModules).orElse(true);
+                for (PackageInfo info : infos) {
+                    boolean found = false;
+                    boolean isUmount = defaultNonRootUmountState;
+                    boolean isRoot = false;
+                    for (KsuAllowListLoader.AppProfile profile : appProfiles) {
+                        if(info.packageName.equals(profile.key))
+                        {
+                            found = true;
+                            if (profile.allowSu) {
+                                // if found and it is granted to su, we shouldn't umount for it
+                                isRoot = true;
+                                break;
+                            }
+                            else
+                            {
+                                // found an app profile
+                                if (profile.nrpConfig.useDefault) {
+                                    if(!defaultNonRootUmountState)
+                                        isUmount = false;
+                                } else {
+                                    if(!profile.nrpConfig.profile.umountModules)
+                                        isUmount = false;
+                                }
+                                break;
+                            }
+                        }
+                    }
+
+                    if ((found && !isRoot && isUmount) || (!found && defaultNonRootUmountState)) {
+                        result.add(info.packageName);
+                    }
+                }
+            } catch (Throwable e) {
+                Log.e(TAG, "get denylist", e);
+            }
         }
         return result;
     }
