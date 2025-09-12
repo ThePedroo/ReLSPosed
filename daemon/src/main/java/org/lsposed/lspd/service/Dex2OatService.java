@@ -347,5 +347,5 @@ public class Dex2OatService implements Runnable {
 
     private native String getSockPath();
 
-    private native boolean isInDenylist(String processName);
+    native static boolean isInDenylist(String processName);
 }
