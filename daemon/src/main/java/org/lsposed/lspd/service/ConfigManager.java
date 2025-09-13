@@ -1217,15 +1217,13 @@ public class ConfigManager {
 
     public List<String> getDenyListPackages() {
         List<String> result = new ArrayList<>();
-        if (!getApi().equals("Zygisk")) return result;
-
         if(!isInjectionHardeningEnabled())
         {
             try
             {
                 List<PackageInfo> infos = PackageService.getInstalledPackagesFromAllUsers(PackageService.MATCH_ALL_FLAGS, false).getList();
                 return infos.parallelStream()
-                    .filter(info -> Dex2OatService.isInDenylist(info.packageName))
+                    .filter(info -> DenylistManager.isInDenylist(info.packageName))
                     .map(info -> info.packageName)
                     .collect(Collectors.toList());
             } catch (Throwable e) {

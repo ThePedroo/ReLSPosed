@@ -5,6 +5,7 @@ add_subdirectory(${EXTERNAL_ROOT} external)
 
 set(SOURCES
         dex2oat.cpp
+        denylist.cpp
         logcat.cpp
         obfuscation.cpp
         )
