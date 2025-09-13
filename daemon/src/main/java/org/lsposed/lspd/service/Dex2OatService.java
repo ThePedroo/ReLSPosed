@@ -25,6 +25,8 @@ import static org.lsposed.lspd.ILSPManagerService.DEX2OAT_OK;
 import static org.lsposed.lspd.ILSPManagerService.DEX2OAT_SELINUX_PERMISSIVE;
 import static org.lsposed.lspd.ILSPManagerService.DEX2OAT_SEPOLICY_INCORRECT;
 
+import static org.lsposed.lspd.service.DenylistManager.isInDenylist;
+
 import android.net.LocalServerSocket;
 import android.os.Build;
 import android.os.FileObserver;
@@ -346,6 +348,4 @@ public class Dex2OatService implements Runnable {
     private static native boolean setSockCreateContext(String context);
 
     private native String getSockPath();
-
-    private native boolean isInDenylist(String processName);
 }

@@ -1217,25 +1217,18 @@ public class ConfigManager {
 
     public List<String> getDenyListPackages() {
         List<String> result = new ArrayList<>();
-        if (!getApi().equals("Zygisk")) return result;
-        if (!ConfigFileManager.magiskDbPath.exists()) return result;
-        try (final SQLiteDatabase magiskDb =
-                     SQLiteDatabase.openDatabase(ConfigFileManager.magiskDbPath, new SQLiteDatabase.OpenParams.Builder().addOpenFlags(SQLiteDatabase.OPEN_READONLY).build())) {
-            try (Cursor cursor = magiskDb.query("settings", new String[]{"value"}, "`key`=?", new String[]{"denylist"}, null, null, null)) {
-                if (!cursor.moveToNext()) return result;
-                int valueIndex = cursor.getColumnIndex("value");
-                if (valueIndex >= 0 && cursor.getInt(valueIndex) == 0) return result;
+        if(!isInjectionHardeningEnabled())
+        {
+            try
+            {
+                List<PackageInfo> infos = PackageService.getInstalledPackagesFromAllUsers(PackageService.MATCH_ALL_FLAGS, false).getList();
+                return infos.parallelStream()
+                    .filter(info -> DenylistManager.isInDenylist(info.packageName))
+                    .map(info -> info.packageName)
+                    .collect(Collectors.toList());
+            } catch (Throwable e) {
+                Log.e(TAG, "get denylist", e);
             }
-            try (Cursor cursor = magiskDb.query(true, "denylist", new String[]{"package_name"}, null, null, null, null, null, null, null)) {
-                if (cursor == null) return result;
-                int packageNameIdx = cursor.getColumnIndex("package_name");
-                while (cursor.moveToNext()) {
-                    result.add(cursor.getString(packageNameIdx));
-                }
-                return result;
-            }
-        } catch (Throwable e) {
-            Log.e(TAG, "get denylist", e);
         }
         return result;
     }
