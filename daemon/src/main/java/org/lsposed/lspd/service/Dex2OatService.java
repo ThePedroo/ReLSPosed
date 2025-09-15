@@ -26,6 +26,7 @@ import static org.lsposed.lspd.ILSPManagerService.DEX2OAT_SELINUX_PERMISSIVE;
 import static org.lsposed.lspd.ILSPManagerService.DEX2OAT_SEPOLICY_INCORRECT;
 
 import static org.lsposed.lspd.service.DenylistManager.isInDenylist;
+import static org.lsposed.lspd.service.DenylistManager.isInDenylistFromClasspathDir;
 
 import android.net.LocalServerSocket;
 import android.os.Build;
@@ -273,51 +274,50 @@ public class Dex2OatService implements Runnable {
                     Log.d(TAG, "Sent fd of " + dex2oatArray[id]);
                 } else if (op == 2) {
                     /* INFO: Check if process is in denylist */
-                    int processNameLen = readInt(is);
-                    if (processNameLen < 0) {
-                        Log.w(TAG, "Dex2oat wrapper daemon received invalid process name length: " + processNameLen);
+                    int classpathDirLen = readInt(is);
+                    if (classpathDirLen < 0) {
+                        Log.w(TAG, "Dex2oat wrapper daemon received invalid classpath dir length: " + classpathDirLen);
 
                         client.close();
 
                         continue;
                     }
 
-                    Log.d(TAG, "Received process name length: " + processNameLen);
-                    if (processNameLen < 0 || processNameLen > 1024) {
-                        Log.w(TAG, "Dex2oat wrapper daemon received invalid process name length: " + processNameLen);
+                    Log.d(TAG, "Received classpath dir length: " + classpathDirLen);
+                    if (classpathDirLen < 0 || classpathDirLen > 1024) {
+                        Log.w(TAG, "Dex2oat wrapper daemon received invalid classpath dir length: " + classpathDirLen);
 
                         client.close();
 
                         continue;
                     }
 
-                    byte[] processNameBytes = new byte[processNameLen];
-                    int bytesRead = is.read(processNameBytes);
-                    if (bytesRead != processNameLen) {
+                    byte[] classpathDirBytes = new byte[classpathDirLen];
+                    int bytesRead = is.read(classpathDirBytes);
+                    if (bytesRead != classpathDirLen) {
                         Log.w(TAG, "Dex2oat wrapper daemon received incomplete process name. Expected: "
-                                + processNameLen + ", Read: " + bytesRead);
+                                + classpathDirLen + ", Read: " + bytesRead);
 
                         client.close();
 
                         continue;
                     }
 
-                    String processName = new String(processNameBytes);
-                    if (processName.isEmpty() && processNameLen > 0) {
-                        Log.w(TAG, "Dex2oat wrapper daemon received empty process name despite reported length: " + processNameLen);
+                    String classpathDirArg = new String(classpathDirBytes);
+                    if (classpathDirArg.isEmpty() && classpathDirLen > 0) {
+                        Log.w(TAG, "Dex2oat wrapper daemon received empty process name despite reported length: " + classpathDirLen);
 
                         client.close();
 
                         continue;
                     }
 
-                    Log.d(TAG, "Received process name: " + processName);
+                    Log.d(TAG, "Received classpath dir: " + classpathDirArg);
 
-                    boolean isDenied = isInDenylist(processName);
+                    boolean isDenied = isInDenylistFromClasspathDir(classpathDirArg);
 
                     writeInt(os, isDenied ? 1 : 0);
-
-                    Log.d(TAG, "Process " + processName + " is "
+                    Log.d(TAG, "Process is "
                             + (isDenied ? "denied" : "allowed") + " for injected dex2oat");
                 } else {
                     Log.w(TAG, "Dex2oat wrapper daemon received unknown operation: " + op);

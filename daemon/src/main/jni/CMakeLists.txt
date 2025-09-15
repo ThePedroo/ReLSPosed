@@ -8,6 +8,7 @@ set(SOURCES
         denylist.cpp
         logcat.cpp
         obfuscation.cpp
+        packagename.cpp
         )
 
 add_library(${PROJECT_NAME} SHARED ${SOURCES})

@@ -163,25 +163,13 @@ int main(int argc, char **argv) {
 
     close(sock_fd);
 
+    const char* prefix = "--classpath-dir=";
+    size_t prefix_len = strlen(prefix);
     for (int i = 0; i < argc; i++) {
-        if (strncmp(argv[i], "--classpath-dir=", strlen("--classpath-dir=")) != 0) continue;
+        if (strncmp(argv[i], prefix, prefix_len) != 0) continue;
 
-        const char *app_dir = NULL;
-        size_t app_name_len = 0;
-
-        if (strncmp(argv[i] + strlen("--classpath-dir="), "/data/app/", strlen("/data/app/")) == 0) {
-            app_dir = argv[i] + strlen("--classpath-dir=/data/app/~~XXXXXXXXXXXXXXXXXXXXXX==/");
-            app_name_len = (size_t)(strchr(app_dir, '-') - app_dir);
-        } else if (strncmp(argv[i] + strlen("--classpath-dir="), "/apex/", strlen("/apex/")) == 0) {
-            app_dir = argv[i] + strlen("--classpath-dir=/apex/");
-            app_name_len = (size_t)(strchr(app_dir, '/') - app_dir);
-        } else {
-            LOGE("Unknown classpath dir: %s", argv[i]);
-
-            return 1;
-        }
-
-        LOGD("Found package id: %.*s", (int)app_name_len, app_dir);
+        const char* classpath_dir = argv[i] + prefix_len;
+        size_t dir_len = strlen(classpath_dir);
 
         sock_fd = socket(AF_UNIX, SOCK_STREAM, 0);
         if (connect(sock_fd, (struct sockaddr *)&sock, len)) {
@@ -191,13 +179,13 @@ int main(int argc, char **argv) {
         }
 
         write_int(sock_fd, 2); /* INFO: denylist check op */
-        write_string(sock_fd, app_dir, app_name_len);
+        write_string(sock_fd, classpath_dir, dir_len);
 
         int is_in_denylist = read_int(sock_fd);
         close(sock_fd);
 
         if (is_in_denylist) {
-            LOGD("App %.*s is in denylist, exiting", (int)app_name_len, app_dir);
+            LOGD("App is in denylist, exiting");
 
             fexecve(stock_fd, (char **)argv, environ);
 
@@ -208,8 +196,7 @@ int main(int argc, char **argv) {
             return 2;
         }
 
-        LOGD("App %.*s is not in denylist, continuing", (int)app_name_len, app_dir);
-
+        LOGD("App is not in denylist, continuing");
         break;
     }
 
