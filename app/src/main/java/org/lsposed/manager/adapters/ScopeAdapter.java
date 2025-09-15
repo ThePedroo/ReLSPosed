@@ -135,6 +135,20 @@ public class ScopeAdapter extends EmptyStateRecyclerView.EmptyStateAdapter<Scope
                 view.setChecked(!isChecked);
                 enabled = !isChecked;
             }
+
+            if(enabled) {
+                if (!checkedList.isEmpty()) {
+                    new BlurBehindDialogBuilder(activity, R.style.ThemeOverlay_MaterialAlertDialog_Centered_FullWidthButtons)
+                            .setMessage(R.string.use_recommended_message)
+                            .setPositiveButton(android.R.string.ok, (dialog, which) -> checkRecommended())
+                            .setNegativeButton(android.R.string.cancel, null)
+                            .show();
+                } else {
+                    checkRecommended();
+                }
+            }
+
+            // If failed to enable module and checkedList is not empty, revert the change
             var tmpChkList = new HashSet<>(checkedList);
             if (isChecked && !tmpChkList.isEmpty() && !ConfigManager.setModuleScope(module.packageName, module.legacy, tmpChkList)) {
                 view.setChecked(false);
@@ -230,10 +244,18 @@ public class ScopeAdapter extends EmptyStateRecyclerView.EmptyStateAdapter<Scope
             fragment.showHint(R.string.module_is_not_activated_yet, false);
             return;
         }
+
+        var tmpChkList = new HashSet<>(checkedList);
+        tmpChkList.removeIf(i -> i.userId == module.userId);
+        var tmpDenyList = new HashSet<>(denyList);
+        // Filter recommended list to exclude deny list items
+        for (ApplicationWithEquals app : recommendedList) {
+            if (!tmpDenyList.contains(app.packageName)) {
+                tmpChkList.add(app);
+            }
+        }
+
         fragment.runAsync(() -> {
-            var tmpChkList = new HashSet<>(checkedList);
-            tmpChkList.removeIf(i -> i.userId == module.userId);
-            tmpChkList.addAll(recommendedList);
             ConfigManager.setModuleScope(module.packageName, module.legacy, tmpChkList);
             checkedList = tmpChkList;
             fragment.runOnUiThread(this::notifyDataSetChanged);
