@@ -70,8 +70,8 @@ class ZygiskModule : public zygisk::ModuleBase {
                 return;
             }
 
-            bool isShell = strncmp(name, shell_name, 17) == 0;
-            bool isLspManager = strncmp(name, lsp_manager, 19) == 0;
+            bool isShell = strcmp(name, shell_name) == 0;
+            bool isLspManager = strcmp(name, lsp_manager) == 0;
             if (isShell || isLspManager) {
                 LOGD("Process is com.android.shell or org.lsposed.manager, bypassing denylist check");
                 env_->ReleaseStringUTFChars(args->nice_name, name);
