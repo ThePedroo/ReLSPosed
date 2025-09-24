@@ -414,7 +414,7 @@ Java_org_lsposed_lspd_service_DenylistManager_isInDenylistFromClasspathDir(JNIEn
         return JNI_FALSE;
     }
 
-    size_t app_name_len = 0;
+    int app_name_len = 0;
     char app_name[256] = { 0 };
     app_name_len = get_pkg_from_classpath_arg(classpath_dir_arg, app_name, sizeof(app_name));
     

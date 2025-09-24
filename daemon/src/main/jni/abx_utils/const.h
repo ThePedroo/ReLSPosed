@@ -1,6 +1,12 @@
 #pragma once
 
-const char* startMagic = new char[]{ 'A', 'B', 'X', '\0' };
+/*
+ * This decoder is made by frknkrc44.
+ *
+ * Thanks DanGLES3 and fatalcoder524 to find memory leaks.
+ */
+
+const char startMagic[4] = { 'A', 'B', 'X', '\0' };
 
 static const short TOKEN_START_DOCUMENT = 0;
 static const short TOKEN_END_DOCUMENT = 1;

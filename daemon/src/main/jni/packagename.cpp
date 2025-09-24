@@ -15,44 +15,49 @@
 static const std::string packages_path = "/data/system/packages.xml";
 static std::vector<char> LoadFileToStdVector(std::string filename);
 
-extern "C" size_t get_pkg_from_classpath_arg(const char* classpath_dir, char* package_name, size_t package_name_buffer_size) {    
+extern "C" bool get_pkg_from_classpath_arg(const char* classpath_dir, char* package_name, size_t package_name_buffer_size) {    
     size_t dir_len = strlen(classpath_dir);
     if(dir_len == 0 || dir_len >= 1024) {
         LOGE("Invalid classpath dir length: %zu", dir_len);
-        return -1;
+        return false;
     }
 
     std::vector<char> packagesFile = LoadFileToStdVector(packages_path);
-    if (packagesFile.size() > 1) {
-        AbxDecoder decoder(packagesFile);
-        if (decoder.parse() && decoder.root && strcmp(decoder.root->mTagName.data(), "packages") == 0) {
-            for (auto pkg : decoder.root->subElements) {
-                if (strcmp(pkg->mTagName.data(), "package") != 0) continue;
-                XMLAttribute* nameAttr = pkg->findAttribute("name");
-                XMLAttribute* codePathAttr = pkg->findAttribute("codePath");
-                if (nameAttr == NULL || codePathAttr == NULL) continue;
-                
-                std::string_view name(nameAttr->mValue.data(), nameAttr->mValue.size());
-                std::string_view codePath(codePathAttr->mValue.data(), codePathAttr->mValue.size());
-                
-                if (codePath.size() != dir_len + 1) continue;
-                if (strncmp(codePath.data(), classpath_dir, dir_len + 1) != 0) continue;
 
-                size_t copy_len = name.size() < package_name_buffer_size - 1 ? name.size() : package_name_buffer_size - 1;
-                memcpy(package_name, name.data(), copy_len);
-                package_name[copy_len] = '\0';
-                return copy_len;
-            }
-        } else {
-            LOGE("Wrong ABX File; rootElement: %s", decoder.root->mTagName.data());
-            return -1;
-        }
-    } else {
+    if(packagesFile.size() < 1)
+    {
         LOGE("Failed to read packages.xml: %s", strerror(errno));
-        return -1;
+        return false;
     }
     
-    return -1;
+    AbxDecoder decoder(packagesFile);
+    if (decoder.parse() && decoder.root && strcmp(decoder.root->mTagName.data(), "packages") == 0) {
+        for (auto pkg : decoder.root->subElements) {
+            if (strcmp(pkg->mTagName.data(), "package") != 0) continue;
+            XMLAttribute* nameAttr = pkg->findAttribute("name");
+            XMLAttribute* codePathAttr = pkg->findAttribute("codePath");
+            if (nameAttr == NULL || codePathAttr == NULL) continue;
+            
+            const char* name = reinterpret_cast<const char*>(nameAttr->mValue.data());
+			const char* codePath = reinterpret_cast<const char*>(codePathAttr->mValue.data());
+			if (strlen(codePath) != dir_len) continue;
+			if (strncmp(codePath, classpath_dir, dir_len) != 0) continue;
+
+            int copy_len = strlen(name) < package_name_buffer_size - 1 ? static_cast<int>(strlen(name)) : static_cast<int>(package_name_buffer_size - 1);
+            memcpy(package_name, name, copy_len * sizeof(char));
+            package_name[copy_len] = '\0';
+            return true;
+        }
+    } else {
+        if (decoder.root) {
+            LOGE("Wrong ABX File; rootElement: %s", decoder.root->mTagName.data());
+        } else {
+            LOGE("Failed to parse ABX file");
+        }
+        return false;
+    }
+    
+    return false;
 }
 
 static std::vector<char> LoadFileToStdVector(std::string filename) {

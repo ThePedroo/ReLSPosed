@@ -1,10 +1,17 @@
 #include <cstring>
 #include <iostream>
 #include <map>
+#include <memory>
 #include <vector>
 
 #include "const.h"
 #include "xml_element.hpp"
+
+/*
+ * This decoder is made by frknkrc44.
+ *
+ * Thanks DanGLES3 and fatalcoder524 to find memory leaks.
+ */
 
 class AbxDecoder {
     public:
@@ -38,17 +45,17 @@ class AbxDecoder {
                     switch (dType) {
                         case DATA_NULL: {
                             const char* chr = "null";
-                            value.insert(value.begin(), chr, chr + strlen(chr) - 1);
+                            value.insert(value.begin(), chr, chr + strlen(chr));
                             goto finishReadAttr;
                         }
                         case DATA_BOOLEAN_FALSE: {
                             const char* chr = "false";
-                            value.insert(value.begin(), chr, chr + strlen(chr) - 1);
+                            value.insert(value.begin(), chr, chr + strlen(chr));
                             goto finishReadAttr;
                         }
                         case DATA_BOOLEAN_TRUE: {
                             const char* chr = "true";
-                            value.insert(value.begin(), chr, chr + strlen(chr) - 1);
+                            value.insert(value.begin(), chr, chr + strlen(chr));
                             goto finishReadAttr;
                         }
                         case DATA_STRING:
@@ -76,8 +83,8 @@ class AbxDecoder {
                     }
 
                     finishReadAttr:
-                    XMLAttribute* attr = new XMLAttribute(tType, value);
-                    elementStack.back()->pushAttribute(attrName, attr);
+                    elementStack.back()->pushAttribute(
+                        attrName, std::make_shared<XMLAttribute>(tType, value));
                     continue;
                 }
                 case TOKEN_START_DOCUMENT: {
@@ -90,7 +97,7 @@ class AbxDecoder {
                 }
                 case TOKEN_START_TAG: {
                     auto tagName = readInternedString();
-                    addElementToStack(new XMLElement(tagName));
+                    addElementToStack(std::make_shared<XMLElement>(tagName));
                     continue;
                 }
                 case TOKEN_END_TAG: {
@@ -101,7 +108,7 @@ class AbxDecoder {
                     }
 
                     if (elementStack.size() == 1) {
-                        root = elementStack.back();
+                        root = std::move(elementStack.back());
                         docOpen = false;
                         rootClosed = true;
                         goto breakLoopSuccess;
@@ -117,8 +124,8 @@ class AbxDecoder {
                 case TOKEN_DOCDECL:
                 case TOKEN_IGNORABLE_WHITESPACE: {
                     auto readVal = readString();
-                    elementStack.back()->textSections
-                        .push_back(new XMLAttribute(tType, readVal));
+                    elementStack.back()->textSections.emplace_back(
+                        std::make_shared<XMLAttribute>(tType, readVal));
                     continue;
                 }
                 default:
@@ -131,14 +138,15 @@ class AbxDecoder {
         }
     }
 
-    XMLElement* root;
+    std::shared_ptr<XMLElement> root;
 
     private:
     int curPos = 0;
 	std::vector<char> mInput;
     std::vector<std::vector<char>> internedStrings;
-    std::vector<XMLElement*> elementStack;
+    std::vector<std::shared_ptr<XMLElement>> elementStack;
 	bool docOpen = false, rootClosed = false;
+    const std::vector<char> emptyString;
 
     std::vector<char> readFromCurPos(int len) {
 		// std::cout << "Reading " << len << " bytes of data from " << curPos << std::endl;
@@ -154,7 +162,7 @@ class AbxDecoder {
 		curPos = 0;
 		std::vector<char> headerV = readFromCurPos(4);
 		const char* header = reinterpret_cast<const char*>(headerV.data());
-		return strcmp(header, startMagic) == 0;
+		return memcmp(header, startMagic, 4) == 0;
 	}
 
 	char readByte() {
@@ -169,11 +177,11 @@ class AbxDecoder {
     std::vector<char> readString() {
 		short len = readShort();
 		if (len < 1) {
-			return *(new std::vector<char>());
+			return emptyString;
 		}
 
 		auto ret = readFromCurPos(len);
-        ret.push_back(0);
+        ret.emplace_back(0);
         return ret;
 	}
 
@@ -181,7 +189,7 @@ class AbxDecoder {
 		short idx = readShort();
         if (idx < 0) {
             std::vector<char> str = readString();
-            internedStrings.push_back(str);
+            internedStrings.emplace_back(str);
 			return str;
         }
 
@@ -190,12 +198,12 @@ class AbxDecoder {
 		return *internedStr;
     }
 
-    void addElementToStack(XMLElement* element) {
+    void addElementToStack(std::shared_ptr<XMLElement> element) {
         if (elementStack.size() > 0) {
-            XMLElement* lastElement = elementStack.back();
-            lastElement->subElements.push_back(element);
+            auto lastElement = elementStack.back().get();
+            lastElement->subElements.emplace_back(element);
         }
 
-        elementStack.push_back(element);
+        elementStack.emplace_back(element);
     }
 };

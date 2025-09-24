@@ -1,5 +1,11 @@
 #include <vector>
 
+/*
+ * This decoder is made by frknkrc44.
+ *
+ * Thanks DanGLES3 and fatalcoder524 to find memory leaks.
+ */
+
 class XMLAttribute {
  public:
 	std::vector<char> mValue;
