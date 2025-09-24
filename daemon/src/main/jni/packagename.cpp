@@ -31,11 +31,11 @@ extern "C" bool get_pkg_from_classpath_arg(const char* classpath_dir, char* pack
     }
     
     AbxDecoder decoder(packagesFile);
-    if (decoder.parse() && decoder.root && strcmp(decoder.root->mTagName.data(), "packages") == 0) {
-        for (auto pkg : decoder.root->subElements) {
-            if (strcmp(pkg->mTagName.data(), "package") != 0) continue;
-            XMLAttribute* nameAttr = pkg->findAttribute("name");
-            XMLAttribute* codePathAttr = pkg->findAttribute("codePath");
+    if (decoder.parse() && decoder.root.get() && strcmp(decoder.root->mTagName.data(), "packages") == 0) {
+        for (auto pkg : decoder.root.get()->subElements) {
+            if (strcmp(pkg.get()->mTagName.data(), "package") != 0) continue;
+            XMLAttribute* nameAttr = pkg.get()->findAttribute("name");
+            XMLAttribute* codePathAttr = pkg.get()->findAttribute("codePath");
             if (nameAttr == NULL || codePathAttr == NULL) continue;
             
             const char* name = reinterpret_cast<const char*>(nameAttr->mValue.data());
