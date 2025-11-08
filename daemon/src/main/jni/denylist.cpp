@@ -26,11 +26,13 @@
 #include <sys/prctl.h>
 #include <sys/wait.h>
 #include <sys/stat.h>
+#include <sys/syscall.h>
 #include <stdlib.h>
 #include <unistd.h>
 
 #include <string>
 
+#include "ksu.h"
 #include "logging.h"
 #include "packagename.h"
 
@@ -82,15 +84,61 @@ bool exec_command(char *buf, size_t len, const char *file, const char *argv[]) {
 #define KERNELSU_CMD_GET_VERSION 2
 #define KERNELSU_CMD_UID_SHOULD_UMOUNT 13
 
+/*
+ * Root implementation indicator
+ *
+ * -1 - None
+ *  1 - KernelSU
+ *  2 - Magisk
+ *  3 - APatch
+ */
 static int root_impl = -1;
+
+static int ksu_fd = -1;
+
+static bool prepare_ksu_fd() {
+    LOGD("Prepare KSU fd: enter");
+    if (ksu_fd >= 0) return true;
+
+    LOGD("Prepare KSU fd: Trying to send ksu option");
+    syscall(
+            SYS_reboot,
+            KSU_INSTALL_MAGIC1,
+            KSU_INSTALL_MAGIC2,
+            0,
+            (void *)&ksu_fd
+    );
+
+    LOGD("Prepare KSU fd: KSU fd: %x", ksu_fd);
+    return ksu_fd >= 0;
+}
+
 static bool ksu_get_existence() {
+    LOGD("KSU existence: enter");
+
+    if (prepare_ksu_fd()) {
+        LOGD("KSU existence: try with new method");
+        struct ksu_get_info_cmd g_version {};
+        syscall(SYS_ioctl, ksu_fd, KSU_IOCTL_GET_INFO, &g_version);
+
+        if (g_version.version > 0) {
+            LOGD("KernelSU version: %d (FD + IOCTL)", g_version.version);
+            root_impl = 1;
+
+            return true;
+        } else {
+            ksu_fd = -1;
+        }
+    }
+
     int version = 0;
     int reply_ok = 0;
 
+    LOGD("KSU existence: try with old method");
     prctl((signed int)KERNEL_SU_OPTION, KERNELSU_CMD_GET_VERSION, &version, 0, &reply_ok);
 
     if (version != 0) {
-        LOGD("KernelSU version: %d", version);
+        LOGD("KernelSU version: %d (PRCTL)", version);
         root_impl = 1;
 
         return true;
@@ -100,12 +148,21 @@ static bool ksu_get_existence() {
 }
 
 static bool ksu_is_in_denylist(uid_t app_uid) {
-    bool umount = false;
+    if (!prepare_ksu_fd()) {
+        LOGD("KernelSU fd not found, falling back to the old method");
+        bool umount = false;
+        int reply_ok = 0;
+        prctl((signed int)KERNEL_SU_OPTION, KERNELSU_CMD_UID_SHOULD_UMOUNT, app_uid, &umount, &reply_ok);
+        LOGD("KernelSU old method, should umount for %d: %d", app_uid, umount);
+        return umount;
+    }
 
-    int reply_ok = 0;
-    prctl((signed int)KERNEL_SU_OPTION, KERNELSU_CMD_UID_SHOULD_UMOUNT, app_uid, &umount, &reply_ok);
-
-    return umount;
+    LOGD("KernelSU fd found, using the new method");
+    struct ksu_uid_should_umount_cmd cmd = {};
+    cmd.uid = app_uid;
+    syscall(SYS_ioctl, ksu_fd, KSU_IOCTL_UID_SHOULD_UMOUNT, &cmd);
+    LOGD("KernelSU new method, should umount for %d: %d", app_uid, cmd.should_umount);
+    return !!cmd.should_umount;
 }
 
 #if (defined(__LP64__) || defined(_LP64))
@@ -337,7 +394,7 @@ bool apatch_uid_should_umount(const char *const process) {
 }
 
 extern "C" JNIEXPORT jboolean JNICALL
-Java_org_lsposed_lspd_service_DenylistManager_isInDenylist(JNIEnv *env, jobject, jstring appName) {
+Java_org_lsposed_lspd_service_DenylistManager_isInDenylist(JNIEnv *env, jclass, jstring appName) {
     const char *app_name = env->GetStringUTFChars(appName, nullptr);
     if (app_name == nullptr) {
         LOGE("Failed to get app name string");
@@ -406,7 +463,7 @@ Java_org_lsposed_lspd_service_DenylistManager_isInDenylist(JNIEnv *env, jobject,
 }
 
 extern "C" JNIEXPORT jboolean JNICALL
-Java_org_lsposed_lspd_service_DenylistManager_isInDenylistFromClasspathDir(JNIEnv *env, jobject, jstring classpathDirArg) {
+Java_org_lsposed_lspd_service_DenylistManager_isInDenylistFromClasspathDir(JNIEnv *env, jclass, jstring classpathDirArg) {
     const char *classpath_dir_arg = env->GetStringUTFChars(classpathDirArg, nullptr);
 
     if (classpath_dir_arg == nullptr) {
