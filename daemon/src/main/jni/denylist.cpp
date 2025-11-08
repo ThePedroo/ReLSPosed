@@ -110,6 +110,13 @@ static bool prepare_ksu_fd() {
     return ksu_fd >= 0;
 }
 
+static void ksu_close_fd() {
+    if (ksu_fd >= 0) {
+        close(ksu_fd);
+        ksu_fd = -1;
+    }
+}
+
 static bool ksu_get_existence() {
     if (prepare_ksu_fd()) {
         struct ksu_get_info_cmd g_version {};
@@ -123,7 +130,7 @@ static bool ksu_get_existence() {
 
             return true;
         } else {
-            ksu_fd = -1;
+            ksu_close_fd();
         }
     }
 
@@ -534,8 +541,5 @@ Java_org_lsposed_lspd_service_DenylistManager_isInDenylistFromClasspathDir(JNIEn
 
 extern "C" JNIEXPORT void JNICALL
 Java_org_lsposed_lspd_service_DenylistManager_clearFd(JNIEnv *env, jclass) {
-    if (ksu_fd >= 0) {
-        close(ksu_fd);
-        ksu_fd = -1;
-    }
+    ksu_close_fd();
 }
