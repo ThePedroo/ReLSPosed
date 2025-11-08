@@ -25,7 +25,6 @@ import static org.lsposed.lspd.ILSPManagerService.DEX2OAT_OK;
 import static org.lsposed.lspd.ILSPManagerService.DEX2OAT_SELINUX_PERMISSIVE;
 import static org.lsposed.lspd.ILSPManagerService.DEX2OAT_SEPOLICY_INCORRECT;
 
-import static org.lsposed.lspd.service.DenylistManager.isInDenylist;
 import static org.lsposed.lspd.service.DenylistManager.isInDenylistFromClasspathDir;
 
 import android.net.LocalServerSocket;
@@ -329,12 +328,14 @@ public class Dex2OatService implements Runnable {
 
                 client.close();
             }
-        } catch (IOException e) {
+        } catch (Throwable e) {
             Log.e(TAG, "Dex2oat wrapper daemon crashed", e);
             if (compatibility == DEX2OAT_OK) {
                 doMount(false);
                 compatibility = DEX2OAT_CRASHED;
             }
+        } finally {
+            DenylistManager.clearFd();
         }
     }
 

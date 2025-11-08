@@ -80,10 +80,6 @@ bool exec_command(char *buf, size_t len, const char *file, const char *argv[]) {
     return true;
 }
 
-#define KERNEL_SU_OPTION (int)0xdeadbeef
-#define KERNELSU_CMD_GET_VERSION 2
-#define KERNELSU_CMD_UID_SHOULD_UMOUNT 13
-
 /*
  * Root implementation indicator
  *
@@ -97,7 +93,6 @@ static int root_impl = -1;
 static int ksu_fd = -1;
 
 static bool prepare_ksu_fd() {
-    LOGD("Prepare KSU fd: enter");
     if (ksu_fd >= 0) return true;
 
     LOGD("Prepare KSU fd: Trying to send ksu option");
@@ -109,20 +104,17 @@ static bool prepare_ksu_fd() {
             (void *)&ksu_fd
     );
 
-    LOGD("Prepare KSU fd: KSU fd: %x", ksu_fd);
+    LOGD("Prepare KSU fd: %x", ksu_fd);
     return ksu_fd >= 0;
 }
 
 static bool ksu_get_existence() {
-    LOGD("KSU existence: enter");
-
     if (prepare_ksu_fd()) {
-        LOGD("KSU existence: try with new method");
         struct ksu_get_info_cmd g_version {};
         syscall(SYS_ioctl, ksu_fd, KSU_IOCTL_GET_INFO, &g_version);
 
         if (g_version.version > 0) {
-            LOGD("KernelSU version: %d (FD + IOCTL)", g_version.version);
+            LOGD("KernelSU version: %d (IOCTL)", g_version.version);
             root_impl = 1;
 
             return true;
@@ -134,7 +126,6 @@ static bool ksu_get_existence() {
     int version = 0;
     int reply_ok = 0;
 
-    LOGD("KSU existence: try with old method");
     prctl((signed int)KERNEL_SU_OPTION, KERNELSU_CMD_GET_VERSION, &version, 0, &reply_ok);
 
     if (version != 0) {
@@ -149,19 +140,15 @@ static bool ksu_get_existence() {
 
 static bool ksu_is_in_denylist(uid_t app_uid) {
     if (!prepare_ksu_fd()) {
-        LOGD("KernelSU fd not found, falling back to the old method");
         bool umount = false;
         int reply_ok = 0;
         prctl((signed int)KERNEL_SU_OPTION, KERNELSU_CMD_UID_SHOULD_UMOUNT, app_uid, &umount, &reply_ok);
-        LOGD("KernelSU old method, should umount for %d: %d", app_uid, umount);
         return umount;
     }
 
-    LOGD("KernelSU fd found, using the new method");
     struct ksu_uid_should_umount_cmd cmd = {};
     cmd.uid = app_uid;
     syscall(SYS_ioctl, ksu_fd, KSU_IOCTL_UID_SHOULD_UMOUNT, &cmd);
-    LOGD("KernelSU new method, should umount for %d: %d", app_uid, cmd.should_umount);
     return !!cmd.should_umount;
 }
 
@@ -535,4 +522,12 @@ Java_org_lsposed_lspd_service_DenylistManager_isInDenylistFromClasspathDir(JNIEn
 
     app_in_denylist:
         return JNI_TRUE;
+}
+
+extern "C" JNIEXPORT void JNICALL
+Java_org_lsposed_lspd_service_DenylistManager_clearFd(JNIEnv *env, jclass) {
+    if (ksu_fd >= 0) {
+        close(ksu_fd);
+        ksu_fd = -1;
+    }
 }

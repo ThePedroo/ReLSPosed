@@ -35,9 +35,13 @@ struct ksu_get_info_cmd {
 };
 
 struct ksu_uid_should_umount_cmd {
-    __u32 uid; // Input: target UID to check
-    __u8 should_umount; // Output: true if should umount, false otherwise
+    uint32_t uid; // Input: target UID to check
+    uint8_t should_umount; // Output: true if should umount, false otherwise
 };
+
+#define KERNEL_SU_OPTION (int)0xdeadbeef
+#define KERNELSU_CMD_GET_VERSION 2
+#define KERNELSU_CMD_UID_SHOULD_UMOUNT 13
 
 #define KSU_INSTALL_MAGIC1 0xDEADBEEF
 #define KSU_INSTALL_MAGIC2 0xCAFEBABE
