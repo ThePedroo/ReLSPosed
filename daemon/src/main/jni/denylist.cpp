@@ -96,6 +96,7 @@ static bool prepare_ksu_fd() {
     if (ksu_fd >= 0) return true;
 
     LOGD("Prepare KSU fd: Trying to send ksu option");
+
     syscall(
             SYS_reboot,
             KSU_INSTALL_MAGIC1,
@@ -105,16 +106,19 @@ static bool prepare_ksu_fd() {
     );
 
     LOGD("Prepare KSU fd: %x", ksu_fd);
+
     return ksu_fd >= 0;
 }
 
 static bool ksu_get_existence() {
     if (prepare_ksu_fd()) {
         struct ksu_get_info_cmd g_version {};
+
         syscall(SYS_ioctl, ksu_fd, KSU_IOCTL_GET_INFO, &g_version);
 
         if (g_version.version > 0) {
             LOGD("KernelSU version: %d (IOCTL)", g_version.version);
+
             root_impl = 1;
 
             return true;
@@ -130,6 +134,7 @@ static bool ksu_get_existence() {
 
     if (version != 0) {
         LOGD("KernelSU version: %d (PRCTL)", version);
+
         root_impl = 1;
 
         return true;
@@ -142,13 +147,16 @@ static bool ksu_is_in_denylist(uid_t app_uid) {
     if (!prepare_ksu_fd()) {
         bool umount = false;
         int reply_ok = 0;
+
         prctl((signed int)KERNEL_SU_OPTION, KERNELSU_CMD_UID_SHOULD_UMOUNT, app_uid, &umount, &reply_ok);
+
         return umount;
     }
 
-    struct ksu_uid_should_umount_cmd cmd = {};
-    cmd.uid = app_uid;
+    struct ksu_uid_should_umount_cmd cmd = { app_uid };
+
     syscall(SYS_ioctl, ksu_fd, KSU_IOCTL_UID_SHOULD_UMOUNT, &cmd);
+
     return !!cmd.should_umount;
 }
 
