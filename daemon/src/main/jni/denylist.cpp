@@ -97,13 +97,7 @@ static bool prepare_ksu_fd() {
 
     LOGD("Prepare KSU fd: Trying to send ksu option");
 
-    syscall(
-            SYS_reboot,
-            KSU_INSTALL_MAGIC1,
-            KSU_INSTALL_MAGIC2,
-            0,
-            (void *)&ksu_fd
-    );
+    syscall(SYS_reboot, KSU_INSTALL_MAGIC1, KSU_INSTALL_MAGIC2, 0, (void*)&ksu_fd);
 
     LOGD("Prepare KSU fd: %x", ksu_fd);
 
