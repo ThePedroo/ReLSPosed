@@ -93,7 +93,7 @@ static int root_impl = -1;
 static int ksu_fd = -1;
 
 static bool prepare_ksu_fd() {
-    if (ksu_fd >= 0) return true;
+    if (ksu_fd >= 0) goto ksu_fd_return_success;
 
     LOGD("Prepare KSU fd: Trying to send ksu option");
 
@@ -102,6 +102,9 @@ static bool prepare_ksu_fd() {
     LOGD("Prepare KSU fd: %x", ksu_fd);
 
     return ksu_fd >= 0;
+
+    ksu_fd_return_success:
+    return true;
 }
 
 static void ksu_close_fd() {
@@ -112,6 +115,9 @@ static void ksu_close_fd() {
 }
 
 static bool ksu_get_existence() {
+    int version = 0;
+    int reply_ok = 0;
+
     if (prepare_ksu_fd()) {
         struct ksu_get_info_cmd g_version {};
 
@@ -122,14 +128,11 @@ static bool ksu_get_existence() {
 
             root_impl = 1;
 
-            return true;
+            goto ksu_exist_return_success;
         } else {
             ksu_close_fd();
         }
     }
-
-    int version = 0;
-    int reply_ok = 0;
 
     prctl((signed int)KERNEL_SU_OPTION, KERNELSU_CMD_GET_VERSION, &version, 0, &reply_ok);
 
@@ -138,26 +141,31 @@ static bool ksu_get_existence() {
 
         root_impl = 1;
 
-        return true;
+        goto ksu_exist_return_success;
     }
 
     return false;
+
+    ksu_exist_return_success:
+    return true;
 }
 
 static bool ksu_is_in_denylist(uid_t app_uid) {
+    bool umount = false;
+    int reply_ok = 0;
+
     if (prepare_ksu_fd()) {
         struct ksu_uid_should_umount_cmd cmd = { app_uid };
 
         syscall(SYS_ioctl, ksu_fd, KSU_IOCTL_UID_SHOULD_UMOUNT, &cmd);
 
-        return !!cmd.should_umount;
+        umount = !!cmd.should_umount;
+        goto ksu_return_umount;
     }
-
-    bool umount = false;
-    int reply_ok = 0;
 
     prctl((signed int)KERNEL_SU_OPTION, KERNELSU_CMD_UID_SHOULD_UMOUNT, app_uid, &umount, &reply_ok);
 
+    ksu_return_umount:
     return umount;
 }
 
