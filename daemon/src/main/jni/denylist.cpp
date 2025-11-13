@@ -145,20 +145,20 @@ static bool ksu_get_existence() {
 }
 
 static bool ksu_is_in_denylist(uid_t app_uid) {
-    if (!prepare_ksu_fd()) {
-        bool umount = false;
-        int reply_ok = 0;
+    if (prepare_ksu_fd()) {
+        struct ksu_uid_should_umount_cmd cmd = { app_uid };
 
-        prctl((signed int)KERNEL_SU_OPTION, KERNELSU_CMD_UID_SHOULD_UMOUNT, app_uid, &umount, &reply_ok);
+        syscall(SYS_ioctl, ksu_fd, KSU_IOCTL_UID_SHOULD_UMOUNT, &cmd);
 
-        return umount;
+        return !!cmd.should_umount;
     }
 
-    struct ksu_uid_should_umount_cmd cmd = { app_uid };
+    bool umount = false;
+    int reply_ok = 0;
 
-    syscall(SYS_ioctl, ksu_fd, KSU_IOCTL_UID_SHOULD_UMOUNT, &cmd);
+    prctl((signed int)KERNEL_SU_OPTION, KERNELSU_CMD_UID_SHOULD_UMOUNT, app_uid, &umount, &reply_ok);
 
-    return !!cmd.should_umount;
+    return umount;
 }
 
 #if (defined(__LP64__) || defined(_LP64))
