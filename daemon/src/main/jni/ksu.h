@@ -29,14 +29,14 @@
 #include <sys/ioctl.h>
 
 struct ksu_get_info_cmd {
-    uint32_t version; // Output: KERNEL_SU_VERSION
-    uint32_t flags;   // Output: flags (bit 0: MODULE mode)
-    uint32_t features; // Output: max feature ID supported (KSU_FEATURE_MAX)
+    uint32_t version;
+    uint32_t flags;
+    uint32_t features;
 };
 
 struct ksu_uid_should_umount_cmd {
-    uint32_t uid; // Input: target UID to check
-    uint8_t should_umount; // Output: true if should umount, false otherwise
+    uint32_t uid;
+    uint8_t should_umount;
 };
 
 #define KERNEL_SU_OPTION (int)0xdeadbeef
