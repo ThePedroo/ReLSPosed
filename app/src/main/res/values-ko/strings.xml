@@ -39,19 +39,19 @@
     <string name="about_view_source_code"><![CDATA[%1$s에서 소스 코드 보기<br/>%2$s 채널에 가입하세요]]></string>
     <string name="translators" comment="Dear translators, please add your home page here following the format. There can be more than one translator. So feel free to append yourself.">green1052</string>
     <string name="install">설치</string>
-    <string name="install_summary">LSPosed를 설치하려면 누르세요</string>
+    <string name="install_summary">ReLSPosed를 설치하려면 누르세요</string>
     <string name="not_installed">설치되지 않음</string>
-    <string name="not_install_summary">LSPosed가 설치되지 않았습니다</string>
+    <string name="not_install_summary">ReLSPosed가 설치되지 않았습니다</string>
     <string name="activated">활성화됨</string>
     <string name="partial_activated">부분적으로 활성화됨</string>
     <string name="selinux_policy_not_loaded_summary">SEPolicy가 제대로 로드되지 않았습니다</string>
     <string name="selinux_policy_not_loaded"><![CDATA[몇몇 기능은 작동하지 않을 수도 있습니다.<br/>오류를 <a href="https://github.com/topjohnwu/Magisk/issues"><b>Magisk 개발자</b></a>에게 신고해주세요]]></string>
     <string name="system_inject_fail_summary">System Framework 삽입 실패</string>
-    <string name="system_inject_fail"><![CDATA[이는 드물게 발생하며, <b>Magisk</b> 또는 일부 Magisk 모듈 때문일 수 있습니다.<br/>Riru 및 LSPosed 이외의 Magisk 모듈을 비활성화 하거나 전체 로그를 개발자에게 제출하세요.]]></string>
+    <string name="system_inject_fail"><![CDATA[이는 드물게 발생하며, <b>Magisk</b> 또는 일부 Magisk 모듈 때문일 수 있습니다.<br/>Riru 및 ReLSPosed 이외의 Magisk 모듈을 비활성화 하거나 전체 로그를 개발자에게 제출하세요.]]></string>
     <string name="system_prop_incorrect_summary">시스템 속성이 잘못됨</string>
     <string name="system_prop_incorrect"><![CDATA[일부 필수 시스템 속성이 삭제 또는 수정되었습니다.<br/>모듈은 가끔 무효화될 수 있습니다.]]></string>
     <string name="need_update">업데이트가 필요합니다</string>
-    <string name="please_update_summary">최신 버전으로 LSPosed를 설치해 주세요</string>
+    <string name="please_update_summary">최신 버전으로 ReLSPosed를 설치해 주세요</string>
     <string name="developer_warning_title">모듈 개발자를 위한 팁</string>
     <string name="developer_warning_summary">Android Studio 에서 배포 최적화를 비활성화 하거나, 설치할때 \'gradlew installDebug\' 명령어를 사용해주세요. 그렇지 않으면 모듈 APK 가 업데이트되지 않을 것입니다.</string>
     <string name="info_api_version">API 버전</string>
@@ -70,17 +70,17 @@
     <string name="mount_failed">마운트 실패</string>
     <string name="selinux_permissive">SELinux가 허용됩니다</string>
     <string name="sepolicy_incorrect">SELinux 정책이 잘못되었습니다</string>
-    <string name="update_lsposed">LSPosed 업데이트</string>
-    <string name="update_lsposed_msg">LSPosed를 업데이트 하시겠습니까? 업데이트 완료 후에 재부팅합니다</string>
+    <string name="update_lsposed">ReLSPosed 업데이트</string>
+    <string name="update_lsposed_msg">ReLSPosed를 업데이트 하시겠습니까? 업데이트 완료 후에 재부팅합니다</string>
     <string name="info_copied">클립보드에 복사됨</string>
     <!-- WelcomeDialog -->
-    <string name="parasitic_welcome">LSPosed에 오신 것을 환영합니다</string>
+    <string name="parasitic_welcome">ReLSPosed에 오신 것을 환영합니다</string>
     <string name="parasitic_welcome_summary">바로 가기를 만들거나 알림에서 계속 열 수 있는 기생 관리자를 사용하고 있습니다.</string>
     <string name="parasitic_welcome_summary_no_shortcut_support">알림에서 열 수 있는 내부 관리자를 사용 중 입니다.</string>
     <string name="create_shortcut">바로 가기 만들기</string>
     <string name="never_show">표시 안 함</string>
     <string name="app_welcome">기생 매니저 추천</string>
-    <string name="app_welcome_summary">LSPosed는 이제 탐지를 피하기 위해 시스템 기생을 지원하며 알림에서 기생 관리자를 열 수 있습니다. 현재 응용 프로그램을 제거하는 것이 좋습니다.</string>
+    <string name="app_welcome_summary">ReLSPosed는 이제 탐지를 피하기 위해 시스템 기생을 지원하며 알림에서 기생 관리자를 열 수 있습니다. 현재 응용 프로그램을 제거하는 것이 좋습니다.</string>
     <!-- LogsActivity -->
     <string name="menuSaveToSd">저장</string>
     <string name="nav_item_logs_verbose">자세한 로그</string>
@@ -100,10 +100,10 @@
     <string name="disabled_verbose_log">자세한 로그 비활성화</string>
     <!-- ModulesActivity -->
     <string name="module_empty_description">(설명 없음)</string>
-    <string name="warning_xposed_min_version">이 모듈에는 최신 LSPosed (%d) 버전이 필요하므로 활성화할 수 없습니다.</string>
+    <string name="warning_xposed_min_version">이 모듈에는 최신 ReLSPosed (%d) 버전이 필요하므로 활성화할 수 없습니다.</string>
     <string name="warning_target_version_higher">이 모듈은 더 새로운 Xposed 버전 (%d) 에서 만들어졌고 따라서 몇몇 기능들이 작동하지 않을 수도 있습니다</string>
-    <string name="no_min_version_specified">이 모듈에서는 필요한 LSPosed 버전을 지정하지 않습니다.</string>
-    <string name="warning_min_version_too_low">이 모듈은 LSPosed 버전 %1$d에 대해 생성되었지만 버전 %2$d에서 호환되지 않는 변경으로 인해 비활성화되었습니다.</string>
+    <string name="no_min_version_specified">이 모듈에서는 필요한 ReLSPosed 버전을 지정하지 않습니다.</string>
+    <string name="warning_min_version_too_low">이 모듈은 ReLSPosed 버전 %1$d에 대해 생성되었지만 버전 %2$d에서 호환되지 않는 변경으로 인해 비활성화되었습니다.</string>
     <string name="warning_installed_on_external_storage">이 모듈은 SD 카드에 설치되어 있으므로 로드할 수 없습니다. 내부 스토리지로 이동하십시오.</string>
     <string name="module_uninstall">제거</string>
     <string name="module_settings">모듈 설정</string>
@@ -115,7 +115,7 @@
     <string name="module_installed">%2$s 사용자에 %1$s 추가</string>
     <string name="module_install_failed">모듈 추가 실패</string>
     <string name="install_to_user">%s 사용자에게 설치</string>
-    <string name="install_to_user_message">%2$s 사용자에게 %1$s을(를) 설치하시겠습니까? 수동으로 설치하는 것이 좋습니다. LSPosed를 통해 강제로 설치하면 문제가 발생할 수 있습니다.</string>
+    <string name="install_to_user_message">%2$s 사용자에게 %1$s을(를) 설치하시겠습니까? 수동으로 설치하는 것이 좋습니다. ReLSPosed를 통해 강제로 설치하면 문제가 발생할 수 있습니다.</string>
     <string name="expand">펼치기</string>
     <string name="collapse">접기</string>
     <!-- AppListActivity -->
@@ -142,7 +142,7 @@
     <string name="use_recommended">권장</string>
     <string name="no_scope_selected_has_recommended">앱을 선택하지 않았습니다. 권장 앱을 선택하시겠습니까?</string>
     <string name="use_recommended_message">권장 앱을 선택하시겠습니까?</string>
-    <string name="module_is_not_activated_yet">LSPosed 모듈이 아직 활성화되지 않았습니다.</string>
+    <string name="module_is_not_activated_yet">ReLSPosed 모듈이 아직 활성화되지 않았습니다.</string>
     <string name="requested_by_module">권장</string>
     <string name="update_available">업데이트 가능: %1$s</string>
     <string name="module_disabled_no_selection">앱을 선택하지 않았기 때문에 %s 모듈이 비활성화되었습니다.</string>

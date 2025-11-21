@@ -17,7 +17,7 @@ Android 8.1 ~ 16
 1. Install Magisk v26+
 2. [Download](#download) and install LSPosed in Magisk app
 3. Reboot
-4. Open LSPosed manager from notification
+4. Open ReLSPosed manager from notification
 5. Have fun :)
 
 ## Download

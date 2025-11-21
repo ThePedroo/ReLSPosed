@@ -41,20 +41,20 @@
     <string name="about_view_source_code"><![CDATA[کد منبع را در %1$s مشاهده کنید<br/> و در کانال %2$s ما عضو شوید]]></string>
     <string name="translators" comment="Dear translators, please add your home page here following the format. There can be more than one translator. So feel free to append yourself.">rezamqds</string>
     <string name="install">نصب</string>
-    <string name="install_summary">برای نصب LSPosed لمس کنید</string>
+    <string name="install_summary">برای نصب ReLSPosed لمس کنید</string>
     <string name="not_installed">نصب نشده</string>
-    <string name="not_install_summary">LSPosed نصب نشده</string>
+    <string name="not_install_summary">ReLSPosed نصب نشده</string>
     <string name="activated">فعال شده</string>
     <string name="partial_activated">تا حدودی فعال شده</string>
     <string name="selinux_policy_not_loaded_summary">SEPolicy به صورت کامل بارگذاری نشده</string>
     <string name="selinux_policy_not_loaded"><![CDATA[برخی از ویژگی ها کار نمی کنند لطفا این مشکل را به برنامه‌ نویس Magisk گزارش دهید لینک صفحه مشکلات Magisk در گیت هاب :
 https://github.com/topjohnwu/Magisk/issues]]></string>
     <string name="system_inject_fail_summary">تزریق فریمورک سیستم انجام نشد</string>
-    <string name="system_inject_fail"><![CDATA[این مشکل ممکن است توسط Magisk یا برخی از ماژول های Magisk که دارای کیفیت پایینی هستند ایجاد شود لطفا سعی کنید ماژول‌ های Magisk را به غیر از Riru و LSPosed غیرفعال کنید یا گزارش کامل را به توسعه‌ دهندگان ارسال کنید]]></string>
+    <string name="system_inject_fail"><![CDATA[این مشکل ممکن است توسط Magisk یا برخی از ماژول های Magisk که دارای کیفیت پایینی هستند ایجاد شود لطفا سعی کنید ماژول‌ های Magisk را به غیر از Riru و ReLSPosed غیرفعال کنید یا گزارش کامل را به توسعه‌ دهندگان ارسال کنید]]></string>
     <string name="system_prop_incorrect_summary">پایه سیستم نادرست است</string>
     <string name="system_prop_incorrect"><![CDATA[برخی از ویژگی های ضروری سیستم حذف شده یا تغییر داده شده به همین دلیل ماژول ها ممکن است گاهی اوقات غیرفعال شوند]]></string>
     <string name="need_update">باید به روز رسانی شود</string>
-    <string name="please_update_summary">لطفا آخرین نسخه LSPosed را نصب کنید</string>
+    <string name="please_update_summary">لطفا آخرین نسخه ReLSPosed را نصب کنید</string>
     <string name="info_api_version">نسخه API</string>
     <string name="info_framework_version">نسخه فریمورک</string>
     <string name="info_manager_package_name">نام بسته مدیر</string>
@@ -71,17 +71,17 @@ https://github.com/topjohnwu/Magisk/issues]]></string>
     <string name="mount_failed">Mount انجام نشد</string>
     <string name="selinux_permissive">SELinux مجاز است</string>
     <string name="sepolicy_incorrect">خط مشی SELinux نادرست است</string>
-    <string name="update_lsposed">به روزرسانی LSPosed</string>
-    <string name="update_lsposed_msg">آیا شما می خواهید LSPosed به روز رسانی شود؟ دستگاه شما پس از نصب به روز رسانی به طور خودکار خاموش و روشن خواهد شد</string>
+    <string name="update_lsposed">به روزرسانی ReLSPosed</string>
+    <string name="update_lsposed_msg">آیا شما می خواهید ReLSPosed به روز رسانی شود؟ دستگاه شما پس از نصب به روز رسانی به طور خودکار خاموش و روشن خواهد شد</string>
     <string name="info_copied">در کلیپ بورد کپی شد</string>
     <!-- WelcomeDialog -->
-    <string name="parasitic_welcome">به LSPosed خوش آمدید</string>
+    <string name="parasitic_welcome">به ReLSPosed خوش آمدید</string>
     <string name="parasitic_welcome_summary">شما در حال استفاده برنامه مدیر lsposed هستید که می تواند میانبر بسازد یا همچنان از طریق اعلان باز باشد</string>
     <string name="parasitic_welcome_summary_no_shortcut_support">شما از برنامه مدیر lsposed استفاده می کنید که می تواند از طریق اعلان باز شود</string>
     <string name="create_shortcut">ساخت میانبر</string>
     <string name="never_show">هرگز نشان نده</string>
     <string name="app_welcome">مدیر lsposed توصیه می شود</string>
-    <string name="app_welcome_summary">LSPosed اکنون از پارازیتیزاسیون سیستم برای جلوگیری از شناسایی پشتیبانی می کند شما می توانید مدیر lsposed را از اعلان باز کنید توصیه می شود برنامه فعلی را حذف نصب کنید</string>
+    <string name="app_welcome_summary">ReLSPosed اکنون از پارازیتیزاسیون سیستم برای جلوگیری از شناسایی پشتیبانی می کند شما می توانید مدیر lsposed را از اعلان باز کنید توصیه می شود برنامه فعلی را حذف نصب کنید</string>
     <!-- LogsActivity -->
     <string name="menuSaveToSd">ذخیره</string>
     <string name="nav_item_logs_verbose">گزارش های کامل</string>
@@ -116,7 +116,7 @@ https://github.com/topjohnwu/Magisk/issues]]></string>
     <string name="module_installed">%1$s به کاربر %2$s افزوده شده</string>
     <string name="module_install_failed">افزودن ماژول انجام نشد</string>
     <string name="install_to_user">برای کاربر %s نصب شود</string>
-    <string name="install_to_user_message">آیا شما می‌خواهید %1$s را برای کاربر %2$s نصب کنید؟ توصیه می کنیم آن را به صورت دستی نصب کنید نصب اجباری از طریق LSPosed ممکن است باعث ایجاد مشکل شود</string>
+    <string name="install_to_user_message">آیا شما می‌خواهید %1$s را برای کاربر %2$s نصب کنید؟ توصیه می کنیم آن را به صورت دستی نصب کنید نصب اجباری از طریق ReLSPosed ممکن است باعث ایجاد مشکل شود</string>
     <string name="expand">نمایش ادامه متن</string>
     <string name="collapse">بستن ادامه متن</string>
     <!-- AppListActivity -->

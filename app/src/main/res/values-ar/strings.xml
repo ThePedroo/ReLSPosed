@@ -49,19 +49,19 @@
     <string name="about_view_source_code"><![CDATA[عرض كود المصدر في %1$s<br/>انضم إلى قناتنا %2$s]]></string>
     <string name="translators" comment="Dear translators, please add your home page here following the format. There can be more than one translator. So feel free to append yourself.">Mahmoud Abd El-Hamed (7TM)</string>
     <string name="install">تثبيت</string>
-    <string name="install_summary">انقر لتثبيت LSPosed</string>
+    <string name="install_summary">انقر لتثبيت ReLSPosed</string>
     <string name="not_installed">غير مثبت</string>
-    <string name="not_install_summary">LSPosed غير مثبت</string>
+    <string name="not_install_summary">ReLSPosed غير مثبت</string>
     <string name="activated">مُفعّل</string>
     <string name="partial_activated">مفعل جزئياً</string>
     <string name="selinux_policy_not_loaded_summary">لم يتم تحميل SEPolicy بشكل صحيح</string>
     <string name="selinux_policy_not_loaded"><![CDATA[لن تعمل الوحدات النمطية التي تربط إطار عمل النظام.<br/>الرجاء الإبلاغ عن هذا إلى <a href="https://github.com/topjohnwu/Magisk/issues"><b>ماجيسك</b></a> مطور النظام.]]></string>
     <string name="system_inject_fail_summary">فشل حقن إطار عمل النظام</string>
-    <string name="system_inject_fail"><![CDATA[هذا نادر وقد يكون بسبب <b>Magisk</b> أو بعض وحدات Magisk منخفضة الجودة.<br/>الرجاء محاولة تعطيل وحدات Magisk خلاف Riru وLSPosed أو إرسال سجل كامل للمطورين.]]></string>
+    <string name="system_inject_fail"><![CDATA[هذا نادر وقد يكون بسبب <b>Magisk</b> أو بعض وحدات Magisk منخفضة الجودة.<br/>الرجاء محاولة تعطيل وحدات Magisk خلاف Riru وReLSPosed أو إرسال سجل كامل للمطورين.]]></string>
     <string name="system_prop_incorrect_summary">نظام prop غير صحيح</string>
     <string name="system_prop_incorrect"><![CDATA[بعض خصائص النظام الضرورية تم حذفها أو تعديلها.<br/>قد تبطل الوحدات أحيانا.]]></string>
     <string name="need_update">تحتاج إلى التحديث</string>
-    <string name="please_update_summary">يرجى تثبيت أحدث إصدار من LSPosed</string>
+    <string name="please_update_summary">يرجى تثبيت أحدث إصدار من ReLSPosed</string>
     <string name="developer_warning_title">نصائح لمطور الوحدة</string>
     <string name="developer_warning_summary">يرجى تعطيل تحسينات النشر على Android Studio، أو استخدام الأمر `gradlew installDebug` للتثبيت. وإلا فلن يتم تحديث ملف Apk للوحدة.</string>
     <string name="info_api_version">إصدار API</string>
@@ -80,17 +80,17 @@
     <string name="mount_failed">فشل التحميل</string>
     <string name="selinux_permissive">SELinux متساهل</string>
     <string name="sepolicy_incorrect">سياسة SELinux غير صحيحة</string>
-    <string name="update_lsposed">تحديث LSPosed</string>
-    <string name="update_lsposed_msg">تأكيد تحديث LSPosed؟ سيتم إعـادة تشغيل هذا الجهاز بعد اكتمال التحديث</string>
+    <string name="update_lsposed">تحديث ReLSPosed</string>
+    <string name="update_lsposed_msg">تأكيد تحديث ReLSPosed؟ سيتم إعـادة تشغيل هذا الجهاز بعد اكتمال التحديث</string>
     <string name="info_copied">تم النسخ إلى الحافظة</string>
     <!-- WelcomeDialog -->
-    <string name="parasitic_welcome">مرحباً بك في LSPosed</string>
+    <string name="parasitic_welcome">مرحباً بك في ReLSPosed</string>
     <string name="parasitic_welcome_summary">أنت تستخدم مدير الطفيليات، الذي يمكنه إنشاء اختصار أو لا يزال مفتوحا من الإشعارات.</string>
     <string name="parasitic_welcome_summary_no_shortcut_support">أنت تستخدم المدير الطفيلي، الذي يمكن فتحه من الإشعار.</string>
     <string name="create_shortcut">إنشاء إختصار</string>
     <string name="never_show">لا تظهر أبداً</string>
     <string name="app_welcome">مدير طفيلي موصي به</string>
-    <string name="app_welcome_summary">يدعم LSPosed الآن تطهير النظام لتجنب الكشف، يمكنك فتح مدير الطفيليات من الإشعار. من المستحسن إلغاء تثبيت التطبيق الحالي.</string>
+    <string name="app_welcome_summary">يدعم ReLSPosed الآن تطهير النظام لتجنب الكشف، يمكنك فتح مدير الطفيليات من الإشعار. من المستحسن إلغاء تثبيت التطبيق الحالي.</string>
     <!-- LogsActivity -->
     <string name="menuSaveToSd">احفظ</string>
     <string name="nav_item_logs_verbose">سجلات مفصّلة</string>
@@ -125,7 +125,7 @@
     <string name="module_installed">تم إضافة %1$s للمستخدم %2$s</string>
     <string name="module_install_failed">فشل إضافة الوحدة</string>
     <string name="install_to_user">تثبيت للمستخدم %s</string>
-    <string name="install_to_user_message">هل ترغب في تثبيت %1$s للمستخدم %2$s؟ ينصح بالتثبيت يدوياً، قد يسبب إجبار التثبيت عبر LSPosed مشكلات.</string>
+    <string name="install_to_user_message">هل ترغب في تثبيت %1$s للمستخدم %2$s؟ ينصح بالتثبيت يدوياً، قد يسبب إجبار التثبيت عبر ReLSPosed مشكلات.</string>
     <string name="expand">توسّع</string>
     <string name="collapse">انهيار</string>
     <!-- AppListActivity -->
@@ -177,7 +177,7 @@
     <string name="settings_disable_verbose_log">تعطيل السجلات المفصّلة</string>
     <string name="settings_disable_verbose_log_summary">الإبلاغ عن مشاكل طلب لتضمين السجلات المفصولة</string>
     <string name="settings_enable_log_watchdog">تمكين مراقبة السجل</string>
-    <string name="settings_enable_log_watchdog_summary">يقوم مراقب السجل الخاص بـ LSPosed بتعديل خصائص النظام، والتي يمكن استغلالها للكشف عن LSPosed</string>
+    <string name="settings_enable_log_watchdog_summary">يقوم مراقب السجل الخاص بـ ReLSPosed بتعديل خصائص النظام، والتي يمكن استغلالها للكشف عن ReLSPosed</string>
     <string name="pure_black_dark_theme">السمة السوداء المظلمة</string>
     <string name="pure_black_dark_theme_summary">استخدام السمة السوداء الخالصة إذا تم تمكين السمة المظلمة</string>
     <string name="settings_group_theme">السمة</string>

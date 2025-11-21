@@ -27,15 +27,15 @@ mount tmpfs -t tmpfs /data/resource-cache
 
 if [ ! -S "/dev/socket/zygote" ]; then
   timeout 0.5 inotifyd - /dev/socket:near | while read -r line; do
-    $debug && log -p v -t "LSPosed" "inotify: $line"
+    $debug && log -p v -t "ReLSPosed" "inotify: $line"
     if [ -S "/dev/socket/zygote" ]; then
-      $debug && log -p v -t "LSPosed" "zygote started"
+      $debug && log -p v -t "ReLSPosed" "zygote started"
       touch /dev/socket&
       exit
     fi
   done
 fi
-$debug && log -p d -t "LSPosed" "start $flavor daemon $*"
+$debug && log -p d -t "ReLSPosed" "start $flavor daemon $*"
 
 # shellcheck disable=SC2086
 exec /system/bin/app_process $java_options /system/bin --nice-name=lspd org.lsposed.lspd.Main "$@" >/dev/null 2>&1

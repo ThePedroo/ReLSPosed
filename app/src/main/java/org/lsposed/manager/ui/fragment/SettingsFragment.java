@@ -362,7 +362,7 @@ public class SettingsFragment extends BaseFragment {
             Preference translation = findPreference("translation");
             if (translation != null) {
                 translation.setOnPreferenceClickListener(preference -> {
-                    NavUtil.startURL(requireActivity(), "https://crowdin.com/project/lsposed_jingmatrix");
+                    NavUtil.startURL(requireActivity(), "https://github.com/ThePedroo/ReLSPosed");
                     return true;
                 });
                 translation.setSummary(getString(R.string.settings_translation_summary, getString(R.string.app_name)));

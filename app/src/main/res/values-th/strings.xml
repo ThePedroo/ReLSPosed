@@ -40,19 +40,19 @@
  ของเรา]]></string>
     <string name="translators" comment="Dear translators, please add your home page here following the format. There can be more than one translator. So feel free to append yourself.">null</string>
     <string name="install">ติดตั้ง</string>
-    <string name="install_summary">แตะเพื่อติดตั้ง LSPosed</string>
+    <string name="install_summary">แตะเพื่อติดตั้ง ReLSPosed</string>
     <string name="not_installed">ไม่ได้ติดตั้ง</string>
-    <string name="not_install_summary">ไม่ได้ติดตั้ง LSPosed</string>
+    <string name="not_install_summary">ไม่ได้ติดตั้ง ReLSPosed</string>
     <string name="activated">เปิดใช้งานแล้ว</string>
     <string name="partial_activated">เปิดใช้งานบางส่วน</string>
     <string name="selinux_policy_not_loaded_summary">การโหลด SEPolicy ไม่ถูกต้อง</string>
     <string name="selinux_policy_not_loaded"><![CDATA[หากฟีเจอร์บางอย่างไม่ทำงาน<br/>โปรดรายงานที่<a href="https://github.com/topjohnwu/Magisk/issues"><b>Magisk</b></a> developer.]]></string>
     <string name="system_inject_fail_summary">Injection ระบบ Framework ล้มเหลว</string>
-    <string name="system_inject_fail"><![CDATA[สิ่งนี้เกิดขึ้นได้ยากและอาจเกิดจาก <b>Magisk</b> หรือโมดูล Magisk ที่มีคุณภาพต่ำบางตัว<br/>โปรดลองปิดการใช้งานโมดูล Magisk อื่นที่ไม่ใช่ Riru และ LSPosed หรือส่งบันทึกแบบเต็มไปยังนักพัฒนา]]></string>
+    <string name="system_inject_fail"><![CDATA[สิ่งนี้เกิดขึ้นได้ยากและอาจเกิดจาก <b>Magisk</b> หรือโมดูล Magisk ที่มีคุณภาพต่ำบางตัว<br/>โปรดลองปิดการใช้งานโมดูล Magisk อื่นที่ไม่ใช่ Riru และ ReLSPosed หรือส่งบันทึกแบบเต็มไปยังนักพัฒนา]]></string>
     <string name="system_prop_incorrect_summary">System prop ไม่ถูกต้อง</string>
     <string name="system_prop_incorrect"><![CDATA[คุณสมบัติระบบที่จำเป็นบางอย่างถูกลบหรือแก้ไข<br/>โมดูลอาจใช้ไม่ได้ในบางครั้ง]]></string>
     <string name="need_update">จำเป็นต้องอัพเดท</string>
-    <string name="please_update_summary">โปรดติดตั้ง LSPosed . เวอร์ชันล่าสุด</string>
+    <string name="please_update_summary">โปรดติดตั้ง ReLSPosed . เวอร์ชันล่าสุด</string>
     <string name="info_api_version">เวอร์ชัน API</string>
     <string name="info_framework_version">เวอร์ชัน Framework</string>
     <string name="info_manager_package_name">ชื่อแพ็คเกจผู้จัดการ</string>
@@ -69,17 +69,17 @@
     <string name="mount_failed">เมานต์ล้มเหลว</string>
     <string name="selinux_permissive">SELinux ได้รับอนุญาต</string>
     <string name="sepolicy_incorrect">นโยบาย SELinux ไม่ถูกต้อง</string>
-    <string name="update_lsposed">อัพเดท LSPosed</string>
-    <string name="update_lsposed_msg">ยืนยันการอัปเดต LSPosed? อุปกรณ์นี้จะรีบูตหลังจากอัปเดตเสร็จสิ้น</string>
+    <string name="update_lsposed">อัพเดท ReLSPosed</string>
+    <string name="update_lsposed_msg">ยืนยันการอัปเดต ReLSPosed? อุปกรณ์นี้จะรีบูตหลังจากอัปเดตเสร็จสิ้น</string>
     <string name="info_copied">คัดลอกไปยังคลิปบอร์ดแล้ว</string>
     <!-- WelcomeDialog -->
-    <string name="parasitic_welcome">ยินดีต้อนรับสู่ LSPosed</string>
+    <string name="parasitic_welcome">ยินดีต้อนรับสู่ ReLSPosed</string>
     <string name="parasitic_welcome_summary">คุณกำลังใช้ Lsposed ซึ่งสามารถสร้างทางลัดหรือยังคงเปิดจากการแจ้งเตือน</string>
     <string name="parasitic_welcome_summary_no_shortcut_support">คุณกำลังใช้ตัวจัดการ Lsposed ซึ่งสามารถเปิดได้จากการแจ้งเตือน</string>
     <string name="create_shortcut">สร้างทางลัด</string>
     <string name="never_show">ไม่ต้องแสดง</string>
     <string name="app_welcome">แนะนำ กำจัดไวรัส</string>
-    <string name="app_welcome_summary">LSPosed รองรับการปรสิตของระบบเพื่อหลีกเลี่ยงการตรวจจับ คุณสามารถเปิดโปรแกรมจัดการปรสิตได้จากการแจ้งเตือน ขอแนะนำให้ถอนการติดตั้งแอปพลิเคชันปัจจุบัน</string>
+    <string name="app_welcome_summary">ReLSPosed รองรับการปรสิตของระบบเพื่อหลีกเลี่ยงการตรวจจับ คุณสามารถเปิดโปรแกรมจัดการปรสิตได้จากการแจ้งเตือน ขอแนะนำให้ถอนการติดตั้งแอปพลิเคชันปัจจุบัน</string>
     <!-- LogsActivity -->
     <string name="menuSaveToSd">บันทึก</string>
     <string name="nav_item_logs_verbose">บันทึกอย่างละเอียด</string>
@@ -114,7 +114,7 @@
     <string name="module_installed">เพิ่ม %1$s ให้กับผู้ใช้ %2$s</string>
     <string name="module_install_failed">การเพิ่มโมดูลล้มเหลว</string>
     <string name="install_to_user">ติดตั้งให้กับผู้ใช้ %s</string>
-    <string name="install_to_user_message">ต้องการติดตั้ง %1$s ให้กับผู้ใช้ %2$sหรือไม่ ขอแนะนำให้ติดตั้งด้วยตนเอง การบังคับติดตั้งผ่าน LSPosed อาจทำให้เกิดปัญหาได้</string>
+    <string name="install_to_user_message">ต้องการติดตั้ง %1$s ให้กับผู้ใช้ %2$sหรือไม่ ขอแนะนำให้ติดตั้งด้วยตนเอง การบังคับติดตั้งผ่าน ReLSPosed อาจทำให้เกิดปัญหาได้</string>
     <string name="expand">ขยาย</string>
     <string name="collapse">ทรุด</string>
     <!-- AppListActivity -->

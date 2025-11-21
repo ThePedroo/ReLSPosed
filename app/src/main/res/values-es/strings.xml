@@ -41,19 +41,19 @@
     <string name="about_view_source_code"><![CDATA[Ve el código fuente en %1$s<br/>Únete a nuestro %2$s canal]]></string>
     <string name="translators" comment="Dear translators, please add your home page here following the format. There can be more than one translator. So feel free to append yourself.">squaredDot</string>
     <string name="install">Instalar</string>
-    <string name="install_summary">Pulsa para instalar LSPosed</string>
+    <string name="install_summary">Pulsa para instalar ReLSPosed</string>
     <string name="not_installed">No instalado</string>
-    <string name="not_install_summary">LSPosed no está instalado</string>
+    <string name="not_install_summary">ReLSPosed no está instalado</string>
     <string name="activated">Activado</string>
     <string name="partial_activated">Parcialmente activado</string>
     <string name="selinux_policy_not_loaded_summary">Selinux policy no está cargado correctamente</string>
     <string name="selinux_policy_not_loaded"><![CDATA[Algunas funciones no funcionarán.<br/>Informa de ello al desarrollador de <a href="https://github.com/topjohnwu/Magisk/issues"><b>Magisk</b></a> .]]></string>
     <string name="system_inject_fail_summary">System Framework injection failed</string>
-    <string name="system_inject_fail"><![CDATA[This is rare and may be caused by <b>Magisk</b> or some low-quality Magisk modules.<br/>Please try to disable Magisk modules other than Riru and LSPosed or submit full log to developers.]]></string>
+    <string name="system_inject_fail"><![CDATA[This is rare and may be caused by <b>Magisk</b> or some low-quality Magisk modules.<br/>Please try to disable Magisk modules other than Riru and ReLSPosed or submit full log to developers.]]></string>
     <string name="system_prop_incorrect_summary">System prop incorrect</string>
     <string name="system_prop_incorrect"><![CDATA[Some necessary system properties deleted or modified.<br/>Modules may invalidate occasionally.]]></string>
     <string name="need_update">Need to update</string>
-    <string name="please_update_summary">Por favor instale la última versión de LSPosed</string>
+    <string name="please_update_summary">Por favor instale la última versión de ReLSPosed</string>
     <string name="developer_warning_title">Sugerencias para desarrolladores de módulos</string>
     <string name="developer_warning_summary">Por favor, desactiva las optimizaciones de implementación en Android Studio, o ejecuta el comando `gradlew installDebug` para instalar el módulo. De lo contrario, el apk del módulo no se actualizará.</string>
     <string name="info_api_version">Versión de la API</string>
@@ -72,17 +72,17 @@
     <string name="mount_failed">El montaje falló</string>
     <string name="selinux_permissive">SELinux es permisivo</string>
     <string name="sepolicy_incorrect">La política de SELinux es incorrecta</string>
-    <string name="update_lsposed">Actualizar LSPosed</string>
+    <string name="update_lsposed">Actualizar ReLSPosed</string>
     <string name="update_lsposed_msg">¿Confirmar para actualizar LSPose? Este dispositivo se reiniciará después de completar la actualización</string>
     <string name="info_copied">Información copiada al portapapeles</string>
     <!-- WelcomeDialog -->
-    <string name="parasitic_welcome">Bienvenido a LSPosed</string>
+    <string name="parasitic_welcome">Bienvenido a ReLSPosed</string>
     <string name="parasitic_welcome_summary">Usted está utilizando el gestor de parásitos, que puede crear acceso directo o todavía abierta de notificación.</string>
     <string name="parasitic_welcome_summary_no_shortcut_support">Estás usando el gestor de parásitos, que se puede abrir desde la notificación.</string>
     <string name="create_shortcut">Crear acceso directo</string>
     <string name="never_show">Nunca mostrar</string>
     <string name="app_welcome">Se recomienda Parasitic Manager</string>
-    <string name="app_welcome_summary">LSPosed ahora soporta la parasitación del sistema para evitar la detección, puede abrir el gestor de parásitos desde la notificación. Se recomienda desinstalar la aplicación actual.</string>
+    <string name="app_welcome_summary">ReLSPosed ahora soporta la parasitación del sistema para evitar la detección, puede abrir el gestor de parásitos desde la notificación. Se recomienda desinstalar la aplicación actual.</string>
     <!-- LogsActivity -->
     <string name="menuSaveToSd">Guardar</string>
     <string name="nav_item_logs_verbose">Registros detallados</string>
@@ -117,7 +117,7 @@
     <string name="module_installed">%1$s instalado %2$s</string>
     <string name="module_install_failed">Fallo en la instalación</string>
     <string name="install_to_user">Instalar al usuario %s</string>
-    <string name="install_to_user_message">¿Quieres instalar %1$s al usuario %2$s? Se recomienda que lo instales manualmente; forzar la instalación a través de LSPosed puede causar problemas.</string>
+    <string name="install_to_user_message">¿Quieres instalar %1$s al usuario %2$s? Se recomienda que lo instales manualmente; forzar la instalación a través de ReLSPosed puede causar problemas.</string>
     <string name="expand">expandir</string>
     <string name="collapse">contraer</string>
     <!-- AppListActivity -->
@@ -169,7 +169,7 @@
     <string name="settings_disable_verbose_log">Desactivar registros detallados</string>
     <string name="settings_disable_verbose_log_summary">Solicitud de inclusión de registros detallados en los informes de incidencias</string>
     <string name="settings_enable_log_watchdog">Habilitar el watchdog de registro</string>
-    <string name="settings_enable_log_watchdog_summary">El watchdog de registro de LSPosed modifica propiedades del sistema, lo cual podría ser explotado para detectar LSPosed</string>
+    <string name="settings_enable_log_watchdog_summary">El watchdog de registro de ReLSPosed modifica propiedades del sistema, lo cual podría ser explotado para detectar ReLSPosed</string>
     <string name="pure_black_dark_theme">Tema negro oscuro</string>
     <string name="pure_black_dark_theme_summary">Usar el tema negro puro si el tema oscuro está activado</string>
     <string name="settings_group_theme">Tema</string>

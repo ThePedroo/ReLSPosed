@@ -45,19 +45,19 @@
     <string name="about_view_source_code"><![CDATA[הצג קוד מקור ב-%1$s<br/> הצטרף לערוץ %2$s שלנו]]></string>
     <string name="translators" comment="Dear translators, please add your home page here following the format. There can be more than one translator. So feel free to append yourself.">ריק</string>
     <string name="install">התקנה</string>
-    <string name="install_summary">הקש כדי להתקין את LSPosed</string>
+    <string name="install_summary">הקש כדי להתקין את ReLSPosed</string>
     <string name="not_installed">לא מותקן</string>
-    <string name="not_install_summary">LSPosed אינו מותקן</string>
+    <string name="not_install_summary">ReLSPosed אינו מותקן</string>
     <string name="activated">הופעל</string>
     <string name="partial_activated">הופעל חלקית</string>
     <string name="selinux_policy_not_loaded_summary">SEPolicy לא נטען כהלכה</string>
     <string name="selinux_policy_not_loaded"><![CDATA[חלק מהתכונות לא יפעלו.<br/>נא לדווח על כך למפתחי Magisk</b></a> <a href="https://github.com/topjohnwu/Magisk/issues"><b>.]]></string>
     <string name="system_inject_fail_summary">הזרקת תשתית המערכת נכשלה</string>
-    <string name="system_inject_fail"><![CDATA[זה נדיר ועלול להיגרם על ידי <b>Magisk</b> או מודולי Magisk באיכות נמוכה.<br/>אנא נסה להשבית מודולי Magisk שאינם Riru ו-LSPosed או שלח דיווח לוג מלא למפתחים.]]></string>
+    <string name="system_inject_fail"><![CDATA[זה נדיר ועלול להיגרם על ידי <b>Magisk</b> או מודולי Magisk באיכות נמוכה.<br/>אנא נסה להשבית מודולי Magisk שאינם Riru ו-ReLSPosed או שלח דיווח לוג מלא למפתחים.]]></string>
     <string name="system_prop_incorrect_summary">מאפיין המערכת שגוי</string>
     <string name="system_prop_incorrect"><![CDATA[חלק ממאפייני המערכת הדרושים נמחקו או שונו.<br/>המודולים עשויים להתבטל מדי פעם.]]></string>
     <string name="need_update">צריך לעדכן</string>
-    <string name="please_update_summary">נא להתקין את הגרסה העדכנית ביותר של LSPosed</string>
+    <string name="please_update_summary">נא להתקין את הגרסה העדכנית ביותר של ReLSPosed</string>
     <string name="info_api_version">גרסת API</string>
     <string name="info_framework_version">גרסת תשתית</string>
     <string name="info_manager_package_name">שם חבילת מנהל</string>
@@ -74,17 +74,17 @@
     <string name="mount_failed">ה-mount נכשל</string>
     <string name="selinux_permissive">מדיניות SELinux הינה מתירנית</string>
     <string name="sepolicy_incorrect">מדיניות SELinux הינה שגויה</string>
-    <string name="update_lsposed">עדכן LSPosed</string>
-    <string name="update_lsposed_msg">אשר לעדכן את LSPosed? מכשיר זה יאתחל לאחר השלמת העדכון</string>
+    <string name="update_lsposed">עדכן ReLSPosed</string>
+    <string name="update_lsposed_msg">אשר לעדכן את ReLSPosed? מכשיר זה יאתחל לאחר השלמת העדכון</string>
     <string name="info_copied">הועתק ללוח</string>
     <!-- WelcomeDialog -->
-    <string name="parasitic_welcome">ברוכים הבאים ל-LSPosed</string>
+    <string name="parasitic_welcome">ברוכים הבאים ל-ReLSPosed</string>
     <string name="parasitic_welcome_summary">הנך משתמש בגרסת אפליקציית ניהול בתצורת טפיל, שיכולה ליצור קיצור דרך או עדיין להיפתח מהתראה.</string>
     <string name="parasitic_welcome_summary_no_shortcut_support">הנך משתמש בגרסת אפליקציית ניהול בתצורת טפיל, שיכולה להיפתח מהתראה.</string>
     <string name="create_shortcut">צור קיצור דרך</string>
     <string name="never_show">לעולם אל תראה</string>
     <string name="app_welcome">מומלצת גרסת אפליקציית ניהול בתצורת טפיל</string>
-    <string name="app_welcome_summary">LSPosed תומך כעת בתצורת טפיל כדי למנוע זיהוי, ניתן לפתוח את גרסת אפליקציית הניהול בתצורת טפיל מהתראה. מומלץ להסיר את האפליקציה הנוכחית.</string>
+    <string name="app_welcome_summary">ReLSPosed תומך כעת בתצורת טפיל כדי למנוע זיהוי, ניתן לפתוח את גרסת אפליקציית הניהול בתצורת טפיל מהתראה. מומלץ להסיר את האפליקציה הנוכחית.</string>
     <!-- LogsActivity -->
     <string name="menuSaveToSd">שמור</string>
     <string name="nav_item_logs_verbose">לוגים מפורטים</string>
@@ -104,10 +104,10 @@
     <string name="disabled_verbose_log">לוגים מפורטים מושבתים</string>
     <!-- ModulesActivity -->
     <string name="module_empty_description">(לא מסופק תיאור)</string>
-    <string name="warning_xposed_min_version">מודול זה דורש גרסה חדשה יותר של LSPosed (%d) ולכן לא יכול להיות מופעל</string>
+    <string name="warning_xposed_min_version">מודול זה דורש גרסה חדשה יותר של ReLSPosed (%d) ולכן לא יכול להיות מופעל</string>
     <string name="warning_target_version_higher">מודול זה מיועד לגרסה חדשה יותר של Xposed (%d) ולכן ייתכן שחלק מהפונקציונליות לא תופעל כהלכה</string>
-    <string name="no_min_version_specified">מודול זה לא מציין את גסרת ה- LSPosed שהוא צריך.</string>
-    <string name="warning_min_version_too_low">מודול זה נוצר בשביל LSPosed גרסה %1$d, אך בשל חוסר תאימות לאחור בגרסה %2$d, הוא הופסק</string>
+    <string name="no_min_version_specified">מודול זה לא מציין את גסרת ה- ReLSPosed שהוא צריך.</string>
+    <string name="warning_min_version_too_low">מודול זה נוצר בשביל ReLSPosed גרסה %1$d, אך בשל חוסר תאימות לאחור בגרסה %2$d, הוא הופסק</string>
     <string name="warning_installed_on_external_storage">מודול זה לא יכול להיטען מכיוון שהוא מותקן על כרטיס ה-SD, אנא העבר אותו לאחסון פנימי</string>
     <string name="module_uninstall">הסר התקנה</string>
     <string name="module_settings">הגדרות מודול</string>
@@ -119,7 +119,7 @@
     <string name="module_installed">נוסף %1$s למשתמש %2$s</string>
     <string name="module_install_failed">הוספת המודל נכשלה</string>
     <string name="install_to_user">התקן למשתמש %s</string>
-    <string name="install_to_user_message">רוצה להתקין %1$s למשתמש %2$s? מומלץ להתקין באופן ידני, כפיית התקנה באמצעות LSPosed עלולה לגרום לבעיות.</string>
+    <string name="install_to_user_message">רוצה להתקין %1$s למשתמש %2$s? מומלץ להתקין באופן ידני, כפיית התקנה באמצעות ReLSPosed עלולה לגרום לבעיות.</string>
     <string name="expand">להרחיב</string>
     <string name="collapse">התמוטטות</string>
     <!-- AppListActivity -->
@@ -146,7 +146,7 @@
     <string name="use_recommended">מומלץ</string>
     <string name="no_scope_selected_has_recommended">אתה לא בחרת שום אפליקציה. לבחור אפליקציות מומלצות?</string>
     <string name="use_recommended_message">בחר אפליקציות מומלצות?</string>
-    <string name="module_is_not_activated_yet">מודול LSPosed עדיין לא הופעל</string>
+    <string name="module_is_not_activated_yet">מודול ReLSPosed עדיין לא הופעל</string>
     <string name="requested_by_module">מומלץ</string>
     <string name="update_available">עדכון זמין: %1$s</string>
     <string name="module_disabled_no_selection">מודול %s בוטל מכיוון שלא נבחרה שום אפליקציה.</string>

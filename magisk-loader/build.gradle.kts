@@ -28,7 +28,7 @@ plugins {
     alias(libs.plugins.lsplugin.resopt)
 }
 
-val moduleName = "LSPosed"
+val moduleName = "ReLSPosed"
 val moduleBaseId = "lsposed"
 val authors = "ThePedroo, JingMatrix and LSPosed Developers"
 
@@ -109,7 +109,7 @@ dependencies {
 }
 
 val zipAll = task("zipAll") {
-    group = "LSPosed"
+    group = "ReLSPosed"
 }
 
 fun afterEval() = android.applicationVariants.forEach { variant ->
@@ -126,7 +126,7 @@ fun afterEval() = android.applicationVariants.forEach { variant ->
     val zipFileName = "$moduleName-v$verName-$verCode-${flavorLowered}-$buildTypeLowered.zip"
 
     val prepareMagiskFilesTask = task<Sync>("prepareMagiskFiles$variantCapped") {
-        group = "LSPosed"
+        group = "ReLSPosed"
         dependsOn(
             "assemble$variantCapped",
             ":app:package$buildTypeCapped",
@@ -145,7 +145,6 @@ fun afterEval() = android.applicationVariants.forEach { variant ->
                 "versionName" to "v$verName",
                 "versionCode" to verCode,
                 "authorList" to authors,
-                "updateJson" to "https://raw.githubusercontent.com/JingMatrix/LSPosed/master/magisk-loader/update/${flavorLowered}.json",
                 "requirement" to when (flavorLowered) {
                     "zygisk" -> "Requires Magisk 26.0+ and Zygisk enabled"
                     else -> "No further requirements"
@@ -205,7 +204,7 @@ fun afterEval() = android.applicationVariants.forEach { variant ->
     }
 
     val zipTask = task<Zip>("zip${variantCapped}") {
-        group = "LSPosed"
+        group = "ReLSPosed"
         dependsOn(prepareMagiskFilesTask)
         archiveFileName = zipFileName
         destinationDirectory = file("$projectDir/release")
@@ -216,13 +215,13 @@ fun afterEval() = android.applicationVariants.forEach { variant ->
 
     val adb: String = androidComponents.sdkComponents.adb.get().asFile.absolutePath
     val pushTask = task<Exec>("push${variantCapped}") {
-        group = "LSPosed"
+        group = "ReLSPosed"
         dependsOn(zipTask)
         workingDir("${projectDir}/release")
         commandLine(adb, "push", zipFileName, "/data/local/tmp/")
     }
     val flashMagiskTask = task<Exec>("flashMagisk${variantCapped}") {
-        group = "LSPosed"
+        group = "ReLSPosed"
         dependsOn(pushTask)
         commandLine(
             adb, "shell", "su", "-c",
@@ -230,12 +229,12 @@ fun afterEval() = android.applicationVariants.forEach { variant ->
         )
     }
     task<Exec>("flashMagiskAndReboot${variantCapped}") {
-        group = "LSPosed"
+        group = "ReLSPosed"
         dependsOn(flashMagiskTask)
         commandLine(adb, "shell", "su", "-c", "/system/bin/svc", "power", "reboot")
     }
     val flashKsuTask = task<Exec>("flashKsu${variantCapped}") {
-        group = "LSPosed"
+        group = "ReLSPosed"
         dependsOn(pushTask)
         commandLine(
             adb, "shell", "su", "-c",
@@ -243,12 +242,12 @@ fun afterEval() = android.applicationVariants.forEach { variant ->
         )
     }
     task<Exec>("flashKsuAndReboot${variantCapped}") {
-        group = "LSPosed"
+        group = "ReLSPosed"
         dependsOn(flashKsuTask)
         commandLine(adb, "shell", "su", "-c", "/system/bin/svc", "power", "reboot")
     }
     val flashAPatchTask = task<Exec>("flashAPatch${variantCapped}") {
-        group = "LSPosed"
+        group = "ReLSPosed"
         dependsOn(pushTask)
         commandLine(
             adb, "shell", "su", "-c",
@@ -256,7 +255,7 @@ fun afterEval() = android.applicationVariants.forEach { variant ->
         )
     }
     task<Exec>("flashAPatchAndReboot${variantCapped}") {
-        group = "LSPosed"
+        group = "ReLSPosed"
         dependsOn(flashAPatchTask)
         commandLine(adb, "shell", "su", "-c", "/system/bin/svc", "power", "reboot")
     }
@@ -268,18 +267,18 @@ afterEvaluate {
 
 val adb: String = androidComponents.sdkComponents.adb.get().asFile.absolutePath
 val killLspd = task<Exec>("killLspd") {
-    group = "LSPosed"
+    group = "ReLSPosed"
     commandLine(adb, "shell", "su", "-c", "killall", "lspd")
     isIgnoreExitValue = true
 }
 val pushDaemon = task<Exec>("pushDaemon") {
-    group = "LSPosed"
+    group = "ReLSPosed"
     dependsOn(":daemon:assembleDebug")
     workingDir(project(":daemon").layout.buildDirectory.dir("outputs/apk/debug"))
     commandLine(adb, "push", "daemon-debug.apk", "/data/local/tmp/daemon.apk")
 }
 val pushDaemonNative = task<Exec>("pushDaemonNative") {
-    group = "LSPosed"
+    group = "ReLSPosed"
     dependsOn(":daemon:assembleDebug")
     doFirst {
         val abi: String = ByteArrayOutputStream().use { outputStream ->
@@ -294,7 +293,7 @@ val pushDaemonNative = task<Exec>("pushDaemonNative") {
     commandLine(adb, "push", "libdaemon.so", "/data/local/tmp/libdaemon.so")
 }
 val reRunDaemon = task<Exec>("reRunDaemon") {
-    group = "LSPosed"
+    group = "ReLSPosed"
     dependsOn(pushDaemon, pushDaemonNative, killLspd)
     // tricky to pass a minus number to avoid the injection warning
     commandLine(
@@ -305,7 +304,7 @@ val reRunDaemon = task<Exec>("reRunDaemon") {
 }
 val tmpApk = "/data/local/tmp/manager.apk"
 val pushApk = task<Exec>("pushApk") {
-    group = "LSPosed"
+    group = "ReLSPosed"
     dependsOn(":app:assembleDebug")
     doFirst {
         exec {
@@ -316,7 +315,7 @@ val pushApk = task<Exec>("pushApk") {
     commandLine(adb, "push", "app-debug.apk", tmpApk)
 }
 val openApp = task<Exec>("openApp") {
-    group = "LSPosed"
+    group = "ReLSPosed"
     commandLine(
         adb, "shell",
         "am", "start", "-c", "org.lsposed.manager.LAUNCH_MANAGER",
@@ -324,7 +323,7 @@ val openApp = task<Exec>("openApp") {
     )
 }
 task("reRunApp") {
-    group = "LSPosed"
+    group = "ReLSPosed"
     dependsOn(pushApk)
     finalizedBy(reRunDaemon)
 }

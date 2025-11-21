@@ -244,7 +244,7 @@ public class ConfigFileManager {
 
     static void getLogs(ParcelFileDescriptor zipFd) throws IllegalStateException {
         try (zipFd; var os = new ZipOutputStream(new FileOutputStream(zipFd.getFileDescriptor()))) {
-            var comment = String.format(Locale.ROOT, "LSPosed %s %s (%d)",
+            var comment = String.format(Locale.ROOT, "ReLSPosed %s %s (%d)",
                     BuildConfig.BUILD_TYPE, BuildConfig.VERSION_NAME, BuildConfig.VERSION_CODE);
             os.setComment(comment);
             os.setLevel(Deflater.BEST_COMPRESSION);

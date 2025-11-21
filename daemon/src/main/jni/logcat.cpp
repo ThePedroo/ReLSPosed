@@ -220,7 +220,7 @@ void Logcat::ProcessBuffer(struct log_msg *buf) {
 
     std::string_view tag(entry.tag, entry.tagLen);
     bool shortcut = false;
-    if (tag == "LSPosed-Bridge"sv || tag == "XSharedPreferences"sv || tag == "LSPosedContext")
+    if (tag == "ReLSPosed-Bridge"sv || tag == "XSharedPreferences"sv || tag == "ReLSPosedContext")
         [[unlikely]] {
         modules_print_count_ += PrintLogLine(entry, modules_file_.get());
         shortcut = true;
@@ -228,7 +228,7 @@ void Logcat::ProcessBuffer(struct log_msg *buf) {
     if (verbose_ && (shortcut || buf->id() == log_id::LOG_ID_CRASH || entry.pid == my_pid_ ||
                      tag == "APatchD"sv || tag == "Dobby"sv || tag.starts_with("dex2oat"sv) ||
                      tag == "KernelSU"sv || tag == "LSPlant"sv || tag == "LSPlt"sv ||
-                     tag.starts_with("LSPosed"sv) || tag == "Magisk"sv || tag == "SELinux"sv ||
+                     tag.starts_with("ReLSPosed"sv) || tag == "Magisk"sv || tag == "SELinux"sv ||
                      tag.starts_with("zygisk"sv))) [[unlikely]] {
         verbose_print_count_ += PrintLogLine(entry, verbose_file_.get());
     }

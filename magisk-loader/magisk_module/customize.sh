@@ -35,7 +35,7 @@ enforce_install_from_magisk_app() {
 }
 
 VERSION=$(grep_prop version "${TMPDIR}/module.prop")
-ui_print "- LSPosed version ${VERSION}"
+ui_print "- ReLSPosed version ${VERSION}"
 
 # Extract verify.sh
 ui_print "- Extracting verify.sh"
@@ -158,4 +158,4 @@ if [ "$(grep_prop ro.maple.enable)" == "1" ] && [ "$FLAVOR" == "zygisk" ]; then
   echo "ro.maple.enable=0" >> "$MODPATH/system.prop"
 fi
 
-ui_print "- Welcome to LSPosed!"
+ui_print "- Welcome to ReLSPosed!"

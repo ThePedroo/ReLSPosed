@@ -22,11 +22,11 @@ public class ParasiticManagerSystemHooker implements HandleSystemServerProcessHo
     private static class Hooker2 implements XposedInterface.Hooker {
         @BeforeInvocation
         public static void beforeHookedMethod(XposedInterface.BeforeHookCallback callback) throws Throwable {
-            Log.d("LSPosed", "checking new activity");
+            Log.d("ReLSPosed", "checking new activity");
             var self = callback.getThisObject();
             if (self == null) return;
             var request = XposedHelpers.getObjectField(self, "mRequest");
-            Log.d("LSPosed", "start activity intent=" + XposedHelpers.getObjectField(request, "intent") + " ai=" + XposedHelpers.getObjectField(request, "activityInfo"), new Throwable());
+            Log.d("ReLSPosed", "start activity intent=" + XposedHelpers.getObjectField(request, "intent") + " ai=" + XposedHelpers.getObjectField(request, "activityInfo"), new Throwable());
         }
     }*/
 

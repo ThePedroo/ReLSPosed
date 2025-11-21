@@ -41,19 +41,19 @@
     <string name="about_view_source_code"><![CDATA[%1$s<br/>पर सोर्स कोड देखें हमारे %2$s चैनल से जुड़ें]]></string>
     <string name="translators" comment="Dear translators, please add your home page here following the format. There can be more than one translator. So feel free to append yourself.">Ahmad Shaikh</string>
     <string name="install">स्थापित करना</string>
-    <string name="install_summary">LSPosed स्थापित करने के लिए टैप करें</string>
+    <string name="install_summary">ReLSPosed स्थापित करने के लिए टैप करें</string>
     <string name="not_installed">स्थापित नहीं हे</string>
-    <string name="not_install_summary">LSPosed स्थापित नहीं है</string>
+    <string name="not_install_summary">ReLSPosed स्थापित नहीं है</string>
     <string name="activated">सक्रिय</string>
     <string name="partial_activated">आंशिक रूप से सक्रिय</string>
     <string name="selinux_policy_not_loaded_summary">SEPolicy ठीक से लोड नहीं है</string>
     <string name="selinux_policy_not_loaded"><![CDATA[कुछ सुविधाएँ काम नहीं करेंगी।<br/>कृपया इसकी सूचना <a href="https://github.com/topjohnwu/Magisk/issues"><b>मैजिक</b></a> डेवलपर को दें।]]></string>
     <string name="system_inject_fail_summary">सिस्टम फ्रेमवर्क इंजेक्शन विफल</string>
-    <string name="system_inject_fail"><![CDATA[यह दुर्लभ है और <b>Magisk</b> या कुछ निम्न-गुणवत्ता वाले Magisk मॉड्यूल के कारण हो सकता है।<br/>कृपया Riru और LSPosed के अलावा अन्य Magisk मॉड्यूल को अक्षम करने का प्रयास करें या डेवलपर्स को पूर्ण लॉग सबमिट करें।]]></string>
+    <string name="system_inject_fail"><![CDATA[यह दुर्लभ है और <b>Magisk</b> या कुछ निम्न-गुणवत्ता वाले Magisk मॉड्यूल के कारण हो सकता है।<br/>कृपया Riru और ReLSPosed के अलावा अन्य Magisk मॉड्यूल को अक्षम करने का प्रयास करें या डेवलपर्स को पूर्ण लॉग सबमिट करें।]]></string>
     <string name="system_prop_incorrect_summary">सिस्टम प्रोप गलत</string>
     <string name="system_prop_incorrect"><![CDATA[कुछ आवश्यक सिस्टम गुण हटा दिए गए या संशोधित किए गए।<br/>मॉड्यूल कभी-कभी अमान्य हो सकते हैं।]]></string>
     <string name="need_update">अद्यतन करने की आवश्यकता है</string>
-    <string name="please_update_summary">कृपया LSPosed का नवीनतम संस्करण स्थापित करें</string>
+    <string name="please_update_summary">कृपया ReLSPosed का नवीनतम संस्करण स्थापित करें</string>
     <string name="info_api_version">एपीआई संस्करण</string>
     <string name="info_framework_version">फ्रेमवर्क संस्करण</string>
     <string name="info_manager_package_name">प्रबंधक पैकेज का नाम</string>
@@ -70,17 +70,17 @@
     <string name="mount_failed">माउंट विफल</string>
     <string name="selinux_permissive">SELinux अनुमेय है</string>
     <string name="sepolicy_incorrect">SELinux नीति गलत है</string>
-    <string name="update_lsposed">अद्यतन LSPosed</string>
-    <string name="update_lsposed_msg">LSPosed को अपडेट करने की पुष्टि करें? अपडेट पूरा होने के बाद यह डिवाइस रीबूट हो जाएगा</string>
+    <string name="update_lsposed">अद्यतन ReLSPosed</string>
+    <string name="update_lsposed_msg">ReLSPosed को अपडेट करने की पुष्टि करें? अपडेट पूरा होने के बाद यह डिवाइस रीबूट हो जाएगा</string>
     <string name="info_copied">क्लिपबोर्ड पर नकल</string>
     <!-- WelcomeDialog -->
-    <string name="parasitic_welcome">LSPosed में आपका स्वागत है</string>
+    <string name="parasitic_welcome">ReLSPosed में आपका स्वागत है</string>
     <string name="parasitic_welcome_summary">आप परजीवी प्रबंधक का उपयोग कर रहे हैं, जो शॉर्टकट बना सकता है या सूचना से अभी भी खुला हो सकता है।</string>
     <string name="parasitic_welcome_summary_no_shortcut_support">आप परजीवी प्रबंधक का उपयोग कर रहे हैं, जो सूचना से खुल सकता है।</string>
     <string name="create_shortcut">शॉर्टकट बनाएं</string>
     <string name="never_show">कभी भी न दिखाओ</string>
     <string name="app_welcome">परजीवी प्रबंधक की सिफारिश की</string>
-    <string name="app_welcome_summary">LSPosed अब पता लगाने से बचने के लिए सिस्टम परजीवीकरण का समर्थन करता है, आप अधिसूचना से परजीवी प्रबंधक खोल सकते हैं। वर्तमान एप्लिकेशन को अनइंस्टॉल करने की अनुशंसा की जाती है।</string>
+    <string name="app_welcome_summary">ReLSPosed अब पता लगाने से बचने के लिए सिस्टम परजीवीकरण का समर्थन करता है, आप अधिसूचना से परजीवी प्रबंधक खोल सकते हैं। वर्तमान एप्लिकेशन को अनइंस्टॉल करने की अनुशंसा की जाती है।</string>
     <!-- LogsActivity -->
     <string name="menuSaveToSd">बचाना</string>
     <string name="nav_item_logs_verbose">वर्बोज़ लॉग्स</string>
@@ -115,7 +115,7 @@
     <string name="module_installed">उपयोगकर्ता %2$sमें %1$s जोड़ा गया</string>
     <string name="module_install_failed">मॉड्यूल जोड़ना विफल</string>
     <string name="install_to_user">उपयोगकर्ता को स्थापित करें %s</string>
-    <string name="install_to_user_message">उपयोगकर्ता %2$sपर %1$s स्थापित करना चाहते हैं? मैन्युअल रूप से स्थापित करने की अनुशंसा की जाती है, LSPosed के माध्यम से स्थापना को मजबूर करने से समस्या हो सकती है।</string>
+    <string name="install_to_user_message">उपयोगकर्ता %2$sपर %1$s स्थापित करना चाहते हैं? मैन्युअल रूप से स्थापित करने की अनुशंसा की जाती है, ReLSPosed के माध्यम से स्थापना को मजबूर करने से समस्या हो सकती है।</string>
     <string name="expand">विस्तार</string>
     <string name="collapse">ढहना</string>
     <!-- AppListActivity -->

@@ -46,7 +46,7 @@ import io.github.libxposed.api.utils.DexParser;
 @SuppressLint("NewApi")
 public class LSPosedContext implements XposedInterface {
 
-    private static final String TAG = "LSPosedContext";
+    private static final String TAG = "ReLSPosedContext";
 
     public static boolean isSystemServer;
     public static String appDir;

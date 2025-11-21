@@ -45,19 +45,19 @@
     <string name="about_view_source_code"><![CDATA[Посмотрите исходный код на %1$s<br/><br/>Заходите на наш %2$s-канал]]></string>
     <string name="translators" comment="Dear translators, please add your home page here following the format. There can be more than one translator. So feel free to append yourself.">Alеxеy, ded Arkash</string>
     <string name="install">Установить</string>
-    <string name="install_summary">Нажмите, чтобы установить LSPosed</string>
+    <string name="install_summary">Нажмите, чтобы установить ReLSPosed</string>
     <string name="not_installed">Не установлен</string>
-    <string name="not_install_summary">LSPosed не установлен!</string>
+    <string name="not_install_summary">ReLSPosed не установлен!</string>
     <string name="activated">Активирован</string>
     <string name="partial_activated">Частично активирован</string>
     <string name="selinux_policy_not_loaded_summary">SEPolicy загружен неправильно</string>
     <string name="selinux_policy_not_loaded"><![CDATA[Некоторые функции не будут работать.<br/>Пожалуйста, сообщите об этом разработчикам <a href="https://github.com/topjohnwu/Magisk/issues"><b>Magisk</b></a>.]]></string>
     <string name="system_inject_fail_summary">Системный фреймворк (System Framework): ошибка внедрения</string>
-    <string name="system_inject_fail"><![CDATA[Это редкость и может быть вызвано самим <b>Magisk</b> или его несовместимыми модулями.<br/>Попробуйте отключить модули Magisk, кроме Riru и LSPosed, или пришлите полный журнал разработчикам.]]></string>
+    <string name="system_inject_fail"><![CDATA[Это редкость и может быть вызвано самим <b>Magisk</b> или его несовместимыми модулями.<br/>Попробуйте отключить модули Magisk, кроме Riru и ReLSPosed, или пришлите полный журнал разработчикам.]]></string>
     <string name="system_prop_incorrect_summary">Неправильные системные настройки</string>
     <string name="system_prop_incorrect"><![CDATA[Некоторые необходимые системные настройки удалены или изменены.<br/>Модули могут не работать должным образом.]]></string>
     <string name="need_update">Требуется обновление</string>
-    <string name="please_update_summary">Установите последнюю версию LSPosed!</string>
+    <string name="please_update_summary">Установите последнюю версию ReLSPosed!</string>
     <string name="developer_warning_title">Советы разработчику модулей</string>
     <string name="developer_warning_summary">Пожалуйста, отключите оптимизацию развёртывания в Android Studio или используйте команду `gradlew installDebug` для установки. В противном случае .apk-модуль не обновится.</string>
     <string name="info_api_version">Версия API</string>
@@ -76,17 +76,17 @@
     <string name="mount_failed">Ошибка монтирования</string>
     <string name="selinux_permissive">SELinux в состоянии Permissive</string>
     <string name="sepolicy_incorrect">Неправильная политика SELinux</string>
-    <string name="update_lsposed">Обновление LSPosed</string>
-    <string name="update_lsposed_msg">Подтвердить обновление LSPosed? Устройство перезагрузится после завершения обновления</string>
+    <string name="update_lsposed">Обновление ReLSPosed</string>
+    <string name="update_lsposed_msg">Подтвердить обновление ReLSPosed? Устройство перезагрузится после завершения обновления</string>
     <string name="info_copied">Скопировано в буфер обмена</string>
     <!-- WelcomeDialog -->
-    <string name="parasitic_welcome">Добро пожаловать в LSPosed</string>
+    <string name="parasitic_welcome">Добро пожаловать в ReLSPosed</string>
     <string name="parasitic_welcome_summary">Вы используете parasitic-менеджер (т. е. скрытый режим): можно создать его ярлык на рабочем столе либо по-прежнему открывать через уведомление.</string>
     <string name="parasitic_welcome_summary_no_shortcut_support">Вы используете parasitic-менеджер (т. е. скрытый режим), который можно открывать через уведомление.</string>
     <string name="create_shortcut">Создать ярлык</string>
     <string name="never_show">Больше не показывать</string>
     <string name="app_welcome">Рекомендуется parasitic-менеджер</string>
-    <string name="app_welcome_summary">LSPosed теперь поддерживает «паразитирование», чтобы избежать обнаружение системой, — т. н. скрытый режим. Вы сможете открывать parasitic-менеджер LSPosed через уведомление. Текущее приложение рекомендуется удалить.</string>
+    <string name="app_welcome_summary">ReLSPosed теперь поддерживает «паразитирование», чтобы избежать обнаружение системой, — т. н. скрытый режим. Вы сможете открывать parasitic-менеджер ReLSPosed через уведомление. Текущее приложение рекомендуется удалить.</string>
     <!-- LogsActivity -->
     <string name="menuSaveToSd">Сохранить</string>
     <string name="nav_item_logs_verbose">Подробный журнал</string>
@@ -106,10 +106,10 @@
     <string name="disabled_verbose_log">Подробный журнал выключен</string>
     <!-- ModulesActivity -->
     <string name="module_empty_description">(описание отсутствует)</string>
-    <string name="warning_xposed_min_version">Данному модулю требуется более новая версия Xposed/LSPosed (%d), поэтому активация невозможна</string>
-    <string name="warning_target_version_higher">Данный модуль разработан для более новой версии Xposed/LSPosed (%d), поэтому некоторые функции могут не работать</string>
-    <string name="no_min_version_specified">В данном модуле не указана версия Xposed/LSPosed, необходимая для его работы.</string>
-    <string name="warning_min_version_too_low">Данный модуль был создан для Xposed/LSPosed версии %1$d, но ввиду несовместимых изменений в версии %2$d он был выключен</string>
+    <string name="warning_xposed_min_version">Данному модулю требуется более новая версия Xposed/ReLSPosed (%d), поэтому активация невозможна</string>
+    <string name="warning_target_version_higher">Данный модуль разработан для более новой версии Xposed/ReLSPosed (%d), поэтому некоторые функции могут не работать</string>
+    <string name="no_min_version_specified">В данном модуле не указана версия Xposed/ReLSPosed, необходимая для его работы.</string>
+    <string name="warning_min_version_too_low">Данный модуль был создан для Xposed/ReLSPosed версии %1$d, но ввиду несовместимых изменений в версии %2$d он был выключен</string>
     <string name="warning_installed_on_external_storage">Данный модуль не может быть загружен, так как установлен на SD-карту. Переместите его во внутреннюю память</string>
     <string name="module_uninstall">Удалить</string>
     <string name="module_settings">Настройки модуля</string>
@@ -121,7 +121,7 @@
     <string name="module_installed">%1$s добавлен (пользователь %2$s)</string>
     <string name="module_install_failed">Добавление модуля не удалось</string>
     <string name="install_to_user">Установка (пользователь %s)</string>
-    <string name="install_to_user_message">Вы точно хотите установить %1$s (пользователь %2$s)? Рекомендуется устанавливать вручную, принудительная установка через LSPosed может вызвать проблемы.</string>
+    <string name="install_to_user_message">Вы точно хотите установить %1$s (пользователь %2$s)? Рекомендуется устанавливать вручную, принудительная установка через ReLSPosed может вызвать проблемы.</string>
     <string name="expand">развернуть</string>
     <string name="collapse">свернуть</string>
     <!-- AppListActivity -->
@@ -177,7 +177,7 @@
     <string name="settings_disable_verbose_log">Выключить подробный журнал</string>
     <string name="settings_disable_verbose_log_summary">Отчёт об ошибке требует включение подробного журнала</string>
     <string name="settings_enable_log_watchdog">Включить отслеживание журнала</string>
-    <string name="settings_enable_log_watchdog_summary">Отслеживание журнала LSPosed (log watchdog) изменяет системные настройки, которыми можно обнаружить LSPosed</string>
+    <string name="settings_enable_log_watchdog_summary">Отслеживание журнала ReLSPosed (log watchdog) изменяет системные настройки, которыми можно обнаружить ReLSPosed</string>
     <string name="pure_black_dark_theme">Чёрная тема</string>
     <string name="pure_black_dark_theme_summary">Использовать чёрную тему, когда включена тёмная тема</string>
     <string name="settings_group_theme">Тема</string>
@@ -201,11 +201,11 @@
     <string name="settings_translation_contributors">Авторы перевода</string>
     <string name="settings_translation">Принять участие в переводе</string>
     <string name="settings_translation_summary">Помогите нам перевести %s на ваш язык</string>
-    <string name="settings_create_shortcut_summary">Создать ярлык, с помощью которого можно открыть parasitic-менеджер (т. е. LSPosed в скрытом режиме)</string>
+    <string name="settings_create_shortcut_summary">Создать ярлык, с помощью которого можно открыть parasitic-менеджер (т. е. ReLSPosed в скрытом режиме)</string>
     <string name="settings_shortcut_pinned_hint">Ярлык закреплён</string>
     <string name="settings_unsupported_pin_shortcut_summary">Текущий лаунчер по умолчанию не поддерживает закрепление ярлыков</string>
     <string name="settings_enable_status_notification">Уведомление о состоянии</string>
-    <string name="settings_enable_status_notification_summary">Показывать уведомление, через которое можно открыть parasitic-менеджер (т. е. LSPosed в скрытом режиме)</string>
+    <string name="settings_enable_status_notification_summary">Показывать уведомление, через которое можно открыть parasitic-менеджер (т. е. ReLSPosed в скрытом режиме)</string>
     <string name="disable_status_notification_error">Отсутствует ярлык, невозможно отключить уведомление</string>
     <string name="settings_update_channel">Канал обновлений</string>
     <string name="update_channel_stable">Стабильные версии</string>

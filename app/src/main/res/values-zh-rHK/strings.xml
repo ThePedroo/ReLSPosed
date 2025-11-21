@@ -39,19 +39,19 @@
     <string name="about_view_source_code"><![CDATA[在 %1$s 檢視原始碼<br/>加入我們的 %2$s 頻道]]></string>
     <string name="translators" comment="Dear translators, please add your home page here following the format. There can be more than one translator. So feel free to append yourself.">DarKnighT0v0</string>
     <string name="install">安裝</string>
-    <string name="install_summary">點選安裝 LSPosed</string>
+    <string name="install_summary">點選安裝 ReLSPosed</string>
     <string name="not_installed">未安裝</string>
-    <string name="not_install_summary">LSPosed 未安裝</string>
+    <string name="not_install_summary">ReLSPosed 未安裝</string>
     <string name="activated">已啟用</string>
     <string name="partial_activated">部分啟用</string>
     <string name="selinux_policy_not_loaded_summary">SEPolicy 未被正確讀取</string>
     <string name="selinux_policy_not_loaded"><![CDATA[部分功能將無法運作。<br/>請將此回報給 <a href="https://github.com/topjohnwu/Magisk/issues"><b>Magisk</b></a> 開發人員。]]></string>
     <string name="system_inject_fail_summary">系統架構插入失敗</string>
-    <string name="system_inject_fail"><![CDATA[這是極罕見的情況，可能是由 <b>Magisk</b> 或低品質 Magisk 模組導致，<br/>請嘗試停用除 Riru 和 LSPosed 外的 Magisk 模組，或向開發人員提供完整記錄。]]></string>
+    <string name="system_inject_fail"><![CDATA[這是極罕見的情況，可能是由 <b>Magisk</b> 或低品質 Magisk 模組導致，<br/>請嘗試停用除 Riru 和 ReLSPosed 外的 Magisk 模組，或向開發人員提供完整記錄。]]></string>
     <string name="system_prop_incorrect_summary">系統屬性異常</string>
     <string name="system_prop_incorrect"><![CDATA[部分必須的系統屬性被刪除或被修改，<br/>模組可能會隨機失效。]]></string>
     <string name="need_update">需要更新</string>
-    <string name="please_update_summary">請安裝最新版本的 LSPosed</string>
+    <string name="please_update_summary">請安裝最新版本的 ReLSPosed</string>
     <string name="developer_warning_title">給模組開發人員的提示</string>
     <string name="developer_warning_summary">請在 Android Studio 上停用部署最佳化，或使用 `gradlew installDebug` 指令進行安裝。否則模組apk將不會更新。</string>
     <string name="info_api_version">API版本</string>
@@ -70,17 +70,17 @@
     <string name="mount_failed">加載失敗</string>
     <string name="selinux_permissive">SELinux 處於寬容模式</string>
     <string name="sepolicy_incorrect">SELinux 原則異常</string>
-    <string name="update_lsposed">更新 LSPosed</string>
-    <string name="update_lsposed_msg">確認更新LSPosed? 此裝置會於更新完成後重啟</string>
+    <string name="update_lsposed">更新 ReLSPosed</string>
+    <string name="update_lsposed_msg">確認更新ReLSPosed? 此裝置會於更新完成後重啟</string>
     <string name="info_copied">已複製到剪貼簿</string>
     <!-- WelcomeDialog -->
-    <string name="parasitic_welcome">歡迎使用 LSPosed</string>
+    <string name="parasitic_welcome">歡迎使用 ReLSPosed</string>
     <string name="parasitic_welcome_summary">您正在使用寄生管理員，您可以建立捷徑或從通知開啟。</string>
     <string name="parasitic_welcome_summary_no_shortcut_support">您正在使用寄生管理員，它可以從通知中開啟。</string>
     <string name="create_shortcut">建立捷徑</string>
     <string name="never_show">不再顯示</string>
     <string name="app_welcome">建議使用寄生管理員</string>
-    <string name="app_welcome_summary">LSPosed 現在支援系統寄生以避免偵測，您可以從通知開啟寄生管理員。建議解除安裝目前應用程式。</string>
+    <string name="app_welcome_summary">ReLSPosed 現在支援系統寄生以避免偵測，您可以從通知開啟寄生管理員。建議解除安裝目前應用程式。</string>
     <!-- LogsActivity -->
     <string name="menuSaveToSd">儲存</string>
     <string name="nav_item_logs_verbose">詳細記錄</string>
@@ -115,7 +115,7 @@
     <string name="module_installed">已為用戶 %2$s 安裝模組 %1$s</string>
     <string name="module_install_failed">模組安裝失敗</string>
     <string name="install_to_user">為用戶 %s 安裝</string>
-    <string name="install_to_user_message">確定要為用戶 %2$s 安裝 %1$s 嗎？建議手動安裝或多開，透過 LSPosed 強制安裝可能會出現問題。</string>
+    <string name="install_to_user_message">確定要為用戶 %2$s 安裝 %1$s 嗎？建議手動安裝或多開，透過 ReLSPosed 強制安裝可能會出現問題。</string>
     <string name="expand">展開</string>
     <string name="collapse">收起</string>
     <!-- AppListActivity -->
@@ -171,7 +171,7 @@
     <string name="settings_disable_verbose_log">禁用詳細紀錄檔</string>
     <string name="settings_disable_verbose_log_summary">回報問題要求包含詳細記錄檔</string>
     <string name="settings_enable_log_watchdog">啟用日誌監控</string>
-    <string name="settings_enable_log_watchdog_summary">LSPosed 的日誌監控會修改系統屬性，可能被利用來偵測 LSPosed</string>
+    <string name="settings_enable_log_watchdog_summary">ReLSPosed 的日誌監控會修改系統屬性，可能被利用來偵測 ReLSPosed</string>
     <string name="pure_black_dark_theme">使用純黑深色主題</string>
     <string name="pure_black_dark_theme_summary">使用純黑色背景當深色模式已啟用</string>
     <string name="settings_group_theme">主題</string>

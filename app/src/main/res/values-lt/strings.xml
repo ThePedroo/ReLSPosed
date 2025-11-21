@@ -45,19 +45,19 @@
     <string name="about_view_source_code"><![CDATA[Peržiūrėkite šaltinio kodą adresu %1$s<br/>Prisijunkite prie mūsų %2$s kanalo]]></string>
     <string name="translators" comment="Dear translators, please add your home page here following the format. There can be more than one translator. So feel free to append yourself.">Ace Miller, im sorry</string>
     <string name="install">Įdiekite</string>
-    <string name="install_summary">Bakstelėkite, jei norite įdiegti LSPosed</string>
+    <string name="install_summary">Bakstelėkite, jei norite įdiegti ReLSPosed</string>
     <string name="not_installed">Neįdiegta</string>
-    <string name="not_install_summary">\"LSPosed\" nėra įdiegta</string>
+    <string name="not_install_summary">\"ReLSPosed\" nėra įdiegta</string>
     <string name="activated">Aktyvuota</string>
     <string name="partial_activated">Iš dalies aktyvuota</string>
     <string name="selinux_policy_not_loaded_summary">\"SEPolicy\" nėra tinkamai įkelta</string>
     <string name="selinux_policy_not_loaded"><![CDATA[Kai kurios funkcijos neveiks.<br/>Apie tai praneškite <a href="https://github.com/topjohnwu/Magisk/issues"><b>Magisk</b></a> kūrėjui.]]></string>
     <string name="system_inject_fail_summary">Nepavyko įšvirkšti sistemos pagrindo</string>
-    <string name="system_inject_fail"><![CDATA[Tai pasitaiko retai ir gali būti dėl <b>"Magisk"</b> arba kai kurių nekokybiškų "Magisk" modulių.<br/>Pabandykite išjungti kitus "Magisk" modulius, išskyrus "Riru" ir "LSPosed", arba pateikite visą žurnalą kūrėjams.]]></string>
+    <string name="system_inject_fail"><![CDATA[Tai pasitaiko retai ir gali būti dėl <b>"Magisk"</b> arba kai kurių nekokybiškų "Magisk" modulių.<br/>Pabandykite išjungti kitus "Magisk" modulius, išskyrus "Riru" ir "ReLSPosed", arba pateikite visą žurnalą kūrėjams.]]></string>
     <string name="system_prop_incorrect_summary">Neteisingas sistemos rekvizitas</string>
     <string name="system_prop_incorrect"><![CDATA[Ištrintos arba pakeistos kai kurios būtinos sistemos savybės.<br/>Moduliai kartais gali būti pripažinti negaliojančiais.]]></string>
     <string name="need_update">Reikia atnaujinti</string>
-    <string name="please_update_summary">Įdiekite naujausią \"LSPosed\" versiją</string>
+    <string name="please_update_summary">Įdiekite naujausią \"ReLSPosed\" versiją</string>
     <string name="info_api_version">API versija</string>
     <string name="info_framework_version">Pagrindų versija</string>
     <string name="info_manager_package_name">Valdytojo paketo pavadinimas</string>
@@ -74,17 +74,17 @@
     <string name="mount_failed">Montavimas nepavyko</string>
     <string name="selinux_permissive">\"SELinux\" yra leidžiamoji</string>
     <string name="sepolicy_incorrect">\"SELinux\" politika yra neteisinga</string>
-    <string name="update_lsposed">Atnaujinti LSPosed</string>
-    <string name="update_lsposed_msg">Patvirtinkite, kad atnaujintumėte LSPosed? Baigus atnaujinimą šis prietaisas bus perkrautas</string>
+    <string name="update_lsposed">Atnaujinti ReLSPosed</string>
+    <string name="update_lsposed_msg">Patvirtinkite, kad atnaujintumėte ReLSPosed? Baigus atnaujinimą šis prietaisas bus perkrautas</string>
     <string name="info_copied">Nukopijuota į iškarpinę</string>
     <!-- WelcomeDialog -->
-    <string name="parasitic_welcome">Sveiki atvykę į LSPosed</string>
+    <string name="parasitic_welcome">Sveiki atvykę į ReLSPosed</string>
     <string name="parasitic_welcome_summary">Jūs naudojate parazitinį tvarkytuvą, kuris gali sukurti nuorodą arba vis dar atidaryti iš pranešimo.</string>
     <string name="parasitic_welcome_summary_no_shortcut_support">Naudojate parazitinį tvarkytuvą, kuris gali būti atidarytas iš pranešimo.</string>
     <string name="create_shortcut">Sukurti nuorodą</string>
     <string name="never_show">Niekada nerodykite</string>
     <string name="app_welcome">Rekomenduojama parazitinė vadybininkė</string>
-    <string name="app_welcome_summary">\"LSPosed\" dabar palaiko sistemos parazitavimą, kad išvengtų aptikimo, galite atidaryti parazitų tvarkyklę iš pranešimo. Rekomenduojama pašalinti dabartinę programą.</string>
+    <string name="app_welcome_summary">\"ReLSPosed\" dabar palaiko sistemos parazitavimą, kad išvengtų aptikimo, galite atidaryti parazitų tvarkyklę iš pranešimo. Rekomenduojama pašalinti dabartinę programą.</string>
     <!-- LogsActivity -->
     <string name="menuSaveToSd">Išsaugoti</string>
     <string name="nav_item_logs_verbose">Žurnalai su verbaline informacija</string>
@@ -119,7 +119,7 @@
     <string name="module_installed">Pridėta %1$s naudotojui %2$s</string>
     <string name="module_install_failed">Nepavyko pridėti modulio</string>
     <string name="install_to_user">Įdiegti naudotojui %s</string>
-    <string name="install_to_user_message">Norite įdiegti %1$s naudotojui %2$s? Rekomenduojama įdiegti rankiniu būdu, priverstinis diegimas per LSPosed gali sukelti problemų.</string>
+    <string name="install_to_user_message">Norite įdiegti %1$s naudotojui %2$s? Rekomenduojama įdiegti rankiniu būdu, priverstinis diegimas per ReLSPosed gali sukelti problemų.</string>
     <string name="expand">išplėsti</string>
     <string name="collapse">žlugimas</string>
     <!-- AppListActivity -->

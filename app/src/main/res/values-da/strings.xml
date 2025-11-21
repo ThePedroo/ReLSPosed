@@ -41,19 +41,19 @@
     <string name="about_view_source_code"><![CDATA[Vis kildekode på %1$s<br/>Tilmeld dig vores %2$s kanal]]></string>
     <string name="translators" comment="Dear translators, please add your home page here following the format. There can be more than one translator. So feel free to append yourself.">null</string>
     <string name="install">Installér</string>
-    <string name="install_summary">Tryk for at installere LSPosed</string>
+    <string name="install_summary">Tryk for at installere ReLSPosed</string>
     <string name="not_installed">Ikke installeret</string>
-    <string name="not_install_summary">LSPosed er ikke installeret</string>
+    <string name="not_install_summary">ReLSPosed er ikke installeret</string>
     <string name="activated">Aktiveret</string>
     <string name="partial_activated">Delvist aktiveret</string>
     <string name="selinux_policy_not_loaded_summary">SEPolicy er ikke indlæst korrekt</string>
     <string name="selinux_policy_not_loaded"><![CDATA[Nogle funktioner vil ikke fungere.<br/>Du bedes rapportere dette til <a href="https://github.com/topjohnwu/Magisk/issues"><b>Magisk</b></a> udvikleren.]]></string>
     <string name="system_inject_fail_summary">System Framework injektion mislykkedes</string>
-    <string name="system_inject_fail"><![CDATA[Dette er sjældent og kan være forårsaget af <b>Magisk</b> eller nogle lavkvalitets Magisk moduler.<br/>Prøv at deaktivere andre Magisk moduler end Riru og LSPosed eller indsende fuld log til udviklere.]]></string>
+    <string name="system_inject_fail"><![CDATA[Dette er sjældent og kan være forårsaget af <b>Magisk</b> eller nogle lavkvalitets Magisk moduler.<br/>Prøv at deaktivere andre Magisk moduler end Riru og ReLSPosed eller indsende fuld log til udviklere.]]></string>
     <string name="system_prop_incorrect_summary">System prop forkert</string>
     <string name="system_prop_incorrect"><![CDATA[Nogle nødvendige systemegenskaber slettet eller ændret.<br/>Moduler kan ugyldiggøre lejlighedsvis.]]></string>
     <string name="need_update">Skal opdateres</string>
-    <string name="please_update_summary">Installér venligst den seneste version af LSPosed</string>
+    <string name="please_update_summary">Installér venligst den seneste version af ReLSPosed</string>
     <string name="info_api_version">API version</string>
     <string name="info_framework_version">Rammer version</string>
     <string name="info_manager_package_name">Navn på manager-pakke</string>
@@ -70,17 +70,17 @@
     <string name="mount_failed">Montering mislykkedes</string>
     <string name="selinux_permissive">SELinux er tilladende</string>
     <string name="sepolicy_incorrect">SELinux-politik er forkert</string>
-    <string name="update_lsposed">Opdater LSPosed</string>
-    <string name="update_lsposed_msg">Bekræft opdatering af LSPosed? Denne enhed vil genstarte efter opdateringsfuldførelse</string>
+    <string name="update_lsposed">Opdater ReLSPosed</string>
+    <string name="update_lsposed_msg">Bekræft opdatering af ReLSPosed? Denne enhed vil genstarte efter opdateringsfuldførelse</string>
     <string name="info_copied">Kopieret til udklipsholderen</string>
     <!-- WelcomeDialog -->
-    <string name="parasitic_welcome">Velkommen til LSPosed</string>
+    <string name="parasitic_welcome">Velkommen til ReLSPosed</string>
     <string name="parasitic_welcome_summary">Du bruger den parasitære manager, som kan oprette genvej eller stadig åbne fra meddelelsen.</string>
     <string name="parasitic_welcome_summary_no_shortcut_support">Du bruger den parasitære manager, som kan åbnes fra notifikationen.</string>
     <string name="create_shortcut">Opret genvej</string>
     <string name="never_show">Vis aldrig</string>
     <string name="app_welcome">Parasitic Manager Anbefalet</string>
-    <string name="app_welcome_summary">LSPosed understøtter nu systemparasitering for at undgå registrering, du kan åbne parasitmanager fra meddelelsen. Det anbefales at afinstallere det aktuelle program.</string>
+    <string name="app_welcome_summary">ReLSPosed understøtter nu systemparasitering for at undgå registrering, du kan åbne parasitmanager fra meddelelsen. Det anbefales at afinstallere det aktuelle program.</string>
     <!-- LogsActivity -->
     <string name="menuSaveToSd">Gem</string>
     <string name="nav_item_logs_verbose">Verbose Logs</string>
@@ -115,7 +115,7 @@
     <string name="module_installed">Tilføjede %1$s til bruger %2$s</string>
     <string name="module_install_failed">Tilføjelse af modul mislykkedes</string>
     <string name="install_to_user">Installér til bruger %s</string>
-    <string name="install_to_user_message">Vil du installere %1$s til bruger %2$s? Det anbefales at installere manuelt, tvinger installation via LSPosed kan forårsage problemer.</string>
+    <string name="install_to_user_message">Vil du installere %1$s til bruger %2$s? Det anbefales at installere manuelt, tvinger installation via ReLSPosed kan forårsage problemer.</string>
     <string name="expand">udvid</string>
     <string name="collapse">kollaps</string>
     <!-- AppListActivity -->

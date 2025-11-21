@@ -49,11 +49,11 @@
     <string name="selinux_policy_not_loaded_summary">SePolicy ٹھیک سے آن نہیں ہے</string>
     <string name="selinux_policy_not_loaded"><![CDATA[<a href="https://github.com/topjohnwu/Magisk/issues"mggnteer.]]></string>
     <string name="system_inject_fail_summary">سسٹم فریم ورک انجکشن ناکام۔</string>
-    <string name="system_inject_fail"><![CDATA[یہ نایاب ہے اور یہ <b>Magisk</b> یا کچھ کم معیار کے Magisk ماڈیولز کی وجہ سے ہو سکتا ہے۔<br/>براہ کرم Riru اور LSPosed کے علاوہ Magisk ماڈیولز کو غیر فعال کرنے کی کوشش کریں یا مکمل لاگ ڈویلپرز کو جمع کرائیں۔]]></string>
+    <string name="system_inject_fail"><![CDATA[یہ نایاب ہے اور یہ <b>Magisk</b> یا کچھ کم معیار کے Magisk ماڈیولز کی وجہ سے ہو سکتا ہے۔<br/>براہ کرم Riru اور ReLSPosed کے علاوہ Magisk ماڈیولز کو غیر فعال کرنے کی کوشش کریں یا مکمل لاگ ڈویلپرز کو جمع کرائیں۔]]></string>
     <string name="system_prop_incorrect_summary">سسٹم پروپ غلط ہے۔</string>
     <string name="system_prop_incorrect"><![CDATA[سسٹم کی کچھ ضروری خصوصیات حذف یا ترمیم کی گئیں۔<br/>ماڈیول کبھی کبھار باطل ہو سکتے ہیں۔]]></string>
     <string name="need_update">اپ ڈیٹ درکار ہے۔</string>
-    <string name="please_update_summary">براہ کرم LSPosed کا تازہ ترین ورژن انسٹال کریں۔</string>
+    <string name="please_update_summary">براہ کرم ReLSPosed کا تازہ ترین ورژن انسٹال کریں۔</string>
     <string name="info_api_version">API ورژن۔</string>
     <string name="info_framework_version">فریم ورک ورژن۔</string>
     <string name="info_manager_package_name">مینیجر پیکیج کا نام</string>
@@ -70,17 +70,17 @@
     <string name="mount_failed">ماؤنٹ ناکام ہوگیا۔</string>
     <string name="selinux_permissive">SELinux کی اجازت ہے۔</string>
     <string name="sepolicy_incorrect">SELinux پالیسی غلط ہے۔</string>
-    <string name="update_lsposed">LSPosed کو اپ ڈیٹ کریں۔</string>
-    <string name="update_lsposed_msg">LSPosed کو اپ ڈیٹ کرنے کی تصدیق کریں؟ یہ آلہ اپ ڈیٹ مکمل ہونے کے بعد دوبارہ شروع ہو جائے گا۔</string>
+    <string name="update_lsposed">ReLSPosed کو اپ ڈیٹ کریں۔</string>
+    <string name="update_lsposed_msg">ReLSPosed کو اپ ڈیٹ کرنے کی تصدیق کریں؟ یہ آلہ اپ ڈیٹ مکمل ہونے کے بعد دوبارہ شروع ہو جائے گا۔</string>
     <string name="info_copied">کلپ بورڈ پر کاپی ہو گیا۔</string>
     <!-- WelcomeDialog -->
-    <string name="parasitic_welcome">LSPosed میں خوش آمدید</string>
+    <string name="parasitic_welcome">ReLSPosed میں خوش آمدید</string>
     <string name="parasitic_welcome_summary">آپ پرجیوی مینیجر کا استعمال کر رہے ہیں، جو شارٹ کٹ بنا سکتا ہے یا پھر بھی اطلاع سے کھل سکتا ہے۔</string>
     <string name="parasitic_welcome_summary_no_shortcut_support">آپ پرجیوی مینیجر استعمال کر رہے ہیں، جو اطلاع سے کھل سکتا ہے۔</string>
     <string name="create_shortcut">شارٹ کٹ بنانا</string>
     <string name="never_show">کبھی نہ دکھائیں۔</string>
     <string name="app_welcome">پرجیوی مینیجر کی سفارش</string>
-    <string name="app_welcome_summary">LSPosed اب پتہ لگانے سے بچنے کے لیے سسٹم پرجیوی کی حمایت کرتا ہے، آپ نوٹیفکیشن سے پرجیوی مینیجر کو کھول سکتے ہیں۔ موجودہ ایپلیکیشن کو ان انسٹال کرنے کی سفارش کی جاتی ہے۔</string>
+    <string name="app_welcome_summary">ReLSPosed اب پتہ لگانے سے بچنے کے لیے سسٹم پرجیوی کی حمایت کرتا ہے، آپ نوٹیفکیشن سے پرجیوی مینیجر کو کھول سکتے ہیں۔ موجودہ ایپلیکیشن کو ان انسٹال کرنے کی سفارش کی جاتی ہے۔</string>
     <!-- LogsActivity -->
     <string name="menuSaveToSd">محفوظ کریں</string>
     <string name="nav_item_logs_verbose">وربوز لاگز</string>
@@ -115,7 +115,7 @@
     <string name="module_installed">صارف %2$sمیں %1$s شامل کیا گیا۔</string>
     <string name="module_install_failed">ماڈیول شامل کرنا ناکام ہو گیا۔</string>
     <string name="install_to_user">صارف %sپر انسٹال کریں۔</string>
-    <string name="install_to_user_message">صارف %2$sپر %1$s انسٹال کرنا چاہتے ہیں؟ یہ دستی طور پر انسٹال کرنے کی سفارش کی جاتی ہے، LSPosed کے ذریعے انسٹال کرنے سے مسائل پیدا ہو سکتے ہیں۔</string>
+    <string name="install_to_user_message">صارف %2$sپر %1$s انسٹال کرنا چاہتے ہیں؟ یہ دستی طور پر انسٹال کرنے کی سفارش کی جاتی ہے، ReLSPosed کے ذریعے انسٹال کرنے سے مسائل پیدا ہو سکتے ہیں۔</string>
     <string name="expand">پھیلاؤ</string>
     <string name="collapse">گرنے</string>
     <!-- AppListActivity -->

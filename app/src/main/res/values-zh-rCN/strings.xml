@@ -37,22 +37,22 @@
         <item quantity="other">%d 个模块可更新</item>
     </plurals>
     <string name="about_view_source_code"><![CDATA[在 %1$s 查看源码<br/>加入我们的 %2$s 频道<br/>加入我们的 <b><a href="mqqguild://guild/share?inviteCode=Xz9dJ&from=246610">QQ 频道</a></b>]]></string>
-    <string name="translators" comment="Dear translators, please add your home page here following the format. There can be more than one translator. So feel free to append yourself.">LSPosed
+    <string name="translators" comment="Dear translators, please add your home page here following the format. There can be more than one translator. So feel free to append yourself.">
 JingMatrix</string>
     <string name="install">安装</string>
-    <string name="install_summary">点击安装 LSPosed</string>
+    <string name="install_summary">点击安装 ReLSPosed</string>
     <string name="not_installed">未安装</string>
-    <string name="not_install_summary">LSPosed 未安装</string>
+    <string name="not_install_summary">ReLSPosed 未安装</string>
     <string name="activated">已激活</string>
     <string name="partial_activated">部分激活</string>
     <string name="selinux_policy_not_loaded_summary">SEPolicy 未被正确加载</string>
     <string name="selinux_policy_not_loaded"><![CDATA[某些功能将不起作用。<br/>请将此问题报告给 <a href="https://github.com/topjohnwu/Magisk/issues"><b>Magisk</b></a> 开发者]]></string>
     <string name="system_inject_fail_summary">系统框架注入失败</string>
-    <string name="system_inject_fail"><![CDATA[这是极罕见的情况，可能是由 <b>Magisk</b> 或低质 Magisk 模块导致。<br/>请尝试禁用除 Riru 和 LSPosed 外的其他 Magisk 模块，或向开发者提供完整日志。]]></string>
+    <string name="system_inject_fail"><![CDATA[这是极罕见的情况，可能是由 <b>Magisk</b> 或低质 Magisk 模块导致。<br/>请尝试禁用除 Riru 和 ReLSPosed 外的其他 Magisk 模块，或向开发者提供完整日志。]]></string>
     <string name="system_prop_incorrect_summary">系统属性异常</string>
     <string name="system_prop_incorrect"><![CDATA[一些必须的系统属性被删除或被修改。<br/>模块可能会随机失效。]]></string>
     <string name="need_update">需要更新</string>
-    <string name="please_update_summary">请安装新版 LSPosed</string>
+    <string name="please_update_summary">请安装新版 ReLSPosed</string>
     <string name="developer_warning_title">给模块开发者的提示</string>
     <string name="developer_warning_summary">请在 Android Studio 上禁用部署优化，或使用 `gradlew installDebug` 命令进行安装，否则无法更新模块。</string>
     <string name="info_api_version">API 版本</string>
@@ -71,17 +71,17 @@ JingMatrix</string>
     <string name="mount_failed">挂载失败</string>
     <string name="selinux_permissive">SELinux 处于宽容模式</string>
     <string name="sepolicy_incorrect">SELinux 规则异常</string>
-    <string name="update_lsposed">更新 LSPosed</string>
-    <string name="update_lsposed_msg">确认更新 LSPosed? 设备将会在完成更新后自动重启。</string>
+    <string name="update_lsposed">更新 ReLSPosed</string>
+    <string name="update_lsposed_msg">确认更新 ReLSPosed? 设备将会在完成更新后自动重启。</string>
     <string name="info_copied">已复制到剪贴板</string>
     <!-- WelcomeDialog -->
-    <string name="parasitic_welcome">欢迎使用 LSPosed</string>
+    <string name="parasitic_welcome">欢迎使用 ReLSPosed</string>
     <string name="parasitic_welcome_summary">你正在使用寄生管理器，可创建快捷方式或继续从通知中打开。</string>
     <string name="parasitic_welcome_summary_no_shortcut_support">你正在使用寄生管理器，可以从通知打开它。</string>
     <string name="create_shortcut">创建快捷方式</string>
     <string name="never_show">不再显示</string>
     <string name="app_welcome">推荐使用寄生管理器</string>
-    <string name="app_welcome_summary">LSPosed 现在支持系统寄生以避免检测，你可以从通知中打开寄生管理器。建议卸载当前应用。</string>
+    <string name="app_welcome_summary">ReLSPosed 现在支持系统寄生以避免检测，你可以从通知中打开寄生管理器。建议卸载当前应用。</string>
     <!-- LogsActivity -->
     <string name="menuSaveToSd">保存</string>
     <string name="nav_item_logs_verbose">详细日志</string>
@@ -116,7 +116,7 @@ JingMatrix</string>
     <string name="module_installed">已安装 %1$s 到用户 %2$s</string>
     <string name="module_install_failed">安装失败</string>
     <string name="install_to_user">安装到用户 %s</string>
-    <string name="install_to_user_message">确认安装 %1$s 到用户 %2$s？推荐手动用系统自带方法安装，通过 LSPosed 强制安装可能会导致未知异常。</string>
+    <string name="install_to_user_message">确认安装 %1$s 到用户 %2$s？推荐手动用系统自带方法安装，通过 ReLSPosed 强制安装可能会导致未知异常。</string>
     <string name="expand">展开</string>
     <string name="collapse">收起</string>
     <!-- AppListActivity -->
@@ -172,7 +172,7 @@ JingMatrix</string>
     <string name="settings_disable_verbose_log">禁用详细日志</string>
     <string name="settings_disable_verbose_log_summary">报告问题要求包含详细日志</string>
     <string name="settings_enable_log_watchdog">启用日志监控</string>
-    <string name="settings_enable_log_watchdog_summary">LSPosed 的日志监视修改了系统属性，可以被利用来检测 LSPosed</string>
+    <string name="settings_enable_log_watchdog_summary">ReLSPosed 的日志监视修改了系统属性，可以被利用来检测 ReLSPosed</string>
     <string name="pure_black_dark_theme">纯黑主题</string>
     <string name="pure_black_dark_theme_summary">当深色主题启用时使用纯黑主题</string>
     <string name="settings_group_theme">主题</string>

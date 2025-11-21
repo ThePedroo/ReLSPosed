@@ -43,19 +43,19 @@
     <string name="about_view_source_code"><![CDATA[Pogledajte izvorni kod na %1$s<br/>Pridružite se našem %2$s kanalu]]></string>
     <string name="translators" comment="Dear translators, please add your home page here following the format. There can be more than one translator. So feel free to append yourself.">https://github.com/cube2412</string>
     <string name="install">Instaliraj</string>
-    <string name="install_summary">Dodirnite za instaliranje LSPosed</string>
+    <string name="install_summary">Dodirnite za instaliranje ReLSPosed</string>
     <string name="not_installed">Nije instalirano</string>
-    <string name="not_install_summary">LSPosed nije instaliran</string>
+    <string name="not_install_summary">ReLSPosed nije instaliran</string>
     <string name="activated">Aktiviran</string>
     <string name="partial_activated">Djelomično aktiviran</string>
     <string name="selinux_policy_not_loaded_summary">SEPolicy nije pravilno učitan</string>
     <string name="selinux_policy_not_loaded"><![CDATA[Neke značajke neće raditi.<br/>Prijavite ovo <a href="https://github.com/topjohnwu/Magisk/issues"><b>Magisk</b></a> programeru.]]></string>
     <string name="system_inject_fail_summary">Injektiranje u System Framework nije uspjelo</string>
-    <string name="system_inject_fail"><![CDATA[Ovo je rijetko i može biti uzrokovano aplikacijom <b>Magisk</b> ili nekim Magisk modulima niske kvalitete.<br/>Pokušajte onemogućiti Magisk module koji nisu Riru i LSPosed ili pošaljite cijeli zapis programerima.]]></string>
+    <string name="system_inject_fail"><![CDATA[Ovo je rijetko i može biti uzrokovano aplikacijom <b>Magisk</b> ili nekim Magisk modulima niske kvalitete.<br/>Pokušajte onemogućiti Magisk module koji nisu Riru i ReLSPosed ili pošaljite cijeli zapis programerima.]]></string>
     <string name="system_prop_incorrect_summary">Svojstva sustava nisu ispravna</string>
     <string name="system_prop_incorrect"><![CDATA[Neka od potrebnih svojstva sustava su izbrisana ili izmijenjena.<br/>Moduli povremeno mogu biti nedostupni.]]></string>
     <string name="need_update">Treba ažurirati</string>
-    <string name="please_update_summary">Molimo instalirajte najnoviju verziju LSPosed</string>
+    <string name="please_update_summary">Molimo instalirajte najnoviju verziju ReLSPosed</string>
     <string name="info_api_version">API verzija</string>
     <string name="info_framework_version">Framework verzija</string>
     <string name="info_manager_package_name">Naziv paketa upravitelja</string>
@@ -72,17 +72,17 @@
     <string name="mount_failed">Postavljanje nije uspjelo</string>
     <string name="selinux_permissive">SELinux je permisivan</string>
     <string name="sepolicy_incorrect">Pravila SELinuxa je netočna</string>
-    <string name="update_lsposed">Ažurirajte LSPosed</string>
-    <string name="update_lsposed_msg">Potvrditi ažuriranje LSPosed? Ovaj će se uređaj ponovno pokrenuti nakon završetka ažuriranja</string>
+    <string name="update_lsposed">Ažurirajte ReLSPosed</string>
+    <string name="update_lsposed_msg">Potvrditi ažuriranje ReLSPosed? Ovaj će se uređaj ponovno pokrenuti nakon završetka ažuriranja</string>
     <string name="info_copied">Kopirano u međuspremnik</string>
     <!-- WelcomeDialog -->
-    <string name="parasitic_welcome">Dobrodošli u LSPosed</string>
+    <string name="parasitic_welcome">Dobrodošli u ReLSPosed</string>
     <string name="parasitic_welcome_summary">Koristite parazitski upravitelj, koji može stvoriti prečac ili još uvijek otvoriti iz obavijesti.</string>
     <string name="parasitic_welcome_summary_no_shortcut_support">Koristite parazitski upravitelj koji se može otvoriti iz obavijesti.</string>
     <string name="create_shortcut">Napravi prečac</string>
     <string name="never_show">Nikad ne pokazuj</string>
     <string name="app_welcome">Parazitski Manager Preporučen</string>
-    <string name="app_welcome_summary">LSPosed sada podržava parazitizaciju sustava kako bi se izbjeglo otkrivanje, možete otvoriti parazitski upravitelj iz obavijesti. Preporuča se deinstalirati trenutnu aplikaciju.</string>
+    <string name="app_welcome_summary">ReLSPosed sada podržava parazitizaciju sustava kako bi se izbjeglo otkrivanje, možete otvoriti parazitski upravitelj iz obavijesti. Preporuča se deinstalirati trenutnu aplikaciju.</string>
     <!-- LogsActivity -->
     <string name="menuSaveToSd">Sačuvaj</string>
     <string name="nav_item_logs_verbose">Opširni zapisi</string>
@@ -117,7 +117,7 @@
     <string name="module_installed">Dodano %1$s korisniku %2$s</string>
     <string name="module_install_failed">Dodavanje modula nije uspjelo</string>
     <string name="install_to_user">Instaliraj na korisnika %s</string>
-    <string name="install_to_user_message">Želite li instalirati %1$s korisniku %2$s? Preporuča se ručna instalacija, prisilna instalacija putem LSPoseda može uzrokovati probleme.</string>
+    <string name="install_to_user_message">Želite li instalirati %1$s korisniku %2$s? Preporuča se ručna instalacija, prisilna instalacija putem ReLSPoseda može uzrokovati probleme.</string>
     <string name="expand">proširi</string>
     <string name="collapse">sklopi</string>
     <!-- AppListActivity -->

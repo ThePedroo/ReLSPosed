@@ -41,19 +41,19 @@
     <string name="about_view_source_code"><![CDATA[Veure codi font a %1$s<br/>Uneix-te al nostre %2$s canal]]></string>
     <string name="translators" comment="Dear translators, please add your home page here following the format. There can be more than one translator. So feel free to append yourself.">Frederic Blay,  Ghost Face, Yannick Kamin</string>
     <string name="install">Instalar</string>
-    <string name="install_summary">Toca per instal·lar LSPosed</string>
+    <string name="install_summary">Toca per instal·lar ReLSPosed</string>
     <string name="not_installed">No instalat</string>
-    <string name="not_install_summary">LSPosed no està instal·lat</string>
+    <string name="not_install_summary">ReLSPosed no està instal·lat</string>
     <string name="activated">Activat</string>
     <string name="partial_activated">Parcialment activat</string>
     <string name="selinux_policy_not_loaded_summary">SEPolicy no s\'ha carregat correctament</string>
     <string name="selinux_policy_not_loaded"><![CDATA[Algunes funcions no funcionaran.<br/>Informeu-ho al desenvolupador <a href="https://github.com/topjohnwu/Magisk/issues"><b>Magisk</b></a>.]]></string>
     <string name="system_inject_fail_summary">La injecció del marc del sistema ha fallat</string>
-    <string name="system_inject_fail"><![CDATA[Això és poc comú i podria ser causat per <b>Magisk</b> o algún Mòdul de baixa qualitat<br/>Si us plau, prova a desactivar els demés mòduls de magisk excepte Riru i LSPosed o envia un informe complet als desarrolladors.]]></string>
+    <string name="system_inject_fail"><![CDATA[Això és poc comú i podria ser causat per <b>Magisk</b> o algún Mòdul de baixa qualitat<br/>Si us plau, prova a desactivar els demés mòduls de magisk excepte Riru i ReLSPosed o envia un informe complet als desarrolladors.]]></string>
     <string name="system_prop_incorrect_summary">Prop del sistema incorrecte</string>
     <string name="system_prop_incorrect"><![CDATA[S\'han suprimit o modificat algunes propietats necessàries del sistema.<br/>Els mòduls poden invalidar-se ocasionalment.]]></string>
     <string name="need_update">Cal actualitzar</string>
-    <string name="please_update_summary">Instal·leu la darrera versió de LSPosed</string>
+    <string name="please_update_summary">Instal·leu la darrera versió de ReLSPosed</string>
     <string name="info_api_version">Versió de l\'API</string>
     <string name="info_framework_version">Versió del marc</string>
     <string name="info_manager_package_name">Nom del paquet del gestor</string>
@@ -70,17 +70,17 @@
     <string name="mount_failed">El muntatge ha fallat</string>
     <string name="selinux_permissive">SELinux és permissiu</string>
     <string name="sepolicy_incorrect">La política de SELinux és incorrecta</string>
-    <string name="update_lsposed">Actualització LSPosed</string>
-    <string name="update_lsposed_msg">Confirmeu per actualitzar LSPosed? Aquest dispositiu es reiniciarà un cop finalitzada l\'actualització</string>
+    <string name="update_lsposed">Actualització ReLSPosed</string>
+    <string name="update_lsposed_msg">Confirmeu per actualitzar ReLSPosed? Aquest dispositiu es reiniciarà un cop finalitzada l\'actualització</string>
     <string name="info_copied">S\'ha copiat al porta-retalls</string>
     <!-- WelcomeDialog -->
-    <string name="parasitic_welcome">Benvingut a LSPosed</string>
+    <string name="parasitic_welcome">Benvingut a ReLSPosed</string>
     <string name="parasitic_welcome_summary">Esteu utilitzant el gestor de paràsits, que pot crear dreceres o encara obrir-se des de la notificació.</string>
     <string name="parasitic_welcome_summary_no_shortcut_support">Esteu utilitzant el gestor de paràsits, que es pot obrir des de la notificació.</string>
     <string name="create_shortcut">Crear accès directe</string>
     <string name="never_show">No mostris mai</string>
     <string name="app_welcome">Administrador de paràsits recomanat</string>
-    <string name="app_welcome_summary">LSPosed ara admet la parasitització del sistema per evitar la detecció, podeu obrir el gestor de paràsits des de la notificació. Es recomana desinstal·lar l\'aplicació actual.</string>
+    <string name="app_welcome_summary">ReLSPosed ara admet la parasitització del sistema per evitar la detecció, podeu obrir el gestor de paràsits des de la notificació. Es recomana desinstal·lar l\'aplicació actual.</string>
     <!-- LogsActivity -->
     <string name="menuSaveToSd">Desa</string>
     <string name="nav_item_logs_verbose">Registres detallats</string>
@@ -115,7 +115,7 @@
     <string name="module_installed">S\'ha afegit %1$s a l\'usuari %2$s</string>
     <string name="module_install_failed">S\'ha produït un error en afegir el mòdul</string>
     <string name="install_to_user">Instal·lar a l\'usuari %s</string>
-    <string name="install_to_user_message">Voleu instal·lar %1$s a l\'usuari %2$s? Es recomana instal·lar manualment, forçar la instal·lació mitjançant LSPosed pot causar problemes.</string>
+    <string name="install_to_user_message">Voleu instal·lar %1$s a l\'usuari %2$s? Es recomana instal·lar manualment, forçar la instal·lació mitjançant ReLSPosed pot causar problemes.</string>
     <string name="expand">expandir</string>
     <string name="collapse">col·lapse</string>
     <!-- AppListActivity -->

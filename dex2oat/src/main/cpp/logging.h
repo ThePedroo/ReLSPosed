@@ -4,7 +4,7 @@
 #include <android/log.h>
 
 #ifndef LOG_TAG
-#define LOG_TAG "LSPosedDex2Oat"
+#define LOG_TAG "ReLSPosedDex2Oat"
 #endif
 
 #ifdef LOG_DISABLED

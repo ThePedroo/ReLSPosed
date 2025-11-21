@@ -39,19 +39,19 @@
     <string name="about_view_source_code"><![CDATA[Lihat kode sumber di %1$s<br/>Gabung dengan kami di saluran %2$s]]></string>
     <string name="translators" comment="Dear translators, please add your home page here following the format. There can be more than one translator. So feel free to append yourself.">pɹɐɥllıʇS</string>
     <string name="install">Pasang</string>
-    <string name="install_summary">Ketuk untuk memasang LSPosed</string>
+    <string name="install_summary">Ketuk untuk memasang ReLSPosed</string>
     <string name="not_installed">Tidak terpasang</string>
-    <string name="not_install_summary">LSPosed tidak terpasang</string>
+    <string name="not_install_summary">ReLSPosed tidak terpasang</string>
     <string name="activated">Diaktifkan</string>
     <string name="partial_activated">Diaktifkan sebagian</string>
     <string name="selinux_policy_not_loaded_summary">SEPolicy tidak dimuat dengan benar</string>
     <string name="selinux_policy_not_loaded"><![CDATA[Beberapa fitur tidak akan berfungsi.<br/>Harap laporkan ini ke pengembang <a href="https://github.com/topjohnwu/Magisk/issues"><b>Magisk</b></a>.]]></string>
     <string name="system_inject_fail_summary">Injeksi Kerangka Sistem gagal</string>
-    <string name="system_inject_fail"><![CDATA[Ini jarang terjadi dan mungkin disebabkan oleh <b>Magisk</b> atau beberapa modul Magisk berkualitas rendah.<br/>Coba nonaktifkan modul Magisk selain Riru dan LSPosed atau kirimkan log lengkap ke pengembang.]]></string>
+    <string name="system_inject_fail"><![CDATA[Ini jarang terjadi dan mungkin disebabkan oleh <b>Magisk</b> atau beberapa modul Magisk berkualitas rendah.<br/>Coba nonaktifkan modul Magisk selain Riru dan ReLSPosed atau kirimkan log lengkap ke pengembang.]]></string>
     <string name="system_prop_incorrect_summary">Prop sistem salah</string>
     <string name="system_prop_incorrect"><![CDATA[Beberapa properti sistem yang diperlukan dihapus atau diubah.<br/>Modul terkadang tidak valid.]]></string>
     <string name="need_update">Butuh pembaruan</string>
-    <string name="please_update_summary">Silakan pasang LSPosed versi terbaru</string>
+    <string name="please_update_summary">Silakan pasang ReLSPosed versi terbaru</string>
     <string name="developer_warning_title">Tips untuk pengembang modul</string>
     <string name="developer_warning_summary">Harap nonaktifkan pengoptimalan penerapan di Android Studio, atau gunakan perintah `gradlew installDebug` untuk menginstal. Jika tidak, apk modul tidak akan diperbarui.</string>
     <string name="info_api_version">Versi API</string>
@@ -70,17 +70,17 @@
     <string name="mount_failed">Mount gagal</string>
     <string name="selinux_permissive">SELinux permisif</string>
     <string name="sepolicy_incorrect">SELinux policy salah</string>
-    <string name="update_lsposed">Perbarui LSPosed</string>
-    <string name="update_lsposed_msg">Konfirmasi untuk pembaruan LSPosed? Perangkat ini akan mulai ulang setelah pembaruan selesai</string>
+    <string name="update_lsposed">Perbarui ReLSPosed</string>
+    <string name="update_lsposed_msg">Konfirmasi untuk pembaruan ReLSPosed? Perangkat ini akan mulai ulang setelah pembaruan selesai</string>
     <string name="info_copied">Disalin ke papan klip</string>
     <!-- WelcomeDialog -->
-    <string name="parasitic_welcome">Selamat datang di LSPosed</string>
+    <string name="parasitic_welcome">Selamat datang di ReLSPosed</string>
     <string name="parasitic_welcome_summary">Anda menggunakan manajer parasit, yang dapat membuat pintasan atau dapat terbuka dari notifikasi.</string>
     <string name="parasitic_welcome_summary_no_shortcut_support">Anda menggunakan manajer parasit, yang dapat dibuka dari notifikasi.</string>
     <string name="create_shortcut">Buat pintasan</string>
     <string name="never_show">Jangan pernah tampilkan</string>
     <string name="app_welcome">Manajer Parasit Direkomendasikan</string>
-    <string name="app_welcome_summary">LSPosed sekarang mendukung parasitisasi sistem untuk menghindari deteksi, Anda dapat membuka manajer parasit dari pemberitahuan. Disarankan untuk menghapus aplikasi saat ini.</string>
+    <string name="app_welcome_summary">ReLSPosed sekarang mendukung parasitisasi sistem untuk menghindari deteksi, Anda dapat membuka manajer parasit dari pemberitahuan. Disarankan untuk menghapus aplikasi saat ini.</string>
     <!-- LogsActivity -->
     <string name="menuSaveToSd">Simpan</string>
     <string name="nav_item_logs_verbose">Log Verbose</string>
@@ -115,7 +115,7 @@
     <string name="module_installed">Ditambahkan %1$s ke pengguna %2$s</string>
     <string name="module_install_failed">Gagal menambahkan modul</string>
     <string name="install_to_user">Pasang ke pengguna %s</string>
-    <string name="install_to_user_message">Ingin memasang %1$s ke pengguna %2$s? Disarankan untuk memasang secara manual, memaksa pemasangan melalui LSPosed dapat menyebabkan masalah.</string>
+    <string name="install_to_user_message">Ingin memasang %1$s ke pengguna %2$s? Disarankan untuk memasang secara manual, memaksa pemasangan melalui ReLSPosed dapat menyebabkan masalah.</string>
     <string name="expand">perluas</string>
     <string name="collapse">ciutkan</string>
     <!-- AppListActivity -->
@@ -167,7 +167,7 @@
     <string name="settings_disable_verbose_log">Nonaktifkan log verbose</string>
     <string name="settings_disable_verbose_log_summary">Permintaan laporan masalah dengan menyertakan log-log verbose</string>
     <string name="settings_enable_log_watchdog">Aktifkan watchdog</string>
-    <string name="settings_enable_log_watchdog_summary">Catatan watchdog LSPosed memodifikasi properti sistem, yang dapat diekploitasi untuk mendeteksi LSPosed</string>
+    <string name="settings_enable_log_watchdog_summary">Catatan watchdog ReLSPosed memodifikasi properti sistem, yang dapat diekploitasi untuk mendeteksi ReLSPosed</string>
     <string name="pure_black_dark_theme">Tema hitam gelap</string>
     <string name="pure_black_dark_theme_summary">Gunakan tema hitam murni jika tema gelap diaktifkan</string>
     <string name="settings_group_theme">Tema</string>

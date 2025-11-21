@@ -41,19 +41,19 @@
     <string name="about_view_source_code"><![CDATA[Bekyk bronkode by %1$s<br/>Sluit aan by ons %2$s -kanaal]]></string>
     <string name="translators" comment="Dear translators, please add your home page here following the format. There can be more than one translator. So feel free to append yourself.">null</string>
     <string name="install">Installeer2</string>
-    <string name="install_summary">Tik om LSPosed te installeer</string>
+    <string name="install_summary">Tik om ReLSPosed te installeer</string>
     <string name="not_installed">Not installed1</string>
-    <string name="not_install_summary">LSPosed is nie geïnstalleer nie</string>
+    <string name="not_install_summary">ReLSPosed is nie geïnstalleer nie</string>
     <string name="activated">Activated</string>
     <string name="partial_activated">Partially activated</string>
     <string name="selinux_policy_not_loaded_summary">SEPolicy is nie behoorlik gelaai nie</string>
     <string name="selinux_policy_not_loaded"><![CDATA[Sommige kenmerke sal nie werk nie.<br/>Rapporteer dit asseblief aan <a href="https://github.com/topjohnwu/Magisk/issues"><b>Magisk</b></a> ontwikkelaar.]]></string>
     <string name="system_inject_fail_summary">Stelselraamwerk-inspuiting het misluk</string>
-    <string name="system_inject_fail"><![CDATA[Dit is skaars en kan veroorsaak word deur <b>Magisk</b> of sommige Magisk-modules van lae gehalte.<br/>Probeer asseblief om Magisk-modules anders as Riru en LSPosed te deaktiveer of dien volledige log aan ontwikkelaars in.]]></string>
+    <string name="system_inject_fail"><![CDATA[Dit is skaars en kan veroorsaak word deur <b>Magisk</b> of sommige Magisk-modules van lae gehalte.<br/>Probeer asseblief om Magisk-modules anders as Riru en ReLSPosed te deaktiveer of dien volledige log aan ontwikkelaars in.]]></string>
     <string name="system_prop_incorrect_summary">Stelselstut is verkeerd</string>
     <string name="system_prop_incorrect"><![CDATA[Sommige nodige stelseleienskappe is uitgevee of gewysig.<br/>Modules kan soms ongeldig word.]]></string>
     <string name="need_update">Need to update</string>
-    <string name="please_update_summary">Please install the latest version of LSPosed</string>
+    <string name="please_update_summary">Please install the latest version of ReLSPosed</string>
     <string name="info_api_version">API version</string>
     <string name="info_framework_version">Framework version</string>
     <string name="info_manager_package_name">Bestuurder pakket naam</string>
@@ -70,17 +70,17 @@
     <string name="mount_failed">Montering het misluk</string>
     <string name="selinux_permissive">SELinux is permissief</string>
     <string name="sepolicy_incorrect">SELinux-beleid is verkeerd</string>
-    <string name="update_lsposed">Dateer LSPosed op</string>
-    <string name="update_lsposed_msg">Bevestig om LSPosed op te dateer? Hierdie toestel sal herlaai nadat die opdatering voltooi is</string>
+    <string name="update_lsposed">Dateer ReLSPosed op</string>
+    <string name="update_lsposed_msg">Bevestig om ReLSPosed op te dateer? Hierdie toestel sal herlaai nadat die opdatering voltooi is</string>
     <string name="info_copied">Gekopieer na knipbord</string>
     <!-- WelcomeDialog -->
-    <string name="parasitic_welcome">Welkom by LSPosed</string>
+    <string name="parasitic_welcome">Welkom by ReLSPosed</string>
     <string name="parasitic_welcome_summary">Jy gebruik die parasitiese bestuurder, wat kortpad kan skep of steeds oopmaak vanaf kennisgewing.</string>
     <string name="parasitic_welcome_summary_no_shortcut_support">Jy gebruik die parasitiese bestuurder, wat kan oopmaak vanaf kennisgewing.</string>
     <string name="create_shortcut">Skep kortpad</string>
     <string name="never_show">Moet nooit wys nie</string>
     <string name="app_welcome">Parasitiese Bestuurder Aanbeveel</string>
-    <string name="app_welcome_summary">LSPosed ondersteun nou stelselparasitering om opsporing te vermy, jy kan parasitiese bestuurder oopmaak vanaf kennisgewing. Dit word aanbeveel om die huidige toepassing te verwyder.</string>
+    <string name="app_welcome_summary">ReLSPosed ondersteun nou stelselparasitering om opsporing te vermy, jy kan parasitiese bestuurder oopmaak vanaf kennisgewing. Dit word aanbeveel om die huidige toepassing te verwyder.</string>
     <!-- LogsActivity -->
     <string name="menuSaveToSd">Stoor</string>
     <string name="nav_item_logs_verbose">Uitgebreide logs</string>
@@ -115,7 +115,7 @@
     <string name="module_installed">Het %1$s by gebruiker %2$sgevoeg</string>
     <string name="module_install_failed">%d module enabled</string>
     <string name="install_to_user">Installeer op gebruiker %s</string>
-    <string name="install_to_user_message">Wil jy %1$s op gebruiker %2$sinstalleer? Dit word aanbeveel om met die hand te installeer, om installasie via LSPosed te dwing, kan probleme veroorsaak.</string>
+    <string name="install_to_user_message">Wil jy %1$s op gebruiker %2$sinstalleer? Dit word aanbeveel om met die hand te installeer, om installasie via ReLSPosed te dwing, kan probleme veroorsaak.</string>
     <string name="expand">uitbrei</string>
     <string name="collapse">inval</string>
     <!-- AppListActivity -->

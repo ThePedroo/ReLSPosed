@@ -41,19 +41,19 @@
     <string name="about_view_source_code"><![CDATA[Преглед на изходния код в %1$s<br/>Присъединете се към нашия %2$s канал]]></string>
     <string name="translators" comment="Dear translators, please add your home page here following the format. There can be more than one translator. So feel free to append yourself.">невалидно</string>
     <string name="install">Инсталиране на</string>
-    <string name="install_summary">Натиснете, за да инсталирате LSPosed</string>
+    <string name="install_summary">Натиснете, за да инсталирате ReLSPosed</string>
     <string name="not_installed">Не е инсталиран</string>
-    <string name="not_install_summary">LSPosed не е инсталиран</string>
+    <string name="not_install_summary">ReLSPosed не е инсталиран</string>
     <string name="activated">Активиран</string>
     <string name="partial_activated">Частично активиран</string>
     <string name="selinux_policy_not_loaded_summary">SEPolicy не е заредена правилно</string>
     <string name="selinux_policy_not_loaded"><![CDATA[Някои функции няма да работят.<br/>Моля, докладвайте за това на <a href="https://github.com/topjohnwu/Magisk/issues"><b>Magisk</b></a> разработчик.]]></string>
     <string name="system_inject_fail_summary">Неуспешно инжектиране на системната рамка</string>
-    <string name="system_inject_fail"><![CDATA[Това се случва рядко и може да е причинено от <b>Magisk</b> или някои нискокачествени модули на Magisk.<br/>Моля, опитайте се да деактивирате модулите на Magisk, различни от Riru и LSPosed, или изпратете пълен журнал на разработчиците.]]></string>
+    <string name="system_inject_fail"><![CDATA[Това се случва рядко и може да е причинено от <b>Magisk</b> или някои нискокачествени модули на Magisk.<br/>Моля, опитайте се да деактивирате модулите на Magisk, различни от Riru и ReLSPosed, или изпратете пълен журнал на разработчиците.]]></string>
     <string name="system_prop_incorrect_summary">Неправилна стойност на системата</string>
     <string name="system_prop_incorrect"><![CDATA[Някои необходими системни свойства са изтрити или променени.<br/>Понякога модулите могат да се обезсилват.]]></string>
     <string name="need_update">Необходимо е да се актуализира</string>
-    <string name="please_update_summary">Моля, инсталирайте най-новата версия на LSPosed</string>
+    <string name="please_update_summary">Моля, инсталирайте най-новата версия на ReLSPosed</string>
     <string name="info_api_version">Версия на API</string>
     <string name="info_framework_version">Версия на рамката</string>
     <string name="info_manager_package_name">Име на пакета на мениджъра</string>
@@ -70,17 +70,17 @@
     <string name="mount_failed">Монтирането е неуспешно</string>
     <string name="selinux_permissive">SELinux е разрешаващ</string>
     <string name="sepolicy_incorrect">Политиката на SELinux е неправилна</string>
-    <string name="update_lsposed">Актуализиране на LSPosed</string>
-    <string name="update_lsposed_msg">Потвърждаване на актуализацията на LSPosed? Това устройство ще се рестартира след завършване на актуализацията</string>
+    <string name="update_lsposed">Актуализиране на ReLSPosed</string>
+    <string name="update_lsposed_msg">Потвърждаване на актуализацията на ReLSPosed? Това устройство ще се рестартира след завършване на актуализацията</string>
     <string name="info_copied">Копиране в клипборда</string>
     <!-- WelcomeDialog -->
-    <string name="parasitic_welcome">Добре дошли в LSPosed</string>
+    <string name="parasitic_welcome">Добре дошли в ReLSPosed</string>
     <string name="parasitic_welcome_summary">Използвате паразитния мениджър, който може да създаде пряк път или все още да се отваря от известието.</string>
     <string name="parasitic_welcome_summary_no_shortcut_support">Използвате паразитния мениджър, който може да се отвори от известие.</string>
     <string name="create_shortcut">Създаване на пряк път</string>
     <string name="never_show">Никога не показвайте</string>
     <string name="app_welcome">Препоръчва се паразитен мениджър</string>
-    <string name="app_welcome_summary">LSPosed вече поддържа паразитиране на системата, за да се избегне откриването, можете да отворите мениджъра на паразити от известието. Препоръчва се да деинсталирате текущото приложение.</string>
+    <string name="app_welcome_summary">ReLSPosed вече поддържа паразитиране на системата, за да се избегне откриването, можете да отворите мениджъра на паразити от известието. Препоръчва се да деинсталирате текущото приложение.</string>
     <!-- LogsActivity -->
     <string name="menuSaveToSd">Запазете</string>
     <string name="nav_item_logs_verbose">Условни дневници</string>
@@ -115,7 +115,7 @@
     <string name="module_installed">Добавяне на %1$s към потребител %2$s</string>
     <string name="module_install_failed">Добавянето на модул е неуспешно</string>
     <string name="install_to_user">Инсталиране на потребител %s</string>
-    <string name="install_to_user_message">Искате да инсталирате %1$s на потребител %2$s? Препоръчително е да се инсталира ръчно, принудителното инсталиране чрез LSPosed може да доведе до проблеми.</string>
+    <string name="install_to_user_message">Искате да инсталирате %1$s на потребител %2$s? Препоръчително е да се инсталира ръчно, принудителното инсталиране чрез ReLSPosed може да доведе до проблеми.</string>
     <string name="expand">разширяване на</string>
     <string name="collapse">срив</string>
     <!-- AppListActivity -->

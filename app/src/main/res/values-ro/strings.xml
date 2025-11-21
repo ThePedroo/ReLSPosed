@@ -43,19 +43,19 @@
     <string name="about_view_source_code"><![CDATA[Vizualizați codul sursă pe %1$s<br/>Alăturați-vă grupului nostru %2$s]]></string>
     <string name="translators" comment="Dear translators, please add your home page here following the format. There can be more than one translator. So feel free to append yourself.">Chele Ion, Igor Sorocean, br l12, Munteanu Roveliu, NicoaraAlex, Sergiu Alexa</string>
     <string name="install">Instalare</string>
-    <string name="install_summary">Atingeți pentru a instala LSPosed</string>
+    <string name="install_summary">Atingeți pentru a instala ReLSPosed</string>
     <string name="not_installed">Nu este instalat</string>
-    <string name="not_install_summary">LSPosed nu este instalat</string>
+    <string name="not_install_summary">ReLSPosed nu este instalat</string>
     <string name="activated">Activat</string>
     <string name="partial_activated">Activat parțial</string>
     <string name="selinux_policy_not_loaded_summary">Politica SE nu este încărcată corect</string>
     <string name="selinux_policy_not_loaded"><![CDATA[Unele funcții nu se pot activa.<br/>Vă rugăm să vă adresați dezvoltatorului <a href="https://github.com/topjohnwu/Magisk/issues"><b>Magisk</b></a>.]]></string>
     <string name="system_inject_fail_summary">Injectarea în Sistemul Android a eșuat</string>
-    <string name="system_inject_fail"><![CDATA[Aceasta se întâmplă rar, iar cauza poate fi <b>Magisk</b> sau unele module de slabă calitate.<br/>Vă rugăm încercați să dezactivați modulele Magisk, exceptând Riru și LSPosed, sau să trimiteți dezvoltatorilor jurnalul complet.]]></string>
+    <string name="system_inject_fail"><![CDATA[Aceasta se întâmplă rar, iar cauza poate fi <b>Magisk</b> sau unele module de slabă calitate.<br/>Vă rugăm încercați să dezactivați modulele Magisk, exceptând Riru și ReLSPosed, sau să trimiteți dezvoltatorilor jurnalul complet.]]></string>
     <string name="system_prop_incorrect_summary">Proprietăți de sistem invalide</string>
-    <string name="system_prop_incorrect"><![CDATA[Unele proprietăți de sistem necesare pentru funcționarea LSPosed au fost eliminate sau modificate.<br/>Este posibil ca modulele să funcționeze intermitent.]]></string>
+    <string name="system_prop_incorrect"><![CDATA[Unele proprietăți de sistem necesare pentru funcționarea ReLSPosed au fost eliminate sau modificate.<br/>Este posibil ca modulele să funcționeze intermitent.]]></string>
     <string name="need_update">Actualizare necesară</string>
-    <string name="please_update_summary">Vă rugăm să actualizați LSPosed</string>
+    <string name="please_update_summary">Vă rugăm să actualizați ReLSPosed</string>
     <string name="developer_warning_title">Sfaturi pentru dezvoltatorii de module</string>
     <string name="developer_warning_summary">Vă rugăm să dezactivați optimizările automate oferite de Android Studio sau să executați `gradlew installDebug` pentru instalare. În caz contrar, aplicația nu va putea fi actualizată.</string>
     <string name="info_api_version">Versiune API</string>
@@ -74,17 +74,17 @@
     <string name="mount_failed">Montarea a eșuat</string>
     <string name="selinux_permissive">SELinux este facultativ</string>
     <string name="sepolicy_incorrect">Politica SELinux este incorectă</string>
-    <string name="update_lsposed">Actualizați LSPosed</string>
-    <string name="update_lsposed_msg">Confirmați actualizarea LSPosed? Dispozitivul va reporni după finalizarea actualizării.</string>
+    <string name="update_lsposed">Actualizați ReLSPosed</string>
+    <string name="update_lsposed_msg">Confirmați actualizarea ReLSPosed? Dispozitivul va reporni după finalizarea actualizării.</string>
     <string name="info_copied">Copiat în clipboard</string>
     <!-- WelcomeDialog -->
-    <string name="parasitic_welcome">Bine ați venit la LSPosed!</string>
+    <string name="parasitic_welcome">Bine ați venit la ReLSPosed!</string>
     <string name="parasitic_welcome_summary">Folosiți managerul parazitar, care poate fi deschis din centrul de notificări sau dintr-o scurtătură creată de acesta.</string>
     <string name="parasitic_welcome_summary_no_shortcut_support">Folosiți managerul parazitar, care poate fi deschis din centrul de notificări.</string>
     <string name="create_shortcut">Creează scurtătură</string>
     <string name="never_show">Nu afișați din nou</string>
     <string name="app_welcome">Managerul parazitar este recomandat</string>
-    <string name="app_welcome_summary">LSPosed oferă posibilitatea parazitării sistemului, pentru a evita detectarea. Puteți deschide managerul parazitar din centrul de notificări. Se recomandă dezinstalarea aplicației curente.</string>
+    <string name="app_welcome_summary">ReLSPosed oferă posibilitatea parazitării sistemului, pentru a evita detectarea. Puteți deschide managerul parazitar din centrul de notificări. Se recomandă dezinstalarea aplicației curente.</string>
     <!-- LogsActivity -->
     <string name="menuSaveToSd">Salvare</string>
     <string name="nav_item_logs_verbose">Jurnal detaliat</string>
@@ -119,7 +119,7 @@
     <string name="module_installed">%1$s adăugat utilizatorului %2$s</string>
     <string name="module_install_failed">Adăugarea modulului a eșuat</string>
     <string name="install_to_user">Instalare modul pentru utilizatorul %s</string>
-    <string name="install_to_user_message">Doriți să instalați %1$s pentru utilizatorul %2$s? Este recomandat să instalați manual, forțarea instalării prin LSPosed poate cauza probleme.</string>
+    <string name="install_to_user_message">Doriți să instalați %1$s pentru utilizatorul %2$s? Este recomandat să instalați manual, forțarea instalării prin ReLSPosed poate cauza probleme.</string>
     <string name="expand">extindere</string>
     <string name="collapse">restrângere</string>
     <!-- AppListActivity -->
@@ -175,7 +175,7 @@
     <string name="settings_disable_verbose_log">Dezactivare jurnale detaliate</string>
     <string name="settings_disable_verbose_log_summary">Rapoartele de depanare necesită includerea de jurnale detaliate</string>
     <string name="settings_enable_log_watchdog">Proces de supervizare cu jurnal</string>
-    <string name="settings_enable_log_watchdog_summary">Monitorizează LSPosed. Activarea acestuia modifică proprietățile de sistem, care pot fi exploatate de către alte aplicații pentru detectarea drepturilor de superutilizator</string>
+    <string name="settings_enable_log_watchdog_summary">Monitorizează ReLSPosed. Activarea acestuia modifică proprietățile de sistem, care pot fi exploatate de către alte aplicații pentru detectarea drepturilor de superutilizator</string>
     <string name="pure_black_dark_theme">Temă întunecată</string>
     <string name="pure_black_dark_theme_summary">Utilizați negru pur pentru tema întunecată</string>
     <string name="settings_group_theme">Temă</string>

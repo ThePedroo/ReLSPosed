@@ -41,19 +41,19 @@
     <string name="about_view_source_code"><![CDATA[%1$s adresinden kaynak kodu görüntüleyin<br/>%2$s kanalımıza katılın]]></string>
     <string name="translators" comment="Dear translators, please add your home page here following the format. There can be more than one translator. So feel free to append yourself.">Bedircan AYAYDIN, Furkan KARCIOĞLU, Ahmet AÇIKGÖZ, Sir-C</string>
     <string name="install">Yükle</string>
-    <string name="install_summary">LSPosed\'i yüklemek için dokunun</string>
+    <string name="install_summary">ReLSPosed\'i yüklemek için dokunun</string>
     <string name="not_installed">Yüklenmedi</string>
-    <string name="not_install_summary">LSPosed Kurulu değil</string>
+    <string name="not_install_summary">ReLSPosed Kurulu değil</string>
     <string name="activated">Aktif edildi</string>
     <string name="partial_activated">Kısmen etkinleştirildi</string>
     <string name="selinux_policy_not_loaded_summary">SEPolicy düzgün yüklenmemiş</string>
     <string name="selinux_policy_not_loaded"><![CDATA[Bazı özellikler çalışmayacaktır.<br/>Lütfen bunu <a href="https://github.com/topjohnwu/Magisk/issues"><b>Magisk</b></a> geliştiricisine bildirin.]]></string>
     <string name="system_inject_fail_summary">Sistem Çerçevesi enjeksiyonu başarısız oldu</string>
-    <string name="system_inject_fail"><![CDATA[Bu nadiren yaşanır ve <b>Magisk</b> veya düşük kaliteli modüller yüzünden olabilir.<br/>Lütfen Riru ve LSPosed dışında bütün modülleri devre dışı bırakmayı deneyin veya geliştiricilere tam bir hata kaydı gönderin.]]></string>
+    <string name="system_inject_fail"><![CDATA[Bu nadiren yaşanır ve <b>Magisk</b> veya düşük kaliteli modüller yüzünden olabilir.<br/>Lütfen Riru ve ReLSPosed dışında bütün modülleri devre dışı bırakmayı deneyin veya geliştiricilere tam bir hata kaydı gönderin.]]></string>
     <string name="system_prop_incorrect_summary">Sistem desteği yanlış</string>
     <string name="system_prop_incorrect"><![CDATA[Bazı gerekli sistem özellikleri silindi veya değiştirildi.<br/>Modüller zaman zaman düzgün çalışmayabilir.]]></string>
     <string name="need_update">Güncelleme gerekiyor</string>
-    <string name="please_update_summary">Lütfen LSPosed\'in en son sürümünü yükleyin</string>
+    <string name="please_update_summary">Lütfen ReLSPosed\'in en son sürümünü yükleyin</string>
     <string name="developer_warning_title">Modül geliştiricisi için ipuçları</string>
     <string name="developer_warning_summary">Lütfen Android Studio\'da dağıtım optimizasyonlarını devre dışı bırakın veya yüklemek için `gradlew installDebug` komutunu kullanın. Aksi takdirde modül apk\'sı güncellenmeyecektir.</string>
     <string name="info_api_version">API sürümü</string>
@@ -72,17 +72,17 @@
     <string name="mount_failed">Bağlama başarısız</string>
     <string name="selinux_permissive">SELinux\'a izin verildi</string>
     <string name="sepolicy_incorrect">SELinux politikası yanlış</string>
-    <string name="update_lsposed">LSPosed\'ı güncelle</string>
-    <string name="update_lsposed_msg">LSPosed\'ı güncellemek istediğinize emin misiniz? Bu cihaz güncelleme tamamlandıktan sonra yeniden başlatılacak</string>
+    <string name="update_lsposed">ReLSPosed\'ı güncelle</string>
+    <string name="update_lsposed_msg">ReLSPosed\'ı güncellemek istediğinize emin misiniz? Bu cihaz güncelleme tamamlandıktan sonra yeniden başlatılacak</string>
     <string name="info_copied">Panoya kopyalandı</string>
     <!-- WelcomeDialog -->
-    <string name="parasitic_welcome">LSPosed\'a hoş geldiniz</string>
+    <string name="parasitic_welcome">ReLSPosed\'a hoş geldiniz</string>
     <string name="parasitic_welcome_summary">Parazit yöneticiyi kullanıyorsunuz, bu da kısayol oluşturabileceğinizi veya hala bildirimden açabileceğinizi gösterir.</string>
     <string name="parasitic_welcome_summary_no_shortcut_support">Parazit yöneticiyi kullanıyorsunuz ve bu da hala bildirimden açabileceğinizi gösterir.</string>
     <string name="create_shortcut">Kısayol oluştur</string>
     <string name="never_show">Asla gösterme</string>
     <string name="app_welcome">Parazit Yönetici Önerilir</string>
-    <string name="app_welcome_summary">LSPosed tespit edilmeyi önlemek için sistem parazitlemeyi destekliyor, parazit yöneticiyi bildirimden açabilirsiniz. Şu anki uygulamayı kaldırmanız önerilir.</string>
+    <string name="app_welcome_summary">ReLSPosed tespit edilmeyi önlemek için sistem parazitlemeyi destekliyor, parazit yöneticiyi bildirimden açabilirsiniz. Şu anki uygulamayı kaldırmanız önerilir.</string>
     <!-- LogsActivity -->
     <string name="menuSaveToSd">Kaydet</string>
     <string name="nav_item_logs_verbose">Ayrıntılı Günlükler</string>
@@ -117,7 +117,7 @@
     <string name="module_installed">Kullanıcıya %1$s eklendi %2$s</string>
     <string name="module_install_failed">Modül eklenemedi</string>
     <string name="install_to_user">Kullanıcıya yükle %s</string>
-    <string name="install_to_user_message">%2$s kullanıcısına %1$s yüklemek ister misiniz? Elle kurulum yapılması tavsiye edilir, LSPosed ile kurulumu zorlamak sorunlara neden olabilir.</string>
+    <string name="install_to_user_message">%2$s kullanıcısına %1$s yüklemek ister misiniz? Elle kurulum yapılması tavsiye edilir, ReLSPosed ile kurulumu zorlamak sorunlara neden olabilir.</string>
     <string name="expand">genişlet</string>
     <string name="collapse">daralt</string>
     <!-- AppListActivity -->
@@ -173,7 +173,7 @@
     <string name="settings_disable_verbose_log">Ayrıntılı günlükleri devre dışı bırak</string>
     <string name="settings_disable_verbose_log_summary">Ayrıntılı günlükleri dahil etme isteğini raporlayın</string>
     <string name="settings_enable_log_watchdog">Watchdog log\'u etkinleştir</string>
-    <string name="settings_enable_log_watchdog_summary">LSPosed\'in watchdog log\'u, LSPosed\'i tespit etmek için kullanılabilecek sistem özelliklerini değiştirir</string>
+    <string name="settings_enable_log_watchdog_summary">ReLSPosed\'in watchdog log\'u, ReLSPosed\'i tespit etmek için kullanılabilecek sistem özelliklerini değiştirir</string>
     <string name="pure_black_dark_theme">Siyah koyu tema</string>
     <string name="pure_black_dark_theme_summary">Koyu tema etkinse saf siyah temayı kullanın</string>
     <string name="settings_group_theme">Tema</string>

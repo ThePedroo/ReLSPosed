@@ -41,19 +41,19 @@
     <string name="about_view_source_code"><![CDATA[Vaata lähtekoodi aadressil %1$s<br/>Liitu meie %2$s \'i kanaliga]]></string>
     <string name="translators" comment="Dear translators, please add your home page here following the format. There can be more than one translator. So feel free to append yourself.">Subaru Pan</string>
     <string name="install">Installi</string>
-    <string name="install_summary">Puudutage LSPosedi installimiseks</string>
+    <string name="install_summary">Puudutage ReLSPosedi installimiseks</string>
     <string name="not_installed">Puudub</string>
-    <string name="not_install_summary">LSPosed ei ole installitud</string>
+    <string name="not_install_summary">ReLSPosed ei ole installitud</string>
     <string name="activated">Aktiveeritud</string>
     <string name="partial_activated">Osaliselt aktiveeritud</string>
     <string name="selinux_policy_not_loaded_summary">SEPolicy ei ole korralikult laetud</string>
     <string name="selinux_policy_not_loaded"><![CDATA[Mõned funktsioonid ei tööta.<br/>Palun teatage sellest <a href="https://github.com/topjohnwu/Magisk/issues"><b>Magisk</b></a> arendajale.]]></string>
     <string name="system_inject_fail_summary">System Frameworki süstimine ebaõnnestus</string>
-    <string name="system_inject_fail"><![CDATA[Seda esineb harva ja selle põhjuseks võib olla <b>Magisk</b> või mõned madala kvaliteediga Magisk-moodulid.<br/>Palun proovige lülitada välja Magisk\'i moodulid peale Riru ja LSPosed või esitage täielik logi arendajatele.]]></string>
+    <string name="system_inject_fail"><![CDATA[Seda esineb harva ja selle põhjuseks võib olla <b>Magisk</b> või mõned madala kvaliteediga Magisk-moodulid.<br/>Palun proovige lülitada välja Magisk\'i moodulid peale Riru ja ReLSPosed või esitage täielik logi arendajatele.]]></string>
     <string name="system_prop_incorrect_summary">Süsteemi tugi vale</string>
     <string name="system_prop_incorrect"><![CDATA[Mõned vajalikud süsteemiomadused kustutatud või muudetud.<br/>Moodulid võivad aeg-ajalt kehtetuks muutuda.]]></string>
     <string name="need_update">Vaja uuendada</string>
-    <string name="please_update_summary">Palun installige LSPosedi uusim versioon</string>
+    <string name="please_update_summary">Palun installige ReLSPosedi uusim versioon</string>
     <string name="info_api_version">API\'i versioon</string>
     <string name="info_framework_version">Raamistiku versioon</string>
     <string name="info_manager_package_name">Manager paketi nimi</string>
@@ -70,17 +70,17 @@
     <string name="mount_failed">Kinnitus ebaõnnestus</string>
     <string name="selinux_permissive">SELinux on lubav</string>
     <string name="sepolicy_incorrect">SELinux policy on vale</string>
-    <string name="update_lsposed">LSPosedi uuendamine</string>
-    <string name="update_lsposed_msg">Kas kinnitada LSPosed uuendamine? See seade taaskäivitub pärast uuendamise lõpetamist</string>
+    <string name="update_lsposed">ReLSPosedi uuendamine</string>
+    <string name="update_lsposed_msg">Kas kinnitada ReLSPosed uuendamine? See seade taaskäivitub pärast uuendamise lõpetamist</string>
     <string name="info_copied">Kopeeritud lõikelauale</string>
     <!-- WelcomeDialog -->
-    <string name="parasitic_welcome">Tere tulemast LSPosedisse</string>
+    <string name="parasitic_welcome">Tere tulemast ReLSPosedisse</string>
     <string name="parasitic_welcome_summary">Sa kasutad parasiitide haldurit, mis võib luua otsetee või ikka avada teateid.</string>
     <string name="parasitic_welcome_summary_no_shortcut_support">Kasutate parasiitide haldurit, mida saab avada teatisest.</string>
     <string name="create_shortcut">Loo otsetee</string>
     <string name="never_show">Mitte kunagi ei näidata</string>
     <string name="app_welcome">Parasiitide haldur Soovitatav</string>
-    <string name="app_welcome_summary">LSPosed toetab nüüd süsteemi parasiitide tuvastamise vältimiseks, saate avada parasiitide haldaja teatest. Praegune rakendus on soovitatav eemaldada.</string>
+    <string name="app_welcome_summary">ReLSPosed toetab nüüd süsteemi parasiitide tuvastamise vältimiseks, saate avada parasiitide haldaja teatest. Praegune rakendus on soovitatav eemaldada.</string>
     <!-- LogsActivity -->
     <string name="menuSaveToSd">Salvesta</string>
     <string name="nav_item_logs_verbose">Põhjalikud logid</string>
@@ -115,7 +115,7 @@
     <string name="module_installed">Lisatud %1$s kasutajale %2$s</string>
     <string name="module_install_failed">Mooduli lisamine ebaõnnestus</string>
     <string name="install_to_user">Installi kasutajale %s</string>
-    <string name="install_to_user_message">Tahad paigaldada %1$s kasutajale %2$s? Soovitatav on paigaldada käsitsi, LSPosed\'i kaudu sunniviisiline paigaldamine võib põhjustada probleeme.</string>
+    <string name="install_to_user_message">Tahad paigaldada %1$s kasutajale %2$s? Soovitatav on paigaldada käsitsi, ReLSPosed\'i kaudu sunniviisiline paigaldamine võib põhjustada probleeme.</string>
     <string name="expand">laienda</string>
     <string name="collapse">kollaps</string>
     <!-- AppListActivity -->

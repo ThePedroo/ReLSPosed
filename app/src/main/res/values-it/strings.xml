@@ -41,19 +41,19 @@
     <string name="about_view_source_code"><![CDATA[Visualizza il codice sorgente su %1$s<br/>Unisciti al nostro canale %2$s]]></string>
     <string name="translators" comment="Dear translators, please add your home page here following the format. There can be more than one translator. So feel free to append yourself.">alex193a, Fs00, xDonatello</string>
     <string name="install">Installa</string>
-    <string name="install_summary">Tocca per installare LSPosed</string>
+    <string name="install_summary">Tocca per installare ReLSPosed</string>
     <string name="not_installed">Non installato</string>
-    <string name="not_install_summary">LSPosed non è installato</string>
+    <string name="not_install_summary">ReLSPosed non è installato</string>
     <string name="activated">Attivo</string>
     <string name="partial_activated">Parzialmente attivo</string>
     <string name="selinux_policy_not_loaded_summary">SEPolicy non è caricato correttamente</string>
     <string name="selinux_policy_not_loaded"><![CDATA[Alcune funzionalità non funzioneranno.<br/>Segnalalo allo sviluppatore di <a href="https://github.com/topjohnwu/Magisk/issues"><b>Magisk</b></a>.]]></string>
     <string name="system_inject_fail_summary">Injection del framework di sistema fallita</string>
-    <string name="system_inject_fail"><![CDATA[L\'injection del framework di sistema è fallita.<br/>Questo problema si verifica raramente e può essere causato da <b>Magisk</b> o da alcuni moduli Magisk di scarsa qualità.<br/>Prova a disabilitare i moduli Magisk tranne Riru e LSPosed o invia il log completo agli sviluppatori.]]></string>
+    <string name="system_inject_fail"><![CDATA[L\'injection del framework di sistema è fallita.<br/>Questo problema si verifica raramente e può essere causato da <b>Magisk</b> o da alcuni moduli Magisk di scarsa qualità.<br/>Prova a disabilitare i moduli Magisk tranne Riru e ReLSPosed o invia il log completo agli sviluppatori.]]></string>
     <string name="system_prop_incorrect_summary">Proprietà di sistema errate</string>
     <string name="system_prop_incorrect"><![CDATA[Alcune proprietà di sistema necessarie sono state eliminate o modificate.<br/>In alcuni casi i moduli potrebbero non funzionare.]]></string>
     <string name="need_update">Aggiornamento richiesto</string>
-    <string name="please_update_summary">Installa la versione più recente di LSPosed</string>
+    <string name="please_update_summary">Installa la versione più recente di ReLSPosed</string>
     <string name="developer_warning_title">Suggerimenti per lo sviluppatore del modulo</string>
     <string name="developer_warning_summary">Disattivare le ottimizzazioni di distribuzione su Android Studio, o utilizzare il comando `gradlew installDebug` per eseguire l\'installazione. Altrimenti l\'apk del modulo non verrà aggiornato.</string>
     <string name="info_api_version">Versione API</string>
@@ -72,17 +72,17 @@
     <string name="mount_failed">Mount fallito</string>
     <string name="selinux_permissive">SELinux è in modalità permissiva</string>
     <string name="sepolicy_incorrect">La politica di SELinux non è corretta</string>
-    <string name="update_lsposed">Aggiorna LSPosed</string>
-    <string name="update_lsposed_msg">Confermi di voler aggiornare LSPosed? Il dispositivo verrà riavviato dopo il completamento dell\'aggiornamento</string>
+    <string name="update_lsposed">Aggiorna ReLSPosed</string>
+    <string name="update_lsposed_msg">Confermi di voler aggiornare ReLSPosed? Il dispositivo verrà riavviato dopo il completamento dell\'aggiornamento</string>
     <string name="info_copied">Copiato negli appunti</string>
     <!-- WelcomeDialog -->
-    <string name="parasitic_welcome">Benvenuto in LSPosed</string>
+    <string name="parasitic_welcome">Benvenuto in ReLSPosed</string>
     <string name="parasitic_welcome_summary">Stai usando il manager parassitario, che può creare scorciatoie o essere aperto dalla notifica.</string>
     <string name="parasitic_welcome_summary_no_shortcut_support">Stai usando il manager parassitario, che può essere aperto dalla notifica.</string>
     <string name="create_shortcut">Crea scorciatoia</string>
     <string name="never_show">Non mostrare mai</string>
     <string name="app_welcome">Manager parassitario consigliato</string>
-    <string name="app_welcome_summary">LSPosed ora supporta la parassitazione del sistema per evitarne il rilevamento, è possibile aprire il manager parassitario dalla notifica. Si consiglia di disinstallare l\'applicazione attuale.</string>
+    <string name="app_welcome_summary">ReLSPosed ora supporta la parassitazione del sistema per evitarne il rilevamento, è possibile aprire il manager parassitario dalla notifica. Si consiglia di disinstallare l\'applicazione attuale.</string>
     <!-- LogsActivity -->
     <string name="menuSaveToSd">Salva</string>
     <string name="nav_item_logs_verbose">Log verbosi</string>
@@ -117,7 +117,7 @@
     <string name="module_installed">%1$s aggiunto all\'utente %2$s</string>
     <string name="module_install_failed">Aggiunta del modulo fallita</string>
     <string name="install_to_user">Installa per l\'utente %s</string>
-    <string name="install_to_user_message">Vuoi installare %1$s per l\'utente %2$s? Si consiglia di farlo manualmente, forzare l\'installazione da LSPosed potrebbe causare problemi.</string>
+    <string name="install_to_user_message">Vuoi installare %1$s per l\'utente %2$s? Si consiglia di farlo manualmente, forzare l\'installazione da ReLSPosed potrebbe causare problemi.</string>
     <string name="expand">espandi</string>
     <string name="collapse">comprimi</string>
     <!-- AppListActivity -->
@@ -169,7 +169,7 @@
     <string name="settings_disable_verbose_log">Disabilita il log verboso</string>
     <string name="settings_disable_verbose_log_summary">La segnalazione di problemi richiede l\'inclusione di log dettagliati</string>
     <string name="settings_enable_log_watchdog">Abilita log watchdog</string>
-    <string name="settings_enable_log_watchdog_summary">Il watchdog log di LSPosed modifica le proprietà del sistema, che potrebbero essere sfruttate per rilevare LSPosed</string>
+    <string name="settings_enable_log_watchdog_summary">Il watchdog log di ReLSPosed modifica le proprietà del sistema, che potrebbero essere sfruttate per rilevare ReLSPosed</string>
     <string name="pure_black_dark_theme">Tema nero scuro</string>
     <string name="pure_black_dark_theme_summary">Usa il tema nero puro quando è abilitato il tema scuro</string>
     <string name="settings_group_theme">Tema</string>

@@ -43,19 +43,19 @@
 https://github.com/tclement0922
 JingMatrix</string>
     <string name="install">Installer</string>
-    <string name="install_summary">Appuyer pour installer LSPosed</string>
+    <string name="install_summary">Appuyer pour installer ReLSPosed</string>
     <string name="not_installed">Non installé</string>
-    <string name="not_install_summary">LSPosed n\'est pas installé</string>
+    <string name="not_install_summary">ReLSPosed n\'est pas installé</string>
     <string name="activated">Activé</string>
     <string name="partial_activated">Partiellement activé</string>
     <string name="selinux_policy_not_loaded_summary">SEPolicy n\’est pas chargé correctement</string>
     <string name="selinux_policy_not_loaded"><![CDATA[Certaines fonctions ne fonctionneront pas.<br/>Merci de ne pas remonter celà vers le développeur <a href="https://github.com/topjohnwu/Magisk/issues"><b>Magisk</b></a>.]]></string>
     <string name="system_inject_fail_summary">Échec de l\’injection du sous système</string>
-    <string name="system_inject_fail"><![CDATA[Ceci est rare et peut être causé par <b>Magisk</b> ou certains modules Magisk de basse qualité.<br/>Essayez de désactiver les modules Magisk autres que Riru et LSPosed ou envoyez le journal complet aux développeurs.]]></string>
+    <string name="system_inject_fail"><![CDATA[Ceci est rare et peut être causé par <b>Magisk</b> ou certains modules Magisk de basse qualité.<br/>Essayez de désactiver les modules Magisk autres que Riru et ReLSPosed ou envoyez le journal complet aux développeurs.]]></string>
     <string name="system_prop_incorrect_summary">Propriétés système incorrectes</string>
     <string name="system_prop_incorrect"><![CDATA[Certaines propriétés nécessaires au système ont été supprimées ou modifiées.<br/>Des modules peuvent s\'invalider occasionnellement.]]></string>
     <string name="need_update">Mise à jour nécessaire</string>
-    <string name="please_update_summary">Merci d\’installer la dernière version de LSPosed</string>
+    <string name="please_update_summary">Merci d\’installer la dernière version de ReLSPosed</string>
     <string name="developer_warning_title">Conseils pour les développeurs de modules</string>
     <string name="developer_warning_summary">Veuillez désactiver les optimisations de déploiement sur Android Studio, ou utilisez la commande `gradlew installDebug` pour installer. Sinon, l\'APK du module ne sera pas mis à jour.</string>
     <string name="info_api_version">Version de l\’API</string>
@@ -74,17 +74,17 @@ JingMatrix</string>
     <string name="mount_failed">Échec du montage</string>
     <string name="selinux_permissive">SELinux est permissif</string>
     <string name="sepolicy_incorrect">La politique SELinux est incorrecte</string>
-    <string name="update_lsposed">Mettre à jour LSPosed</string>
-    <string name="update_lsposed_msg">Vous confirmez la mise à jour LSPosed ? Ce périphérique redémarrera après la mise à jour effectuée</string>
+    <string name="update_lsposed">Mettre à jour ReLSPosed</string>
+    <string name="update_lsposed_msg">Vous confirmez la mise à jour ReLSPosed ? Ce périphérique redémarrera après la mise à jour effectuée</string>
     <string name="info_copied">Copié dans le presse-papier</string>
     <!-- WelcomeDialog -->
-    <string name="parasitic_welcome">Bienvenue dans LSPosed</string>
+    <string name="parasitic_welcome">Bienvenue dans ReLSPosed</string>
     <string name="parasitic_welcome_summary">Vous utilisez le gestionnaire parasité, qui ne peut pas créer de raccourcis ou même être ouvert à partir d\'une notification.</string>
     <string name="parasitic_welcome_summary_no_shortcut_support">Vous utilisez le gestionnaire parasité, qui peut être ouvert depuis la notification.</string>
     <string name="create_shortcut">Créer le raccourci</string>
     <string name="never_show">Ne jamais afficher</string>
     <string name="app_welcome">Gestionnaire parasité recommandé</string>
-    <string name="app_welcome_summary">LSPosed supporte maintenant la parasitage du système afin d\'éviter les détection, vous pouvez l\'ouvrir depuis la notification. Il est recommandé de désinstaller l\'application actuelle.</string>
+    <string name="app_welcome_summary">ReLSPosed supporte maintenant la parasitage du système afin d\'éviter les détection, vous pouvez l\'ouvrir depuis la notification. Il est recommandé de désinstaller l\'application actuelle.</string>
     <!-- LogsActivity -->
     <string name="menuSaveToSd">Sauvegarder</string>
     <string name="nav_item_logs_verbose">Journaux détaillés</string>
@@ -119,7 +119,7 @@ JingMatrix</string>
     <string name="module_installed">%1$s ajouté à l’utilisateur %2$s</string>
     <string name="module_install_failed">Échec de l\’ajout du module</string>
     <string name="install_to_user">Installer dans l\'utilisateur %s</string>
-    <string name="install_to_user_message">Vous voulez installer %1$s dans l\'utilisateur %2$s ? Il est recommandé de l\'installer manuellement, forcer l\'installation via LSPosed pourrait causer des problèmes.</string>
+    <string name="install_to_user_message">Vous voulez installer %1$s dans l\'utilisateur %2$s ? Il est recommandé de l\'installer manuellement, forcer l\'installation via ReLSPosed pourrait causer des problèmes.</string>
     <string name="expand">développer</string>
     <string name="collapse">réduire</string>
     <!-- AppListActivity -->
@@ -175,7 +175,7 @@ JingMatrix</string>
     <string name="settings_disable_verbose_log">Désactiver les journaux détaillés</string>
     <string name="settings_disable_verbose_log_summary">Les journaux détaillés sont requis pour signaler des problèmes</string>
     <string name="settings_enable_log_watchdog">Activer le chien de garde de journal</string>
-    <string name="settings_enable_log_watchdog_summary">Le chien de garde du journal LSPosed modifie les propriétés du système, qui peuvent être exploitées pour détecter LSPosed</string>
+    <string name="settings_enable_log_watchdog_summary">Le chien de garde du journal ReLSPosed modifie les propriétés du système, qui peuvent être exploitées pour détecter ReLSPosed</string>
     <string name="pure_black_dark_theme">Thème noir et sombre</string>
     <string name="pure_black_dark_theme_summary">Utiliser le thème noir pur si le thème noir est activé</string>
     <string name="settings_group_theme">Thème</string>

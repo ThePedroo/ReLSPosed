@@ -41,19 +41,19 @@
     <string name="about_view_source_code"><![CDATA[Bekijk de broncode op %1$s<br/>Sluit je aan bij onze %2$s kanaal]]></string>
     <string name="translators" comment="Dear translators, please add your home page here following the format. There can be more than one translator. So feel free to append yourself.">Pandemic-XDA</string>
     <string name="install">Installeren</string>
-    <string name="install_summary">Tik om LSPosed te installeren</string>
+    <string name="install_summary">Tik om ReLSPosed te installeren</string>
     <string name="not_installed">Niet geïnstalleerd</string>
-    <string name="not_install_summary">LSPosed is niet geinstalleerd</string>
+    <string name="not_install_summary">ReLSPosed is niet geinstalleerd</string>
     <string name="activated">Geactiveerd</string>
     <string name="partial_activated">Gedeeltelijk geactiveerd</string>
     <string name="selinux_policy_not_loaded_summary">SEPolicy is niet correct geladen</string>
     <string name="selinux_policy_not_loaded"><![CDATA[Sommige functies zullen niet werken.<br/>Gelieve dit te melden aan <a href="https://github.com/topjohnwu/Magisk/issues"><b>Magisk</b></a> ontwikkelaar.]]></string>
     <string name="system_inject_fail_summary">Systeem Framework injectie is mislukt</string>
-    <string name="system_inject_fail"><![CDATA[Systeem Framework injectie mislukt.<br/>Dit is zeldzaam en kan worden veroorzaakt door <b>Magisk</b> of sommige Magisk-modules van lage kwaliteit.<br/>Probeer andere Magisk-modules dan Riru en LSPosed uit te schakelen of stuur een volledig logboek naar de ontwikkelaars.]]></string>
+    <string name="system_inject_fail"><![CDATA[Systeem Framework injectie mislukt.<br/>Dit is zeldzaam en kan worden veroorzaakt door <b>Magisk</b> of sommige Magisk-modules van lage kwaliteit.<br/>Probeer andere Magisk-modules dan Riru en ReLSPosed uit te schakelen of stuur een volledig logboek naar de ontwikkelaars.]]></string>
     <string name="system_prop_incorrect_summary">Systeem prop incorrect</string>
     <string name="system_prop_incorrect"><![CDATA[Enkele noodzakelijke systeemeigenschappen verwijderd of gewijzigd.<br/>Modules kunnen af en toe ongeldig worden.]]></string>
     <string name="need_update">Bijwerken is nodig</string>
-    <string name="please_update_summary">Installeer de laatste versie van LSPosed</string>
+    <string name="please_update_summary">Installeer de laatste versie van ReLSPosed</string>
     <string name="info_api_version">API versie</string>
     <string name="info_framework_version">Framework versie</string>
     <string name="info_manager_package_name">Naam beheerderspakket</string>
@@ -70,17 +70,17 @@
     <string name="mount_failed">Berg mislukt</string>
     <string name="selinux_permissive">SELinux is permissief</string>
     <string name="sepolicy_incorrect">SELinux beleid is onjuist</string>
-    <string name="update_lsposed">Update LSPosed</string>
-    <string name="update_lsposed_msg">Bevestig bijwerken van LSPosed? Dit apparaat zal opnieuw opstarten nadat de update is voltooid</string>
+    <string name="update_lsposed">Update ReLSPosed</string>
+    <string name="update_lsposed_msg">Bevestig bijwerken van ReLSPosed? Dit apparaat zal opnieuw opstarten nadat de update is voltooid</string>
     <string name="info_copied">Gekopieerd naar klembord</string>
     <!-- WelcomeDialog -->
-    <string name="parasitic_welcome">Welkom bij LSPosed</string>
+    <string name="parasitic_welcome">Welkom bij ReLSPosed</string>
     <string name="parasitic_welcome_summary">U gebruikt de parasitaire manager, die een snelkoppeling kan maken of nog steeds kan openen vanuit een melding.</string>
     <string name="parasitic_welcome_summary_no_shortcut_support">Je gebruikt de parasiterende manager, die kan openen vanuit de melding.</string>
     <string name="create_shortcut">Snelkoppeling maken</string>
     <string name="never_show">Nooit tonen</string>
     <string name="app_welcome">Parasitaire manager aanbevolen</string>
-    <string name="app_welcome_summary">LSPosed ondersteunt nu systeemparasitisatie om detectie te voorkomen, u kunt parasitaire manager openen vanuit een melding. Het wordt aanbevolen om de huidige applicatie te verwijderen.</string>
+    <string name="app_welcome_summary">ReLSPosed ondersteunt nu systeemparasitisatie om detectie te voorkomen, u kunt parasitaire manager openen vanuit een melding. Het wordt aanbevolen om de huidige applicatie te verwijderen.</string>
     <!-- LogsActivity -->
     <string name="menuSaveToSd">Opslaan</string>
     <string name="nav_item_logs_verbose">Uitgebreide logs</string>
@@ -115,7 +115,7 @@
     <string name="module_installed">Toegevoegd %1$s naar gebruiker %2$s</string>
     <string name="module_install_failed">Het toevoegen van de module is mislukt</string>
     <string name="install_to_user">Installeer naar gebruiker %s</string>
-    <string name="install_to_user_message">Wil je installeren %1$s naar gebruiker %2$s? Het wordt aanbevolen om handmatig te installeren, het forceren van installatie via LSPosed kan problemen veroorzaken.</string>
+    <string name="install_to_user_message">Wil je installeren %1$s naar gebruiker %2$s? Het wordt aanbevolen om handmatig te installeren, het forceren van installatie via ReLSPosed kan problemen veroorzaken.</string>
     <string name="expand">uitbreiden</string>
     <string name="collapse">samenvouwen</string>
     <!-- AppListActivity -->
@@ -142,7 +142,7 @@
     <string name="use_recommended">Aanbevolen</string>
     <string name="no_scope_selected_has_recommended">U heeft geen app geselecteerd. Aanbevolen apps selecteren?</string>
     <string name="use_recommended_message">Aanbevolen apps selecteren?</string>
-    <string name="module_is_not_activated_yet">LSPosed module is nog niet geactiveerd</string>
+    <string name="module_is_not_activated_yet">ReLSPosed module is nog niet geactiveerd</string>
     <string name="requested_by_module">Aanbevolen</string>
     <string name="update_available">Update beschikbaar: %1$s</string>
     <string name="module_disabled_no_selection">Module %1$s is uitgeschakeld omdat er geen app is geselecteerd.</string>
