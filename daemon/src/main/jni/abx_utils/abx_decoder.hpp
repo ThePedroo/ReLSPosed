@@ -15,9 +15,19 @@
 
 class AbxDecoder {
     public:
-    AbxDecoder(std::vector<char> str) {
+    AbxDecoder(std::vector<char>* str) {
 		mInput = str;
 	}
+
+    bool isAbx() {
+        // maybe empty?
+        if (mInput->size() < 5) return false;
+
+        curPos = 0;
+        std::vector<char> headerV = readFromCurPos(4);
+        const char* header = reinterpret_cast<const char*>(headerV.data());
+        return memcmp(header, startMagic, 4) == 0;
+    }
 
     bool parse() {
         if (!isAbx())
@@ -142,7 +152,7 @@ class AbxDecoder {
 
     private:
     int curPos = 0;
-	std::vector<char> mInput;
+	std::vector<char>* mInput;
     std::vector<std::vector<char>> internedStrings;
     std::vector<std::shared_ptr<XMLElement>> elementStack;
 	bool docOpen = false, rootClosed = false;
@@ -150,19 +160,9 @@ class AbxDecoder {
 
     std::vector<char> readFromCurPos(int len) {
 		// std::cout << "Reading " << len << " bytes of data from " << curPos << std::endl;
-		std::vector ret(mInput.begin() + curPos, mInput.begin() + curPos + len);
+		std::vector ret(mInput->begin() + curPos, mInput->begin() + curPos + len);
 		curPos += len;
 		return ret;
-	}
-
-    bool isAbx() {
-		// maybe empty?
-		if (mInput.size() < 5) return false;
-
-		curPos = 0;
-		std::vector<char> headerV = readFromCurPos(4);
-		const char* header = reinterpret_cast<const char*>(headerV.data());
-		return memcmp(header, startMagic, 4) == 0;
 	}
 
 	char readByte() {

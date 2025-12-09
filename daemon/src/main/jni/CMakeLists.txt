@@ -9,11 +9,11 @@ set(SOURCES
         logcat.cpp
         obfuscation.cpp
         packagename.cpp
-        )
+)
 
 add_library(${PROJECT_NAME} SHARED ${SOURCES})
 
-target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR} ${EXTERNAL_ROOT}/rapidxml)
 
 target_link_libraries(${PROJECT_NAME} PRIVATE lsplant_static dex_builder_static android log)
 

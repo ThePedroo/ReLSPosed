@@ -12,10 +12,17 @@
 #include <errno.h>
 #include <stdbool.h>
 
+#include <rapidxml.hpp>
+
 static const std::string packages_path = "/data/system/packages.xml";
 static std::vector<char> LoadFileToStdVector(std::string filename);
 
-extern "C" bool get_pkg_from_classpath_arg(const char* classpath_dir, char* package_name, size_t package_name_buffer_size) {    
+// !!! DO NOT REMOVE THIS FUNCTION UNLESS YOU ADDED IT IN RAPIDXML !!!
+void rapidxml::parse_error_handler(const char *what, void *where) {
+    LOGE("rapidxml Parser error: %s, Start of string: %s\n", what, (char *) where);
+}
+
+extern "C" bool get_pkg_from_classpath_arg(const char* classpath_dir, char* package_name, size_t package_name_buffer_size) {
     size_t dir_len = strlen(classpath_dir);
     if(dir_len == 0 || dir_len >= 1024) {
         LOGE("Invalid classpath dir length: %zu", dir_len);
@@ -24,13 +31,60 @@ extern "C" bool get_pkg_from_classpath_arg(const char* classpath_dir, char* pack
 
     std::vector<char> packagesFile = LoadFileToStdVector(packages_path);
 
-    if(packagesFile.size() < 1)
-    {
+    if(packagesFile.empty()) {
         LOGE("Failed to read packages.xml: %s", strerror(errno));
         return false;
     }
-    
-    AbxDecoder decoder(packagesFile);
+
+    AbxDecoder decoder(&packagesFile);
+    if (!decoder.isAbx()) {
+        LOGD("This file is not ABX encoded, trying with XML fallback");
+
+        rapidxml::xml_document document;
+        document.parse<0>(packagesFile.data());
+
+        rapidxml::xml_node<> *root_node = document.first_node();
+        rapidxml::xml_node<> *current_node = nullptr;
+
+        if (strcmp(root_node->name(), "packages") != 0) {
+            LOGE("The root tag is not packages!");
+
+            goto abort_xml_read;
+        }
+
+        current_node = root_node->first_node("package");
+        while (current_node) {
+            {
+                rapidxml::xml_attribute<> *name_attr = current_node->first_attribute("name");
+                rapidxml::xml_attribute<> *code_path_attr = current_node->first_attribute("codePath");
+
+                if (!name_attr || !code_path_attr) goto continue_xml_loop;
+
+                char* code_path = code_path_attr->value();
+
+                if (strlen(code_path) != dir_len) goto continue_xml_loop;
+                if (strncmp(code_path, classpath_dir, dir_len) != 0) goto continue_xml_loop;
+
+                char* name = name_attr->value();
+                size_t name_len = strlen(name);
+
+                int copy_len = name_len < package_name_buffer_size - 1 ? static_cast<int>(name_len) : static_cast<int>(package_name_buffer_size - 1);
+                memcpy(package_name, name, copy_len * sizeof(char));
+                package_name[copy_len] = '\0';
+
+                document.clear();
+                return true;
+            }
+
+            continue_xml_loop:
+            current_node = current_node->next_sibling("package");
+        }
+
+        abort_xml_read:
+        document.clear();
+        return false;
+    }
+
     if (decoder.parse() && decoder.root.get() && strcmp(decoder.root->mTagName.data(), "packages") == 0) {
         for (auto pkg : decoder.root.get()->subElements) {
             if (strcmp(pkg.get()->mTagName.data(), "package") != 0) continue;
