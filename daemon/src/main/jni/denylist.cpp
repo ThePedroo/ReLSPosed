@@ -398,6 +398,12 @@ bool apatch_uid_should_umount(const char *const process) {
 }
 
 int get_stat(const char* app_name, struct stat* st) {
+    // ignore sandbox package
+    if (strcmp("com.android.sdksandbox", app_name) == 0 ||
+        strcmp("com.google.android.sdksandbox", app_name) == 0) {
+        return -1;
+    }
+
     char app_data_dir[PATH_MAX];
     snprintf(app_data_dir, sizeof(app_data_dir), "/data/data/%s", app_name);
 
