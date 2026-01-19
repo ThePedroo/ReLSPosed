@@ -397,6 +397,23 @@ bool apatch_uid_should_umount(const char *const process) {
     return false;
 }
 
+int get_stat(const char* app_name, struct stat* st) {
+    char app_data_dir[PATH_MAX];
+    snprintf(app_data_dir, sizeof(app_data_dir), "/data/data/%s", app_name);
+
+    if (stat(app_data_dir, st) == -1) {
+        snprintf(app_data_dir, sizeof(app_data_dir), "/data/user_de/0/%s", app_name);
+
+        if (stat(app_data_dir, st) == -1) {
+            PLOGE("Failed to stat /data/data/%s and /data/user_de/0/%s", app_name, app_name);
+
+            return -1;
+        }
+    }
+
+    return 0;
+}
+
 extern "C" JNIEXPORT jboolean JNICALL
 Java_org_lsposed_lspd_service_DenylistManager_isInDenylist(JNIEnv *env, jclass, jstring appName) {
     const char *app_name = env->GetStringUTFChars(appName, nullptr);
@@ -406,16 +423,6 @@ Java_org_lsposed_lspd_service_DenylistManager_isInDenylist(JNIEnv *env, jclass, 
         return JNI_FALSE;
     }
 
-    char app_data_dir[PATH_MAX];
-    snprintf(app_data_dir, sizeof(app_data_dir), "/data/data/%s", app_name);
-
-    struct stat st;
-    if (stat(app_data_dir, &st) == -1) {
-        PLOGE("Failed to stat %s", app_data_dir);
-
-        goto app_not_in_denylist;
-    }
-
     if (root_impl == -1 && !ksu_get_existence() && !magisk_get_existence() && !apatch_get_existence()) {
         LOGE("No supported root implementation found, skipping denylist check");
 
@@ -423,6 +430,9 @@ Java_org_lsposed_lspd_service_DenylistManager_isInDenylist(JNIEnv *env, jclass, 
     }
 
     if (root_impl == 1) {
+        struct stat st;
+        if (get_stat(app_name, &st) == -1) goto app_not_in_denylist;
+
         if (ksu_is_in_denylist(st.st_uid)) {
             LOGI("App %s is in KernelSU denylist", app_name);
 
@@ -486,16 +496,6 @@ Java_org_lsposed_lspd_service_DenylistManager_isInDenylistFromClasspathDir(JNIEn
     }
     env->ReleaseStringUTFChars(classpathDirArg, classpath_dir_arg);
 
-    char app_data_dir[1024] = {0};
-    snprintf(app_data_dir, sizeof(app_data_dir), "/data/data/%s", app_name);
-
-    struct stat st;
-    if (stat(app_data_dir, &st) == -1) {
-        PLOGE("Failed to stat %s", app_data_dir);
-
-        goto app_not_in_denylist;
-    }
-
     if (root_impl == -1 && !ksu_get_existence() && !magisk_get_existence() && !apatch_get_existence()) {
         LOGE("No supported root implementation found, skipping denylist check");
 
@@ -503,6 +503,9 @@ Java_org_lsposed_lspd_service_DenylistManager_isInDenylistFromClasspathDir(JNIEn
     }
 
     if (root_impl == 1) {
+        struct stat st;
+        if (get_stat(app_name, &st) == -1) goto app_not_in_denylist;
+
         if (ksu_is_in_denylist(st.st_uid)) {
             LOGI("App %s is in KernelSU denylist", app_name);
 
