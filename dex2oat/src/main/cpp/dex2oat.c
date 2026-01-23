@@ -113,7 +113,26 @@ static void write_int(int fd, int val) {
 
 static void write_string(int fd, const char *str, size_t len) {
     write_int(fd, (int)len);
-    if (len > 0) write(fd, str, len);
+    if (len == 0) return;
+
+    size_t written = 0;
+    while (written < len) {
+        ssize_t ret = TEMP_FAILURE_RETRY(write(fd, str + written, len - written));
+        if (ret <= 0) {
+            PLOGE("write_string data failed");
+            return; // or abort, since protocol is broken
+        }
+        written += ret;
+    }
+}
+
+__attribute__((noreturn))
+static void exec_dex2oat(int stock_fd, char *const argv[]) {
+    fexecve(stock_fd, argv, environ);
+
+    PLOGE("fexecve failed");
+    close(stock_fd);
+    exit(2);
 }
 
 int main(int argc, char **argv) {
@@ -163,14 +182,38 @@ int main(int argc, char **argv) {
 
     close(sock_fd);
 
-    const char* prefix = "--classpath-dir=";
-    size_t prefix_len = strlen(prefix);
+    const char* class_dir_prefix = "--classpath-dir=";
+    const char* compilation_reason_prefix = "--compilation-reason=";
+    size_t class_dir_prefix_len = strlen(class_dir_prefix);
+    size_t compilation_reason_prefix_len = strlen(compilation_reason_prefix);
+
+    bool is_new_install = false;
+    char* classpath_dir = NULL;
+    size_t dir_len = 0;
+
     for (int i = 0; i < argc; i++) {
-        if (strncmp(argv[i], prefix, prefix_len) != 0) continue;
+        if (strncmp(argv[i], compilation_reason_prefix, compilation_reason_prefix_len) == 0) {
+            const char* reason = argv[i] + compilation_reason_prefix_len;
+            if (strcmp(reason, "install") == 0) {
+                is_new_install = true;
+            }
+            continue;
+        }
 
-        const char* classpath_dir = argv[i] + prefix_len;
-        size_t dir_len = strlen(classpath_dir);
+        if (strncmp(argv[i], class_dir_prefix, class_dir_prefix_len) == 0) {
+            classpath_dir = argv[i] + class_dir_prefix_len;
+            dir_len = strlen(classpath_dir);
+        }
+    }
 
+    if(is_new_install) {
+        LOGD("App was just installed, exiting");
+
+        exec_dex2oat(stock_fd, argv);
+        __builtin_unreachable();
+    }
+
+    if(classpath_dir != NULL) {
         sock_fd = socket(AF_UNIX, SOCK_STREAM, 0);
         if (connect(sock_fd, (struct sockaddr *)&sock, len)) {
             PLOGE("failed to connect to %s", sock.sun_path + 1);
@@ -187,18 +230,12 @@ int main(int argc, char **argv) {
         if (is_in_denylist) {
             LOGD("App is in denylist, exiting");
 
-            fexecve(stock_fd, (char **)argv, environ);
-
-            LOGE("fexecve failed");
-
-            close(stock_fd);
-
-            return 2;
+            exec_dex2oat(stock_fd, argv);
+            __builtin_unreachable();
         }
-
-        LOGD("App is not in denylist, continuing");
-        break;
     }
+
+    LOGD("App is not in denylist, continuing");
 
     sock_fd = socket(AF_UNIX, SOCK_STREAM, 0);
     if (connect(sock_fd, (struct sockaddr *)&sock, len)) {
@@ -219,6 +256,8 @@ int main(int argc, char **argv) {
         close(sock_fd);
 
         close(stock_fd);
+
+        return 1;
     }
 
     close(sock_fd);
@@ -236,11 +275,6 @@ int main(int argc, char **argv) {
     setenv("LD_PRELOAD", liboat_fd_path, 1);
     LOGD("Set env LD_PRELOAD=%s", liboat_fd_path);
 
-    fexecve(stock_fd, (char **)new_argv, environ);
-
-    PLOGE("fexecve failed");
-
-    close(stock_fd);
-
-    return 2;
+    exec_dex2oat(stock_fd, (char *const *)new_argv);
+    __builtin_unreachable();
 }
